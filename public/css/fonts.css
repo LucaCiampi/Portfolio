@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'timoteo';
+    src: url('../fonts/timoteo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'comfortaa';
+    src: url('../fonts/comfortaa-webfont.woff') format('woff'),
+         url('../fonts/comfortaa-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'comfortaa light';
+    src: url('../fonts/comfortaa-light-webfont.woff') format('woff'),
+         url('../fonts/comfortaa-light-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'comfortaa bold';
+    src: url('../fonts/comfortaa-bold-webfont.woff') format('woff'),
+         url('../fonts/comfortaa-bold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'bebasneue';
+    src: url('../fonts/bebasneue-regular-webfont.woff') format('woff'),
+         url('../fonts/bebasneue-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dolce vita';
+    src: url('../fonts/dolce_vita-webfont.woff') format('woff'),
+         url('../fonts/dolce_vita-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dolce vita light';
+    src: url('../fonts/dolce_vita_light-webfont.woff') format('woff'),
+         url('../fonts/dolce_vita_light-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dolce vita bold';
+    src: url('../fonts/dolce_vita_heavy_bold-webfont.woff') format('woff'),
+         url('../fonts/dolce_vita_heavy_bold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'rommantis';
+    src: url('../fonts/rommantis-webfont.woff') format('woff'),
+         url('../fonts/rommantis-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'fjallaone';
+    src: url('../fonts/fjallaone-webfont.woff') format('woff'),
+         url('../fonts/fjallaone-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'montserrat';
+    src: url('../fonts/montserrat-regular.woff') format('woff'),
+         url('../fonts/montserrat-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'montserrat light';
+    src: url('../fonts/montserrat-light.woff') format('woff'),
+         url('../fonts/montserrat-light.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'montserrat extralight';
+    src: url('../fonts/montserrat-extralight.woff') format('woff'),
+         url('../fonts/montserrat-extralight.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'lobster';
+    src: url('../fonts/lobster-webfont.woff') format('woff'),
+         url('../fonts/lobster-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Luca Ciampi" />
+    <meta property='article:author' content='https://www.facebook.com/luca.ciampi.9' />
+    <meta property='article:publisher' content='https://www.facebook.com/luca.ciampi.9' />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="rating" content="safe for kids">
+    <meta http-equiv="Content-Language" content="en,fr">
+    <meta name="description"
+        content="Student in Computer Science. Currently based in Annecy, France. This is my Portfolio, just a single-page website to exercise and to let you know who I am. Willing to study Front-End or Fullstack development.">
+    <meta name="keywords"
+        content="Luca, Ciampi, lucaciampi, Portfolio, developer, dev, Front-end, website, web-dev, web-developer, WebDev, ux, ui, design, User-Experience, User-Interface, css, html, javascript, php, skills, english, french, front, wordpress, laravel, symfony, frameworks, framework, france, annecy, IUT Annecy, DUT Informatique, DUT info, Paray-le-Monial, Mâcon">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@LucaCiampi">
+    <meta name="twitter:title" content="Luca Ciampi | Portfolio">
+    <meta name="twitter:description"
+        content="Student in Computer Science. Currently based in Annecy, France. This is my Portfolio, just a single-page website to exercise and to let you know who I am.">
+    <meta name="twitter:creator" content="@LucaCiampi">
+    <meta name="twitter:url" content="lucaciampi.com" />
+    <meta name="twitter:domain" content="lucaciampi.com" />
+    <meta name="twitter:image" content="lucaciampi.com/img/background.jpg">
+
+    <meta property="og:title" content="Luca Ciampi | Portfolio" />
+    <meta property="og:description"
+        content="Student in Computer Science. Currently based in Annecy, France. This is my Portfolio, just a single-page website to exercise and to let you know who I am." />
+    <meta property="og:image" content="https://lucaciampi.com/img/background.jpg" />
+    <meta property="og:image:secure_url" content="https://lucaciampi.com/img/background.jpg">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="lucaciampi.com" />
+    <meta property="og:site_name" content="Luca Ciampi" />
+
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/contact.js"></script>
+    <title>Luca Ciampi | Portfolio</title>
+</head>
+
+<header id="header">
+    <div id="overlay">
+        <div class="spinner"></div>
+    </div>
+    <div id="background_image_wrap">
+        <div id="background_image"></div>
+    </div>
+    <div id="nav-icon" class="nav-icon" onclick="menuDisplay()"><span></span></div>
+    <div id="nav-background" onclick="menuDisplay()"></div>
+    <nav id="nav">
+        <a id="backToTop" href="#header" class="js-scroll"><svg xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="12.191 5.322 21.48 39.172" width="21.48"
+                height="39.172">
+                <path
+                    d=" M 15.414 5.914 L 33.086 23.586 C 33.866 24.366 33.866 25.634 33.086 26.414 L 15.676 43.824 C 14.751 44.749 13.391 44.712 12.641 43.742 L 12.641 43.742 C 12.067 43.001 12.176 41.824 12.883 41.117 L 29 25 L 12.808 8.704 C 12.03 7.921 11.981 6.661 12.699 5.893 L 12.699 5.893 C 13.417 5.124 14.634 5.134 15.414 5.914 Z " />
+            </svg></a>
+        <ul>
+            <a href="#about" class="js-scroll nav-item">
+                <li><span class="underline">About</span></li>
+            </a>
+            <a href="#projects" class="js-scroll nav-item">
+                <li><span class="underline">Projects</span></li>
+            </a>
+            <a href="#skills" class="js-scroll nav-item">
+                <li><span class="underline">Skills</span></li>
+            </a>
+            <a href="#education" class="js-scroll nav-item">
+                <li><span class="underline">Education</span></li>
+            </a>
+            <a href="#experience" class="js-scroll nav-item">
+                <li><span class="underline">Experience</span></li>
+            </a>
+            <a href="#contact" class="js-scroll nav-item">
+                <li><span class="underline">Contact</span></li>
+            </a>
+        </ul>
+    </nav>
+    <div id="scroll_content">
+        <div id="scroll_wrapper">
+            <div class="box" data-scroll-speed="4">H</div>
+            <div class="box" data-scroll-speed="3">E</div>
+            <div class="box" data-scroll-speed="6">L</div>
+            <div class="box" data-scroll-speed="5">L</div>
+            <div class="box" data-scroll-speed="9">O</div>
+        </div>
+    </div>
+    <a href="#about" class="js-scroll"><span id="scrollIndicator"></span></a>
+</header>
+
+<div id="modal">
+    <img id="modal-content">
+</div>
+
+<article id="about">
+    <div class="article-content js-appear" id="about_content">
+        <h3>About</h3>
+        <hr>
+        <div id="about_container">
+            <div id="about_description">
+                Hi, I'm Luca. I'm a student in computer science and I particularly like front development. I am
+                currently studying in Annecy, France. I like to work in groups, alone or to learn by myself. I'm also a
+                big fan of music.
+            </div>
+        </div>
+        <div class="wave one"></div>
+        <div class="wave two"></div>
+        <div class="wave three"></div>
+    </div>
+</article>
+
+<article id="projects">
+    <div class="article-content js-appear">
+        <h3>Projects</h3>
+        <hr>
+        <p class="project-title typewriter line">Annecy Animation, a university project</p>
+        <div id="AnnecyAnimation">
+            <div class="item">
+                <div class="zoom">
+                    <img src="img/projects/Animateam/1" class="animateam-img zoom-img">
+                </div>
+                <div class="item_body">
+                    <div class="item_title">Home page</div>
+                    <div class="item_description">
+                        Simple homepage with a video on background
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="zoom">
+                    <img src="img/projects/Animateam/2" class="animateam-img zoom-img">
+                </div>
+                <div class="item_body">
+                    <div class="item_title">Menu</div>
+                    <div class="item_description">
+                        On hover, menu displayed on left
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="zoom">
+                    <img src="img/projects/Animateam/3" class="animateam-img zoom-img">
+                </div>
+                <div class="item_body">
+                    <div class="item_title">Articles</div>
+                    <div class="item_description">
+                        Articles are defined by keywords and categories
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article id="skills">
+    <div class="article-content js-appear">
+        <h3>Skills</h3>
+        <hr>
+        <ul id="skillsList">
+            <li class='skillbar'>
+                <span class='skill-title'>Javascript</span><span class='skill-percent'><span class="percent-fill">85</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>C</span><span class='skill-percent'><span class="percent-fill">70</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>C#</span><span class='skill-percent'><span class="percent-fill">85</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>HTML</span><span class='skill-percent'><span class="percent-fill">100</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>jQuery</span><span class='skill-percent'><span class="percent-fill">80</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>React.js</span><span class='skill-percent'><span class="percent-fill">75</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>Angular.js</span><span class='skill-percent'><span class="percent-fill">65</span></span>
+            </li>
+            <li class='skillbar'>
+                <span class='skill-title'>Next.js</span><span class='skill-percent'><span class="percent-fill">85</span></span>
+            </li>
+        </ul>
+    </div>
+</article>
+
+<article id="education">
+    <div class="article-content js-appear">
+        <h3>Education</h3>
+        <hr>
+        <div id="education_flex">
+            <div class="timeline-container">
+                <div class="timeline-item js-appear-item Annecy AnnecySwitch" date-is='2017 - 2019'>
+                    <div class="timeline-title">Université Savoie Mont-Blanc</div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i>Annecy, France</p>
+                    <p class="description">D.U.T Informatique / French two-year technical university degree in computer
+                        science (similar to an Associate's degree)</p>
+                    <p class="degree"><i class="fas fa-trophy degree_icon"></i>Degree loading...</p>
+                </div>
+                <div class="timeline-item js-appear-item Macon MaconSwitch" date-is='2015 - 2017'>
+                    <div class="timeline-title">Lycée Frédéric Ozanam</div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i>Mâcon, France</p>
+                    <p class="description">Scientific section</p>
+                    <p class="degree"><i class="fas fa-trophy degree_icon"></i>French Scientific Baccalaureate/High
+                        school diploma : with honours</p>
+                </div>
+                <div class="timeline-item js-appear-item Paray ParaySwitch" date-is='2014 - 2015'>
+                    <div class="timeline-title">Lycée Jeanne d'Arc</div>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i>Paray-le-Monial, France</p>
+                    <p class="description">General section</p>
+                </div>
+            </div>
+            <div id="map">
+                <img src="img/icons/France" id="France">
+                <div class="marker_container" id="map-Paray">
+                    <div class="locationName Paray">Paray-le-Monial</div>
+                    <i class="fas fa-map-pin map_pin js-appear-item Paray ParaySwitch" aria-hidden="true"></i>
+                    <span class="dot"></span>
+                </div>
+                <div class="marker_container" id="map-Macon">
+                    <div class="locationName Macon">Mâcon</div>
+                    <i class="fas fa-map-pin map_pin js-appear-item Macon MaconSwitch" aria-hidden="true"></i>
+                    <span class="dot"></span>
+                </div>
+                <div class="marker_container" id="map-Annecy">
+                    <div class="locationName Annecy">Annecy</div>
+                    <i class="fas fa-map-pin map_pin js-appear-item Annecy AnnecySwitch" aria-hidden="true"></i>
+                    <span class="dot"></span>
+                </div>
+                <div id="hoverme">Hover me !<img src="img/icons/arrow.svg"></div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article id="experience">
+    <div class="article-content js-appear" id="experience_content">
+        <h3>Experience</h3>
+        <hr>
+        <div id="experiencesList">
+            <div class='jobExperience'>
+                <img src='img/jobs/ESAT.png' class="job_illustration" />
+                <div class="job_description">
+                    <div class="job_year">2018</div>
+                    <hr>
+                    <div class="job_title">Développeur Front-End</div>
+                </div>
+                <a href="https://esatlemonthoux.fr/" class="job_link" target="_blank" rel="noopener noreferrer">
+                    <img src='img/icons/link.svg' />
+                </a>
+            </div>
+            <div class='jobExperience'>
+                <img src='img/jobs/prismaconseil.png' class="job_illustration" />
+                <div class="job_description">
+                    <div class="job_year">2019</div>
+                    <hr>
+                    <div class="job_title">Développeur Full-Stack</div>
+                </div>
+                <a href="https://prismaconseil.fr/" class="job_link" target="_blank" rel="noopener noreferrer">
+                    <img src='img/icons/link.svg' />
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article id="contact">
+    <div class="article-content js-appear">
+        <h3>Contact</h3>
+        <hr>
+        <div class="contact_flex">
+            <div id="contact_form_wrapper">
+                <form id="contact_form" onsubmit="submitForm(); return false;">
+                    <p><input id="contact_name" type="text" placeholder="Name" required></p>
+                    <p><input id="contact_mail" type="email" placeholder="Email address" required></p>
+                    <p><textarea id="contact_message" placeholder="Write your message here" rows="10"
+                            required></textarea></p>
+                    <input id="contact_button" type="submit" value="Send Message"><span id="status"></span>
+                </form>
+            </div>
+            <div id="references">
+                <div class="socialHeadline">References :</div>
+                <div id="referencesList">
+                    <div class="reference">
+                        <span class="contact_name">Pascal Colin</span><br>
+                        <span>pascal.colin@univ-smb.fr</span>
+                        <p class="contact_info">
+                            UML, Agile Software Development and Database teacher from Université Savoie Mont-Blanc<br>
+                        <div class="map-marker">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Annecy
+                        </div>
+                        </p>
+                    </div>
+                    <div class="reference">
+                        <span class="contact_name">Stéphanie Bouchon</span><br>
+                        <span>stephanie.bouchon@univ-smb.fr</span>
+                        <p class="contact_info">
+                            Teacher of Professional English from Université Savoie Mont-Blanc<br>
+                        <div class="map-marker">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Annecy
+                        </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<footer>
+    <svg id="slit" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100"
+        preserveAspectRatio="none">
+        <path id="slitPath2" d="M50 100 C49 80 47 0 40 0 L47 0 Z" />
+        <path id="slitPath3" d="M50 100 C51 80 53 0 60 0 L53 0 Z" />
+    </svg>
+    <svg id="slitTriangle" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100"
+        viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path id="slitPath1" d="M47 0 L50 100 L53 0 Z" />
+    </svg>
+    <div id="flexFooter">
+        <div id="bottomNav">
+            <div class="socialHeadline">Navigation</div><br />
+            <a href="#about" class="js-scroll">About</a><br />
+            <hr>
+            <a href="#projects" class="js-scroll">Projects</a><br />
+            <hr>
+            <a href="#skills" class="js-scroll">Skills</a><br />
+            <hr>
+            <a href="#education" class="js-scroll">Education</a><br />
+            <hr>
+            <a href="#experience">Experience</a><br />
+            <hr>
+            <a href="#contact">Contact</a><br />
+        </div>
+        <div id="flex2">
+
+        </div>
+        <div id="flex3">
+            <div id="socialNetworks">
+                <div class="socialHeadline">Social Networks :</div><br>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/lucaciampi/"><i
+                        class="fab fa-linkedin fa-4x" aria-hidden="true"></i></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/LucaCmp"><i
+                        class="fab fa-github fa-4x" aria-hidden="true"></i></a>
+            </div>
+            <div id="additionalInfos">
+                <div class="socialHeadline">A few words</div><br>
+                <div id="addInfosParagraph">
+                    No plugins or frameworks were used for this portfolio. Icons are either from Font Awesome, free of
+                    rights or made by myself. Special thanks to : <a target="_blank" rel="noopener noreferrer"
+                        href="https://www.youtube.com/user/grafikarttv">Grafikart</a> for his video on the native
+                    javascript carousel. I tried to do most of the things by myself, though it's always nice to have a
+                    little help from internet. Photo by Jeremy Bishop on <a
+                        href="https://unsplash.com/photos/dvACrXUExLs">Unsplash</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="copyrightsWrap"><strong>Copyright</strong> &copy Luca Ciampi 2022</p>
+</footer>
