@@ -1,5 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Header from './header'
+import DarkModeToggle from './DarkModeToggle'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -8,14 +10,18 @@ export const metadata = {
   description: 'Portfolio de Luca Ciampi',
 }
 
-export default function RootLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="fr">
+      <body className={inter.className}>
+        <Header />
+        <DarkModeToggle />
+        {children}
+      </body>
     </html>
   )
 }
