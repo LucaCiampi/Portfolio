@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <PageWrapper>
       <div>
-        ma page intro
+        ma page
       </div>
     </PageWrapper>
   )
