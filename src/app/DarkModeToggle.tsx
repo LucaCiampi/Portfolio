@@ -26,10 +26,11 @@ const DarkModeToggle = (): JSX.Element => {
         setDarkMode(isDark())
     }, [])
 
-    const darkModeActive: boolean = typeof window && document.documentElement.classList.contains('dark')
+    const darkModeActive: boolean =
+    typeof window != 'undefined' && document.documentElement.classList.contains('dark')
 
     return (
-        <AnimatePresence mode='wait' initial={false}>
+        <AnimatePresence mode="wait" initial={false}>
             <motion.button
                 className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
                 onClick={() => toggleMode()}
