@@ -27,7 +27,7 @@ const DarkModeToggle = (): JSX.Element => {
     }, [])
 
     const darkModeActive: boolean =
-    typeof window != 'undefined' && document.documentElement.classList.contains('dark')
+    typeof window === 'undefined' && document.documentElement.classList.contains('dark')
 
     return (
         <AnimatePresence mode="wait" initial={false}>
