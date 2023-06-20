@@ -1,7 +1,8 @@
-import './globals.css'
+import { Metadata } from 'next'
 import { Playfair_Display, Abril_Fatface } from 'next/font/google'
 import Header from './header'
 import DarkModeToggle from '../components/DarkModeToggle'
+import './globals.css'
 
 import '@/styles/globals.scss'
 
@@ -20,8 +21,11 @@ const playfair_display = Playfair_Display({
 })
 
 
-export const metadata = {
-  title: 'Portfolio 2023',
+export const metadata: Metadata = {
+  title: {
+    template: '%s | Luca Ciampi',
+    default: 'Luca Ciampi', // a default is required when creating a template
+  },
   description: 'Portfolio de Luca Ciampi',
 }
 

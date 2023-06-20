@@ -9,6 +9,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 interface Project {
   slug: string;
   title: string;
+  description: string;
   thumbnail: string;
   technos: string[];
   content: string;
@@ -23,11 +24,11 @@ interface Media {
   credits?: string;
 }
 
-interface PageProps {
+interface Props {
   params: { slug: string };
 }
 
-const educationsIndex: Record<string, Project> = projectsData.reduce(
+const projectsIndex: Record<string, Project> = projectsData.reduce(
   (index: Record<string, Project>, project: Project) => {
     index[project.slug] = project;
     return index;
@@ -35,8 +36,8 @@ const educationsIndex: Record<string, Project> = projectsData.reduce(
   {}
 );
 
-export default function Page({ params }: PageProps) {
-  const project = educationsIndex[params.slug];
+export default function Page({ params }: Props) {
+  const project = projectsIndex[params.slug];
 
   if (!project) {
     return <div>Projet introuvable</div>;
@@ -85,11 +86,11 @@ export default function Page({ params }: PageProps) {
         <h1>{project.title}</h1>
         {renderTechnos()}
         <div>{project.content}</div>
-        {project.company && <div>Working for : {project.company}</div>}
+        {project.company && <div>Working for: {project.company}</div>}
         {project.url && (
           <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
         )}
-        {project.media && project.media.length > 0 && renderMedia()}
+        {project.media?.length > 0 && renderMedia()}
       </article>
       <LinkButton href="/projects">Back to projects</LinkButton>
     </PageWrapper>
@@ -98,6 +99,25 @@ export default function Page({ params }: PageProps) {
 
 export async function generateStaticParams() {
   return projectsData.map((post: Project) => ({
-    slug: post.slug
+    slug: post.slug,
   }));
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  // Fetch data
+  const project = projectsIndex[params.slug];
+
+  // Optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      images: [`images/projects/${project.slug}/${project.thumbnail}`, ...previousImages],
+    },
+  };
 }
