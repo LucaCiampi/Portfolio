@@ -1,7 +1,7 @@
 import fsPromises from 'fs/promises';
 import path from 'path'
 
-export async function getLocalData() {
+export async function getLocalProjectsData() {
     // Get the path of the json file
     const filePath = path.join(process.cwd(), 'json/projects.json');
     // Read the json file

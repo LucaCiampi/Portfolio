@@ -2,10 +2,13 @@ import { GetStaticPaths } from 'next';
 import educationsData from '../../../../json/projects.json';
 import Image from 'next/image'
 import PageWrapper from '../../page-wrapper'
-import { getLocalData } from '../../../lib/localProjectsData';
+import { getLocalProjectsData } from '../../../lib/localProjectsData';
 
-export default function Page({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: any,
+}
 
+export default function Page({ params }: PageProps) {
   // Recherche de l'objet correspondant au slug dans educationsData
   const project = educationsData.find((item) => item.slug === params.slug);
 
@@ -22,9 +25,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 }
 
 export async function generateStaticParams() {
-  const posts = await getLocalData();
+  const posts = await getLocalProjectsData();
  
   return posts.map((post:any) => ({
     slug: post.slug,
+    post: post.content
   }))
 }
