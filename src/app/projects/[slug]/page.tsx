@@ -10,6 +10,7 @@ interface Project {
   title: string;
   technos: string[];
   content: string;
+  company?: string;
   url?: string;
   media?: Media[];
 }
@@ -49,6 +50,9 @@ export default function Page({ params }: PageProps) {
           ))}
         </Section>
         <div>{project.content}</div>
+        {project.company &&
+          <div>Working for : {project.company}</div>
+        }
         {project.url && (
           <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
         )}

@@ -1,9 +1,23 @@
 [
     {
-        "date": "2022-2024",
-        "schoolName": "GOBELINS Annecy",
+        "date": "2017-2019",
+        "schoolName": "Université Savoie Mont-Blanc",
         "location": "Annecy, France",
-        "description": "Mastère spécialisé Design et Management de l'innovation interactive, lead technique",
+        "description": "DUT Informatique",
+        "distinction": "with honours"
+    },
+    {
+        "date": "2019-2020",
+        "schoolName": "Queen's University",
+        "location": "Kingston, Canada",
+        "description": "Arts & science, computer science",
+        "distinction": "ORA exchange program"
+    },
+    {
+        "date": "2020-2021",
+        "schoolName": "Université Savoie Mont-Blanc",
+        "location": "Aix-les-bains, France",
+        "description": "Licence STS mention informatique",
         "distinction": "graduated"
     },
     {
@@ -14,24 +28,10 @@
         "distinction": "graduated"
     },
     {
-        "date": "2020-2021",
-        "schoolName": "Université Savoie Mont-Blanc",
-        "location": "Aix-les-bains, France",
-        "description": "Licence STS mention informatique",
-        "distinction": "graduated"
-    },
-    {
-        "date": "2019-2020",
-        "schoolName": "Queen's University",
-        "location": "Kingston, Canada",
-        "description": "Arts & science, computer science",
-        "distinction": "ORA exchange program"
-    },
-    {
-        "date": "2017-2019",
-        "schoolName": "Université Savoie Mont-Blanc",
+        "date": "2022-2024",
+        "schoolName": "GOBELINS Annecy",
         "location": "Annecy, France",
-        "description": "DUT Informatique",
-        "distinction": "with honours"
+        "description": "Mastère spécialisé Design et Management de l'innovation interactive, lead technique",
+        "distinction": "graduated"
     }
 ]

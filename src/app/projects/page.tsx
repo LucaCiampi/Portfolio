@@ -7,7 +7,7 @@ import PageWrapper from '../page-wrapper';
 import Link from 'next/link';
 
 export default function Page() {
-  const technosFilters = ["Next.js", "Three.js", "Unity"];
+  const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [projectsDisplayed, setProjectsDisplayed] = useState(() => getProjectsByTechnology(activeFilters));
 

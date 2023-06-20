@@ -14,7 +14,7 @@
         "slug": "eds",
         "thumbnail": "eds.webp",
         "content": "mon contenu2",
-        "technos": ["Next.js"],
+        "technos": ["Next.js", "React.js"],
         "company": "mooxy"
     },
     {
