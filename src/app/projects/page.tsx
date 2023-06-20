@@ -4,27 +4,46 @@ import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper'
 import Image from 'next/image'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [projectsDisplayed, setProjectsDisplayed] = useState(projectsData);
-  const technosFilters = ["Next.js", "Three.js"]
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const technosFilters = ["Next.js", "Three.js"];
 
-  function handleFilterOnclick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-    const input = event.target as HTMLElement;
-    setProjectsDisplayed(getProjectsByTechnology(input.innerHTML))
-    input.classList.toggle('selected')
+  function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
+    const clickedTechno = (event.target as HTMLElement);
+
+    clickedTechno.classList.toggle('active');
+
+    if (activeFilters.includes(clickedTechno.innerText)) {
+      const updatedFilters = activeFilters.filter(filter => filter !== clickedTechno.innerText);
+      setActiveFilters(updatedFilters);
+    } else {
+      const updatedFilters = [...activeFilters, clickedTechno.innerText];
+      setActiveFilters(updatedFilters);
+    }
   }
+
+  useEffect(() => {
+    const filteredProjects = getProjectsByTechnology(activeFilters);
+    setProjectsDisplayed(filteredProjects);
+  }, [activeFilters]);
 
   return (
     <PageWrapper>
-      <div>
-        {technosFilters.map((filter) => (
-          <div key={filter} onClick={handleFilterOnclick}>{filter}</div>
+      <div className='flex'>
+        {technosFilters.map(techno => (
+          <div
+            key={techno}
+            className='mr-4'
+            onClick={handleFilterClick}
+          >
+            {techno}
+          </div>
         ))}
       </div>
       <div>
-        projects
         {projectsDisplayed.map((project) => (
           <Link href={'/projects/' + project.slug} key={project.slug}>
             <div>{project.title}</div>
@@ -35,22 +54,10 @@ export default function Page() {
   )
 }
 
-function Filters() {
-  const technosFilters = ["Next.js", "Three.js"]
+function getProjectsByTechnology(technologies: string[]) {
+  const filteredProjects = projectsData.filter(project => {
+    return technologies.every(technology => project.technos.includes(technology));
+  });
 
-  function handleFilterOnclick(event: MouseEvent<HTMLDivElement, MouseEvent>): void {
-    setProjectsDisplayed(getProjectsByTechnology(event.target.innerHTML.toString()))
-  }
-
-  return (
-    <div>
-      {technosFilters.map((filter) => (
-        <div key={filter} onClick={handleFilterOnclick}>{filter}</div>
-      ))}
-    </div>
-  )
-}
-
-function getProjectsByTechnology(technology: string) {
-  return projectsData.filter(project => project.technos.includes(technology));
+  return filteredProjects
 }
