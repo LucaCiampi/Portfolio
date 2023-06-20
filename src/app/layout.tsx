@@ -35,7 +35,7 @@ interface Props {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body className={`${abril_fatface.variable} ${playfair_display.variable}`}>
         <Header />
         <DarkModeToggle />
