@@ -10,19 +10,16 @@ interface Props {
     size?: number,
 }
 
-const ExternalLinkSocial = ({ name, href, className, outline, white, size }: Props) => {
+const ExternalLinkSocial = ({ name, href, className }: Props) => {
     const properName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
     const lowercaseName = name.toLowerCase();
+    const svgPath = `/images/social/${lowercaseName}.svg`;
 
     return (
         <ExternalLink href={href} className={className || ''}>
-            <Image 
-            width={size || "40"} 
-            height={size || "40"} 
-            src={`/images/social/` + lowercaseName + `${outline ? '-outline' : ''}.svg`}
-            className={white ? 'fill--white' : ''}
-            alt={properName} 
-            title={properName} />
+            <object type="image/svg+xml" data={svgPath}>
+                <span>Votre navigateur ne prend pas en charge les SVG.</span>
+            </object>
         </ExternalLink>
     )
 }

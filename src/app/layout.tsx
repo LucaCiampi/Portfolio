@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     template: '%s | Luca Ciampi',
     default: 'Luca Ciampi', // a default is required when creating a template
   },
-  description: 'Portfolio de Luca Ciampi',
+  description: 'Portfolio de Luca Ciampi'
+  // TODO: add default og image
 }
 
 interface Props {

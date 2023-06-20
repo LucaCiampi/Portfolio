@@ -5,6 +5,7 @@ import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/Section';
 import { Metadata, ResolvingMetadata } from 'next';
+import NotFound from './not-found';
 
 interface Project {
   slug: string;
@@ -40,7 +41,7 @@ export default function Page({ params }: Props) {
   const project = projectsIndex[params.slug];
 
   if (!project) {
-    return <div>Projet introuvable</div>;
+    NotFound();
   }
 
   const renderTechnos = () => (
