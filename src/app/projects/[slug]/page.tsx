@@ -21,14 +21,10 @@ export default function Page({ params }: { params: { slug: string } }) {
   );
 }
 
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = educationsData.map((project: any) => ({
-    params: { slug: project.slug },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
+export async function generateStaticParams() {
+  const posts = await getLocalData();
+ 
+  return posts.map((post:any) => ({
+    slug: post.slug,
+  }))
+}
