@@ -4,26 +4,12 @@ import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/Section';
-import { Metadata, ResolvingMetadata } from 'next'
- 
-export async function generateMetadata(
-  { params }: PageProps,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || []
- 
-  return {
-    title: params.title,
-    openGraph: {
-      images: [`/projects/${params.slug}/${params.thumbnail}`, ...previousImages],
-    },
-  }
-}
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface Project {
   slug: string;
   title: string;
+  thumbnail: string;
   technos: string[];
   content: string;
   company?: string;
@@ -38,7 +24,7 @@ interface Media {
 }
 
 interface PageProps {
-  params: { slug: string, title: string, thumbnail: string };
+  params: { slug: string; title: string; thumbnail: string };
 }
 
 const educationsIndex: Record<string, Project> = projectsData.reduce(
@@ -56,52 +42,53 @@ export default function Page({ params }: PageProps) {
     return <div>Projet introuvable</div>;
   }
 
+  const { title, technos, content, company, url, media } = project;
+
+  const renderMedia = (media: Media[]) => {
+    return (
+      <Section title="Media">
+        {media.map((item, index) => {
+          const mediaUrl = item.url.startsWith('http')
+            ? item.url
+            : `/images/projects / ${params.slug}/${item.url}`;
+          return (
+            <div key={index}>
+              {item.type === 'video' ? (
+                <div>
+                  <video controls>
+                    <source src={mediaUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {item.credits && <span>{item.credits}</span>}
+                </div>
+              ) : (
+                <div>
+                  <img src={mediaUrl} alt="Preview" />
+                  {item.credits && <span>{item.credits}</span>}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </Section>
+    );
+  };
+
   return (
     <PageWrapper>
       <article>
-        <h1>{project.title}</h1>
-        <Section title='Technos'>
-          {project.technos.map((techno: string) => (
-            <div key={techno}>{techno}</div>
+        <h1>{title}</h1>
+        <Section title="Technos">
+          {technos.map((techno: string, index: number) => (
+            <div key={index}>{techno}</div>
           ))}
         </Section>
-        <div>{project.content}</div>
-        {project.company &&
-          <div>Working for : {project.company}</div>
-        }
-        {project.url && (
-          <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
-        )}
-        {project.media && project.media.length > 0 && (
-          <Section title='Media'>
-            {project.media.map((media, index) => {
-              const mediaUrl = media.url.startsWith('http')
-                ? media.url
-                : `/images/projects/${project.slug}/${media.url}`;
-
-              if (media.type === 'video') {
-                return (
-                  <div key={index}>
-                    <video controls>
-                      <source src={mediaUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {media.credits && <span>{media.credits}</span>}
-                  </div>
-                );
-              } else {
-                return (
-                  <div key={index}>
-                    <img src={mediaUrl} alt="Preview" />
-                    {media.credits && <span>{media.credits}</span>}
-                  </div>
-                );
-              }
-            })}
-          </Section>
-        )}
+        <div>{content}</div>
+        {company && <div>Working for: {company}</div>}
+        {url && <ExternalLinkButton href={url}>Go to site</ExternalLinkButton>}
+        {media && media.length > 0 && renderMedia(media)}
       </article>
-      <LinkButton href={'/projects'}>Back to projects</LinkButton>
+      <LinkButton href="/projects">Back to projects</LinkButton>
     </PageWrapper>
   );
 }
@@ -112,4 +99,20 @@ export async function generateStaticParams() {
     title: post.title,
     thumbnail: post.thumbnail,
   }));
+}
+
+export async function generateMetadata(
+  { params }: PageProps,
+  parent?: Promise<ResolvingMetadata>
+): Promise<Metadata> {
+  const { title, slug, thumbnail } = params;
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: title || '',
+    openGraph: {
+      images: [`/projects/${slug} / ${thumbnail}`, ...previousImages],
+    },
+  };
 }
