@@ -17,12 +17,17 @@ main {
 
 body {
   background-color: $white;
+  font-family: var(--font-playfair-display);
 }
 
 hr {
   border-color: $light-grey;
   border-width: 1px 0 0 0;
   margin-bottom: 3vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-abril-fatface);
 }
 
 /* ----- Responsive ----- */
