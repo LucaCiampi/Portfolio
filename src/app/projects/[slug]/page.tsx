@@ -1,3 +1,4 @@
+import React from 'react';
 import projectsData from 'json/projects.json';
 import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
@@ -10,16 +11,26 @@ interface Project {
   technos: string[];
   content: string;
   url?: string;
+  media?: Media[];
 }
 
-const educationsIndex: Record<string, Project> = projectsData.reduce((index: Record<string, Project>, project) => {
-  index[project.slug] = project;
-  return index;
-}, {});
+interface Media {
+  type: string;
+  url: string;
+  credits?: string;
+}
 
 interface PageProps {
   params: { slug: string };
 }
+
+const educationsIndex: Record<string, Project> = projectsData.reduce(
+  (index: Record<string, Project>, project: Project) => {
+    index[project.slug] = project;
+    return index;
+  },
+  {}
+);
 
 export default function Page({ params }: PageProps) {
   const project: Project | undefined = educationsIndex[params.slug];
@@ -40,6 +51,34 @@ export default function Page({ params }: PageProps) {
         <div>{project.content}</div>
         {project.url && (
           <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
+        )}
+        {project.media && project.media.length > 0 && (
+          <Section title='Media'>
+            {project.media.map((media, index) => {
+              const mediaUrl = media.url.startsWith('http')
+                ? media.url
+                : `/images/projects/${project.slug}/${media.url}`;
+
+              if (media.type === 'video') {
+                return (
+                  <div key={index}>
+                    <video controls>
+                      <source src={mediaUrl} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    {media.credits && <span>{media.credits}</span>}
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={index}>
+                    <img src={mediaUrl} alt="Preview" />
+                    {media.credits && <span>{media.credits}</span>}
+                  </div>
+                );
+              }
+            })}
+          </Section>
         )}
       </article>
       <LinkButton href={'/projects'}>Back to projects</LinkButton>

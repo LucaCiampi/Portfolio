@@ -1,6 +1,7 @@
 [
     {
         "title": "Le roi du silence",
+        "date": "2023",
         "slug": "roi-du-silence",
         "thumbnail": "roi-du-silence.jpg",
         "content": "mon contenu",
@@ -8,19 +9,50 @@
         "url": "https://roi-du-silence.netlify.app/"
     },
     {
-        "title": "Poésie urbaine",
-        "slug": "poesie-urbaine",
-        "thumbnail": "poesie-urbaine.jpg",
-        "content": "mon contenu",
-        "technos": ["Unity", "C#", "AR Foundation"],
-        "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/"
-    },
-    {
         "title": "Étoiles du sport",
+        "date": "2022",
         "slug": "eds",
         "thumbnail": "eds.jpg",
         "content": "mon contenu2",
         "technos": ["Next.js"],
         "company": "mooxy"
+    },
+    {
+        "title": "Poésie urbaine",
+        "date": "2022",
+        "slug": "poesie-urbaine",
+        "thumbnail": "poesie-urbaine.jpg",
+        "content": "mon contenu",
+        "technos": ["Unity", "C#", "AR Foundation"],
+        "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
+        "media": [
+            {
+                "type": "video",
+                "url": "https://download-video.akamaized.net/2/playback/2fb79820-2184-49eb-b38b-a49f91c1f5d5/e559f711-40d70466?__token__=st=1687272316~exp=1687286716~acl=%2F2%2Fplayback%2F2fb79820-2184-49eb-b38b-a49f91c1f5d5%2Fe559f711-40d70466%2A~hmac=3d42933f2e49085607e31498a7ebacab82e5afe3b6df56933a75f3890b48fcce&r=dXM%3D",
+                "credits": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
+            }
+        ]
+    },
+    {
+        "title": "Animateam",
+        "date": "2019",
+        "slug": "animateam",
+        "thumbnail": "1.jpg",
+        "content": "mon contenu",
+        "technos": ["PHP", "JavaScript"],
+        "media": [
+            {
+                "type": "image",
+                "url": "1.jpg"
+            },
+            {
+                "type": "image",
+                "url": "2.jpg"
+            },
+            {
+                "type": "image",
+                "url": "3.jpg"
+            }
+        ]
     }
 ]
