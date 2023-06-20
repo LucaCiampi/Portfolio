@@ -51,8 +51,7 @@ export default function Education() {
             <div>{education.description}</div>
             <div>{education.distinction}</div>
           </div>
-        )
-        )}
+        ))}
       </div>
     </div>
   )

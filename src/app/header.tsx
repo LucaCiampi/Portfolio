@@ -16,6 +16,7 @@ interface Link {
 
 const links: Link[] = [
 	{ label: "HOME", href: '/' },
+	{ label: "PROJECTS", href: '/projects' },
 	{ label: "CONTACT", href: '/contact' },
 ]
 
