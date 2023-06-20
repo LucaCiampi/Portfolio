@@ -4,10 +4,12 @@ import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/Section';
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface Project {
   slug: string;
   title: string;
+  thumbnail: string;
   technos: string[];
   content: string;
   company?: string;
@@ -96,6 +98,6 @@ export default function Page({ params }: PageProps) {
 
 export async function generateStaticParams() {
   return projectsData.map((post: Project) => ({
-    slug: post.slug,
+    slug: post.slug
   }));
 }
