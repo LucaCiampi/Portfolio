@@ -3,7 +3,6 @@ interface Props {
 	className?: string,
 	title?: string,
 	divider?: boolean,
-	flex?: boolean,
 	id?: string,
 	backgroundImage?: string,
 	fullscreen?: boolean,
@@ -12,7 +11,7 @@ interface Props {
 }
 
 // TODO: rework conditional classnames
-const Section = ({ children, className, title, flex, divider, id, backgroundImage, fullscreen, innerPadding, noRow }: Props) => {
+const Section = ({ children, className, title, divider, id, backgroundImage, fullscreen, innerPadding, noRow }: Props) => {
 
 	if (title && !id) id = title.replaceAll(' ', '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Section from '@/components/Section';
 import Education from './education';
 import PageWrapper from './page-wrapper';
 
@@ -9,7 +10,9 @@ export default function Page() {
       <div>
         ma page
       </div>
-      <Education />
+      <Section title='Education'>
+        <Education />
+      </Section>
     </PageWrapper>
   )
 }
