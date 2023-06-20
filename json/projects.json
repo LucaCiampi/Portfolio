@@ -3,7 +3,7 @@
         "title": "Le roi du silence",
         "date": "2023",
         "slug": "roi-du-silence",
-        "thumbnail": "roi-du-silence.jpg",
+        "thumbnail": "logo.png",
         "content": "mon contenu",
         "technos": ["Three.js", "React.js", "Firebase"],
         "url": "https://roi-du-silence.netlify.app/"
@@ -12,7 +12,7 @@
         "title": "Étoiles du sport",
         "date": "2022",
         "slug": "eds",
-        "thumbnail": "eds.jpg",
+        "thumbnail": "eds.webp",
         "content": "mon contenu2",
         "technos": ["Next.js"],
         "company": "mooxy"
