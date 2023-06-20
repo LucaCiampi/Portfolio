@@ -1,3 +1,4 @@
+import projectsData from 'json/projects.json';
 import Image from 'next/image'
 import PageWrapper from '../page-wrapper'
 

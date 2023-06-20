@@ -1,17 +1,15 @@
-import { GetStaticPaths } from 'next';
-import educationsData from '../../../../json/projects.json';
-import Image from 'next/image'
+import projectsData from 'json/projects.json';
 import PageWrapper from '../../page-wrapper'
-import { getLocalProjectsData } from '../../../lib/localProjectsData';
+import Image from 'next/image'
 
-interface PageProps {
-  params: any,
-}
-
-const educationsIndex = educationsData.reduce((index: any, project) => {
+const educationsIndex = projectsData.reduce((index: any, project) => {
   index[project.slug] = project;
   return index;
 }, {});
+
+interface PageProps {
+  params: { slug: string },
+}
 
 export default function Page({ params }: PageProps) {
   const project = educationsIndex[params.slug];
@@ -21,17 +19,16 @@ export default function Page({ params }: PageProps) {
   }
 
   return (
-    <div>
+    <PageWrapper>
       <div>My Post: {project.slug}</div>
       <div>{project.content}</div>
-    </div>
+    </PageWrapper>
   );
 }
 
 export async function generateStaticParams() {
-  return educationsData.map((post) => ({
-    slug: post.slug,
-    post: post.content,
+  return projectsData.map((post) => ({
+    slug: post.slug
   }));
 }
 
