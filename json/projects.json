@@ -1,0 +1,12 @@
+[
+    {
+        "title": "coucou",
+        "slug": "slug1",
+        "content": "mon contenu"
+    },
+    {
+        "title": "coucou2",
+        "slug": "slug2",
+        "content": "mon contenu2"
+    }
+]
