@@ -52,12 +52,12 @@ export default function Page({ params }: PageProps) {
         {media.map((item, index) => {
           const mediaUrl = item.url.startsWith('http')
             ? item.url
-            : `/images/projects / ${params.slug}/${item.url}`;
+            : `/images/projects/${params.slug}/${item.url}`;
           return (
             <div key={index}>
               {item.type === 'video' ? (
                 <div>
-                  <video controls>
+                  <video>
                     <source src={mediaUrl} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
@@ -95,13 +95,13 @@ export default function Page({ params }: PageProps) {
   );
 }
 
-// export async function generateStaticParams() {
-//   return projectsData.map((post: Project) => ({
-//     slug: post.slug,
-//     title: post.title,
-//     thumbnail: post.thumbnail,
-//   }));
-// }
+export async function generateStaticParams() {
+  return projectsData.map((post: Project) => ({
+    slug: post.slug,
+    title: post.title,
+    thumbnail: post.thumbnail,
+  }));
+}
 
 // export async function generateMetadata(
 //   { params }: PageProps,
