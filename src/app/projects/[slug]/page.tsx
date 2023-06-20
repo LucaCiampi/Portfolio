@@ -34,58 +34,62 @@ const educationsIndex: Record<string, Project> = projectsData.reduce(
 );
 
 export default function Page({ params }: PageProps) {
-  const project: Project | undefined = educationsIndex[params.slug];
+  const project = educationsIndex[params.slug];
 
   if (!project) {
     return <div>Projet introuvable</div>;
   }
 
+  const renderTechnos = () => (
+    <Section title="Technos">
+      {project.technos.map((techno: string) => (
+        <div key={techno}>{techno}</div>
+      ))}
+    </Section>
+  );
+
+  const renderMedia = () => (
+    <Section title="Media">
+      {project.media?.map((media, index) => {
+        const mediaUrl = media.url.startsWith('http')
+          ? media.url
+          : `/images/projects/${project.slug}/${media.url}`;
+
+        return (
+          <div key={index}>
+            {media.type === 'video' ? (
+              <div>
+                <video controls>
+                  <source src={mediaUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {media.credits && <span>{media.credits}</span>}
+              </div>
+            ) : (
+              <div>
+                <img src={mediaUrl} alt="Preview" />
+                {media.credits && <span>{media.credits}</span>}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </Section>
+  );
+
   return (
     <PageWrapper>
       <article>
         <h1>{project.title}</h1>
-        <Section title='Technos'>
-          {project.technos.map((techno: string) => (
-            <div key={techno}>{techno}</div>
-          ))}
-        </Section>
+        {renderTechnos()}
         <div>{project.content}</div>
-        {project.company &&
-          <div>Working for : {project.company}</div>
-        }
+        {project.company && <div>Working for : {project.company}</div>}
         {project.url && (
           <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
         )}
-        {project.media && project.media.length > 0 && (
-          <Section title='Media'>
-            {project.media.map((media, index) => {
-              const mediaUrl = media.url.startsWith('http')
-                ? media.url
-                : `/images/projects/${project.slug}/${media.url}`;
-
-              if (media.type === 'video') {
-                return (
-                  <div key={index}>
-                    <video controls>
-                      <source src={mediaUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {media.credits && <span>{media.credits}</span>}
-                  </div>
-                );
-              } else {
-                return (
-                  <div key={index}>
-                    <img src={mediaUrl} alt="Preview" />
-                    {media.credits && <span>{media.credits}</span>}
-                  </div>
-                );
-              }
-            })}
-          </Section>
-        )}
+        {project.media && project.media.length > 0 && renderMedia()}
       </article>
-      <LinkButton href={'/projects'}>Back to projects</LinkButton>
+      <LinkButton href="/projects">Back to projects</LinkButton>
     </PageWrapper>
   );
 }
