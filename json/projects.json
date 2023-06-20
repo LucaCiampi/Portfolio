@@ -34,8 +34,24 @@
         ]
     },
     {
-        "title": "Animateam",
+        "title": "PRISMA Conseil",
         "date": "2019",
+        "slug": "prisma-conseil",
+        "thumbnail": "prisma-conseil.jpg",
+        "content": "mon contenu",
+        "technos": ["PHP", "Wordpress", "JavaScript"]
+    },
+    {
+        "title": "E.S.A.T \"Le Monthoux\"",
+        "date": "2018",
+        "slug": "esat-le-monthoux",
+        "thumbnail": "esat-le-monthoux.jpg",
+        "content": "mon contenu",
+        "technos": ["CSS", "JavaScript"]
+    },
+    {
+        "title": "Animateam",
+        "date": "2017",
         "slug": "animateam",
         "thumbnail": "1.jpg",
         "content": "mon contenu",

@@ -4,6 +4,22 @@ import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/Section';
+import { Metadata, ResolvingMetadata } from 'next'
+ 
+export async function generateMetadata(
+  { params }: PageProps,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: params.title,
+    openGraph: {
+      images: [`/projects/${params.slug}/${params.thumbnail}`, ...previousImages],
+    },
+  }
+}
 
 interface Project {
   slug: string;
@@ -22,7 +38,7 @@ interface Media {
 }
 
 interface PageProps {
-  params: { slug: string };
+  params: { slug: string, title: string, thumbnail: string };
 }
 
 const educationsIndex: Record<string, Project> = projectsData.reduce(
@@ -93,5 +109,7 @@ export default function Page({ params }: PageProps) {
 export async function generateStaticParams() {
   return projectsData.map((post: Project) => ({
     slug: post.slug,
+    title: post.title,
+    thumbnail: post.thumbnail,
   }));
 }
