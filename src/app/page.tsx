@@ -1,8 +1,6 @@
 "use client";
 
-import DarkModeToggle from '@/app/DarkModeToggle'
-import ExternalLink from '@/components/ExternalLink'
-import Image from 'next/image'
+import Education from './education';
 import PageWrapper from './page-wrapper';
 
 export default function Page() {
@@ -11,6 +9,7 @@ export default function Page() {
       <div>
         ma page
       </div>
+      <Education />
     </PageWrapper>
   )
 }

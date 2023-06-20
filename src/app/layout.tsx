@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import Header from './header'
 import DarkModeToggle from './DarkModeToggle'
 
+import '@/styles/globals.scss'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
