@@ -1,5 +1,6 @@
 import projectsData from 'json/projects.json';
 import PageWrapper from '../../page-wrapper'
+import LinkButton from '@/components/LinkButton';
 import Image from 'next/image'
 
 const educationsIndex = projectsData.reduce((index: any, project) => {
@@ -22,6 +23,7 @@ export default function Page({ params }: PageProps) {
     <PageWrapper>
       <div>My Post: {project.slug}</div>
       <div>{project.content}</div>
+      <LinkButton href={'/projects'}>Back to projects</LinkButton>
     </PageWrapper>
   );
 }
