@@ -3,18 +3,19 @@
 import { useEffect, useState } from 'react';
 import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page() {
   const technosFilters = ["Next.js", "Three.js"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [projectsDisplayed, setProjectsDisplayed] = useState(() => {
-    return getProjectsByTechnology(activeFilters);
-  });
+  const [projectsDisplayed, setProjectsDisplayed] = useState(() => getProjectsByTechnology(activeFilters));
+
+  useEffect(() => {
+    setProjectsDisplayed(getProjectsByTechnology(activeFilters));
+  }, [activeFilters]);
 
   function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-    const clickedTechno = (event.target as HTMLElement);
+    const clickedTechno = event.target as HTMLElement;
     clickedTechno.classList.toggle('active');
 
     setActiveFilters(prevFilters => {
@@ -27,10 +28,6 @@ export default function Page() {
       }
     });
   }
-
-  useEffect(() => {
-    setProjectsDisplayed(getProjectsByTechnology(activeFilters));
-  }, [activeFilters]);
 
   return (
     <PageWrapper>
@@ -46,7 +43,7 @@ export default function Page() {
         ))}
       </div>
       <div>
-        {projectsDisplayed.map((project) => (
+        {projectsDisplayed.map(project => (
           <Link href={`/projects/${project.slug}`} key={project.slug}>
             <div>{project.title}</div>
           </Link>
@@ -57,7 +54,7 @@ export default function Page() {
 }
 
 function getProjectsByTechnology(technologies: string[]) {
-  return projectsData.filter(project => {
-    return technologies.every(technology => project.technos.includes(technology));
-  });
+  return projectsData.filter(project =>
+    technologies.every(technology => project.technos.includes(technology))
+  );
 }
