@@ -38,6 +38,8 @@ const educationsIndex: Record<string, Project> = projectsData.reduce(
 export default function Page({ params }: PageProps) {
   const project: Project | undefined = educationsIndex[params.slug];
 
+  console.log(params)
+
   if (!project) {
     return <div>Projet introuvable</div>;
   }
@@ -93,26 +95,26 @@ export default function Page({ params }: PageProps) {
   );
 }
 
-export async function generateStaticParams() {
-  return projectsData.map((post: Project) => ({
-    slug: post.slug,
-    title: post.title,
-    thumbnail: post.thumbnail,
-  }));
-}
+// export async function generateStaticParams() {
+//   return projectsData.map((post: Project) => ({
+//     slug: post.slug,
+//     title: post.title,
+//     thumbnail: post.thumbnail,
+//   }));
+// }
 
-export async function generateMetadata(
-  { params }: PageProps,
-  parent?: Promise<ResolvingMetadata>
-): Promise<Metadata> {
-  const { title, slug, thumbnail } = params;
+// export async function generateMetadata(
+//   { params }: PageProps,
+//   parent?: Promise<ResolvingMetadata>
+// ): Promise<Metadata> {
+//   const { title, slug, thumbnail } = params;
 
-  const previousImages = (await parent).openGraph?.images || [];
+//   const previousImages = (await parent).openGraph?.images || [];
 
-  return {
-    title: title || '',
-    openGraph: {
-      images: [`/projects/${slug} / ${thumbnail}`, ...previousImages],
-    },
-  };
-}
+//   return {
+//     title: title || '',
+//     openGraph: {
+//       images: [`/projects/${slug} / ${thumbnail}`, ...previousImages],
+//     },
+//   };
+// }
