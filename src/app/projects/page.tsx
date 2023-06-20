@@ -1,33 +1,35 @@
 "use client";
 
-import projectsData from 'json/projects.json';
-import PageWrapper from '../page-wrapper'
-import Image from 'next/image'
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import projectsData from 'json/projects.json';
+import PageWrapper from '../page-wrapper';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Page() {
-  const [projectsDisplayed, setProjectsDisplayed] = useState(projectsData);
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const technosFilters = ["Next.js", "Three.js"];
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [projectsDisplayed, setProjectsDisplayed] = useState(() => {
+    return getProjectsByTechnology(activeFilters);
+  });
 
   function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const clickedTechno = (event.target as HTMLElement);
-
     clickedTechno.classList.toggle('active');
 
-    if (activeFilters.includes(clickedTechno.innerText)) {
-      const updatedFilters = activeFilters.filter(filter => filter !== clickedTechno.innerText);
-      setActiveFilters(updatedFilters);
-    } else {
-      const updatedFilters = [...activeFilters, clickedTechno.innerText];
-      setActiveFilters(updatedFilters);
-    }
+    setActiveFilters(prevFilters => {
+      const filter = clickedTechno.innerText;
+
+      if (prevFilters.includes(filter)) {
+        return prevFilters.filter(prevFilter => prevFilter !== filter);
+      } else {
+        return [...prevFilters, filter];
+      }
+    });
   }
 
   useEffect(() => {
-    const filteredProjects = getProjectsByTechnology(activeFilters);
-    setProjectsDisplayed(filteredProjects);
+    setProjectsDisplayed(getProjectsByTechnology(activeFilters));
   }, [activeFilters]);
 
   return (
@@ -45,19 +47,17 @@ export default function Page() {
       </div>
       <div>
         {projectsDisplayed.map((project) => (
-          <Link href={'/projects/' + project.slug} key={project.slug}>
+          <Link href={`/projects/${project.slug}`} key={project.slug}>
             <div>{project.title}</div>
           </Link>
         ))}
       </div>
     </PageWrapper>
-  )
+  );
 }
 
 function getProjectsByTechnology(technologies: string[]) {
-  const filteredProjects = projectsData.filter(project => {
+  return projectsData.filter(project => {
     return technologies.every(technology => project.technos.includes(technology));
   });
-
-  return filteredProjects
 }
