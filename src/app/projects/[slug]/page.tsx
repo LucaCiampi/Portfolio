@@ -90,7 +90,7 @@ export default function Page({ params }: Props) {
         {project.url && (
           <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
         )}
-        {project.media?.length > 0 && renderMedia()}
+        {project.media && project.media.length > 0 && renderMedia()}
       </article>
       <LinkButton href="/projects">Back to projects</LinkButton>
     </PageWrapper>
