@@ -19,7 +19,6 @@ const ExternalLinkSocial = ({ name, href, className, outline, white, size }: Pro
             <Image 
             width={size || "40"} 
             height={size || "40"} 
-            objectFit="contain" 
             src={`/images/social/` + lowercaseName + `${outline ? '-outline' : ''}.svg`}
             className={white ? 'fill--white' : ''}
             alt={properName} 
