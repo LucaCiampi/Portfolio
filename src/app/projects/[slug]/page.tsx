@@ -8,9 +8,13 @@ interface PageProps {
   params: any,
 }
 
+const educationsIndex = educationsData.reduce((index: any, project) => {
+  index[project.slug] = project;
+  return index;
+}, {});
+
 export default function Page({ params }: PageProps) {
-  // Recherche de l'objet correspondant au slug dans educationsData
-  const project = educationsData.find((item) => item.slug === params.slug);
+  const project = educationsIndex[params.slug];
 
   if (!project) {
     return <div>Projet introuvable</div>;
@@ -25,10 +29,9 @@ export default function Page({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  const posts = await getLocalProjectsData();
- 
-  return posts.map((post:any) => ({
+  return educationsData.map((post) => ({
     slug: post.slug,
-    post: post.content
-  }))
+    post: post.content,
+  }));
 }
+
