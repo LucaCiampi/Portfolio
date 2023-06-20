@@ -1,7 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from './header'
-import DarkModeToggle from './DarkModeToggle'
+import DarkModeToggle from './DarkModeToggles'
 
 import '@/styles/globals.scss'
 
