@@ -1,12 +1,16 @@
 [
     {
-        "title": "coucou",
-        "slug": "slug1",
-        "content": "mon contenu"
+        "title": "Le roi du silence",
+        "slug": "roi-du-silence",
+        "content": "mon contenu",
+        "technos": ["Three.js", "React.js", "Firebase"],
+        "url": "https://roi-du-silence.netlify.app/"
     },
     {
-        "title": "coucou2",
-        "slug": "slug2",
-        "content": "mon contenu2"
+        "title": "Étoiles du sport",
+        "slug": "eds",
+        "content": "mon contenu2",
+        "technos": ["Next.js"],
+        "company": "mooxy"
     }
 ]
