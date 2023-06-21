@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper';
 import Link from 'next/link';
@@ -12,8 +12,26 @@ export default function Page() {
   const [projectsDisplayed, setProjectsDisplayed] = useState(() => getProjectsByTechnology(activeFilters));
 
   useEffect(() => {
+    const filtersParam = getFiltersParamFromURL();
+    if (filtersParam) {
+      const filters = filtersParam.split(',').map(filter => decodeURIComponent(filter));
+      setActiveFilters(filters);
+    }
+  }, []);
+
+  useEffect(() => {
     setProjectsDisplayed(getProjectsByTechnology(activeFilters));
+    const filtersParam = activeFilters.length > 0 ? `filters=${activeFilters.join(',')}` : '';
+    const query = filtersParam ? `?${filtersParam}` : '';
+    const url = `${window.location.pathname}${query}`;
+    window.history.pushState({ path: url }, '', url);
   }, [activeFilters]);
+
+  function getFiltersParamFromURL(): string | null {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('filters');
+  }
 
   function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const clickedTechno = event.target as HTMLElement;
@@ -36,7 +54,7 @@ export default function Page() {
         {technosFilters.map(techno => (
           <div
             key={techno}
-            className='mr-4'
+            className={`mr-4 ${activeFilters.includes(techno) ? 'bg-amber-400' : ''}`}
             onClick={handleFilterClick}
           >
             {techno}
@@ -48,7 +66,7 @@ export default function Page() {
           <Link href={`/projects/${project.slug}`} key={project.slug}>
             <div>{project.title}</div>
             {/* TODO: use image optimization by NextJS */}
-            <img src={`images/projects/${project.slug}/${project.thumbnail}`} alt={project.title}></img>
+            <img src={`images/projects/${project.slug}/${project.thumbnail}`} alt={project.title} />
           </Link>
         ))}
       </div>
