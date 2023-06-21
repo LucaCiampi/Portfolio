@@ -47,17 +47,8 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <div>
-        ma page
-      </div>
       <Section ref={handleSectionRef('Éducation')} title='Éducation'>
         <Education />
-      </Section>
-      <Section ref={handleSectionRef('Contact')} title='Contact' className='h-screen'>
-        contact
-      </Section>
-      <Section ref={handleSectionRef('Madre mia')} title='Madre mia' className='h-screen'>
-        contact
       </Section>
     </PageWrapper>
   );

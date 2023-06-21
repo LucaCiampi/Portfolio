@@ -41,7 +41,7 @@
         "description": "School project",
         "date": "2019",
         "slug": "prisma-conseil",
-        "thumbnail": "prisma-conseil.jpg",
+        "thumbnail": "eds.webp",
         "content": "mon contenu",
         "technos": ["PHP", "Wordpress", "JavaScript"]
     },
@@ -50,7 +50,7 @@
         "description": "School project",
         "date": "2018",
         "slug": "esat-le-monthoux",
-        "thumbnail": "esat-le-monthoux.jpg",
+        "thumbnail": "eds.webp",
         "content": "mon contenu",
         "technos": ["CSS", "JavaScript"]
     },

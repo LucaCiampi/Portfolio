@@ -11,6 +11,8 @@ export default function Page() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [projectsDisplayed, setProjectsDisplayed] = useState(() => getProjectsByTechnology(activeFilters));
 
+  const customPointer = document.getElementById('customPointer')
+
   useEffect(() => {
     const filtersParam = getFiltersParamFromURL();
     if (filtersParam) {
@@ -48,6 +50,35 @@ export default function Page() {
     });
   }
 
+  function handleProjectMouseEnter(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
+    const project = event.target as HTMLElement;
+    project.style.cursor = 'none';
+
+    if (customPointer) {
+      customPointer.style.visibility = 'visible'
+    }
+
+    project.addEventListener('mousemove', handleProjectMouseMove);
+  }
+
+  function handleProjectMouseMove(event: MouseEvent): void {
+    if (customPointer) {
+      customPointer.style.left = event.pageX + 'px';
+      customPointer.style.top = event.pageY + 'px';
+    }
+  }
+
+  function handleProjectMouseLeave(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
+    const project = event.target as HTMLElement;
+    project.style.cursor = 'default';
+
+    if (customPointer) {
+      customPointer.style.visibility = 'hidden'
+    }
+
+    project.removeEventListener('mousemove', handleProjectMouseMove);
+  }
+
   return (
     <PageWrapper>
       <div className='flex'>
@@ -64,12 +95,19 @@ export default function Page() {
       <div className='grid grid-cols-3'>
         {projectsDisplayed.map(project => (
           <Link href={`/projects/${project.slug}`} key={project.slug}>
-            <div>{project.title}</div>
-            {/* TODO: use image optimization by NextJS */}
-            <img src={`images/projects/${project.slug}/${project.thumbnail}`} alt={project.title} />
+            <div
+              className="project"
+              onMouseEnter={handleProjectMouseEnter}
+              onMouseLeave={handleProjectMouseLeave}
+            >
+              {project.title}
+              {/* TODO: use image optimization by NextJS */}
+              <img src={`images/projects/${project.slug}/${project.thumbnail}`} alt={project.title} />
+            </div>
           </Link>
         ))}
       </div>
+      <div id="customPointer" className='custom-pointer'>See details</div>
     </PageWrapper>
   );
 }
