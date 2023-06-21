@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper';
@@ -11,7 +11,7 @@ export default function Page() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [projectsDisplayed, setProjectsDisplayed] = useState(() => getProjectsByTechnology(activeFilters));
 
-  const customPointer = document.getElementById('customPointer')
+  const customPointerRef = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
     const filtersParam = getFiltersParamFromURL();
@@ -35,45 +35,41 @@ export default function Page() {
     return urlParams.get('filters');
   }
 
-  function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
-    const clickedTechno = event.target as HTMLElement;
-    clickedTechno.classList.toggle('bg-amber-400');
-
+  function handleFilterClick(techno: string): void {
     setActiveFilters(prevFilters => {
-      const filter = clickedTechno.innerText;
-
-      if (prevFilters.includes(filter)) {
-        return prevFilters.filter(prevFilter => prevFilter !== filter);
+      if (prevFilters.includes(techno)) {
+        return prevFilters.filter(prevFilter => prevFilter !== techno);
       } else {
-        return [...prevFilters, filter];
+        return [...prevFilters, techno];
       }
     });
   }
 
   function handleProjectMouseEnter(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const project = event.target as HTMLElement;
-    project.style.cursor = 'none';
 
+    const customPointer = customPointerRef.current;
     if (customPointer) {
-      customPointer.style.visibility = 'visible'
+      customPointer.classList.remove('invisible')
     }
 
     project.addEventListener('mousemove', handleProjectMouseMove);
   }
 
   function handleProjectMouseMove(event: MouseEvent): void {
-    if (customPointer) {
+    const customPointer = customPointerRef.current;
+    // if (customPointer) {
       customPointer.style.left = event.pageX + 'px';
       customPointer.style.top = event.pageY + 'px';
-    }
+    // }
   }
 
   function handleProjectMouseLeave(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const project = event.target as HTMLElement;
-    project.style.cursor = 'default';
 
+    const customPointer = customPointerRef.current;
     if (customPointer) {
-      customPointer.style.visibility = 'hidden'
+      customPointer.classList.add('invisible')
     }
 
     project.removeEventListener('mousemove', handleProjectMouseMove);
@@ -86,7 +82,7 @@ export default function Page() {
           <div
             key={techno}
             className={`mr-4 ${activeFilters.includes(techno) ? 'bg-amber-400' : ''}`}
-            onClick={handleFilterClick}
+            onClick={() => handleFilterClick(techno)}
           >
             {techno}
           </div>
@@ -96,7 +92,7 @@ export default function Page() {
         {projectsDisplayed.map(project => (
           <Link href={`/projects/${project.slug}`} key={project.slug}>
             <div
-              className="project"
+              className="cursor-none"
               onMouseEnter={handleProjectMouseEnter}
               onMouseLeave={handleProjectMouseLeave}
             >
@@ -107,7 +103,7 @@ export default function Page() {
           </Link>
         ))}
       </div>
-      <div id="customPointer" className='custom-pointer'>See details</div>
+      <div ref={customPointerRef} className='custom-pointer invisible'>See details</div>
     </PageWrapper>
   );
 }
