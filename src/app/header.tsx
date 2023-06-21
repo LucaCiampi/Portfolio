@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import React from 'react'
-import { LayoutGroup, motion } from 'framer-motion'
+import { LayoutGroup } from 'framer-motion'
 
 import NoScrollLink from './no-scroll-link'
 
@@ -51,20 +51,20 @@ const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className
 	}, []);
 
 	return (
-		<header id={id} className=''>
-			<div className='flex row v-center space-between'>
+		<header id={id}>
+			<div className='flex'>
 				<LayoutGroup>
 					<nav>
-						<ul className={`flex tablet-flex-column v-center tablet-h-0`}>
+						<ul className='flex'>
 							{links.map(({ label, href, classes, submenu }) => (
-								<li key={label} className={`${classes ? classes : ''}`}>
+								<li key={label} className={`${classes || ''}`}>
 									<NoScrollLink href={href}>
 										<span title={label} onClick={handleMenuLinkClick}>
 											<span>{label}</span>
 										</span>
 									</NoScrollLink>
 									{submenu && (
-										<ul className={`flex flex-column txt-black`}>
+										<ul className='flex flex-col'>
 											{submenu.map(({ label, href }) => (
 												<li key={label}>
 													<Link href={href}>
@@ -79,12 +79,12 @@ const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className
 						</ul>
 					</nav>
 				</LayoutGroup>
-				<div className={`desk:d-none`} onClick={handleNaviconClick}>
-					<span></span>
+				<div className="block xl:hidden" onClick={handleNaviconClick}>
+					<span>aa</span>
 				</div>
 			</div>
 		</header>
-	)
-}
+	);
+};
 
-export default Header
+export default Header;

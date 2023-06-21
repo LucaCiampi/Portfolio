@@ -17,7 +17,7 @@ export default function Page() {
 
   function handleFilterClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const clickedTechno = event.target as HTMLElement;
-    clickedTechno.classList.toggle('active');
+    clickedTechno.classList.toggle('bg-amber-400');
 
     setActiveFilters(prevFilters => {
       const filter = clickedTechno.innerText;
