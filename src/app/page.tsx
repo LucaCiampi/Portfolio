@@ -1,18 +1,64 @@
 "use client";
 
+import { useEffect, useRef } from 'react';
 import Section from '@/components/Section';
 import Education from './education';
 import PageWrapper from './page-wrapper';
 
+interface SectionRef {
+  [title: string]: HTMLElement | null;
+}
+
 export default function Page() {
+  const sectionRefs = useRef<SectionRef>({});
+
+  useEffect(() => {
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionTitle = (entry.target as HTMLElement).getAttribute('sectiontitle');
+          console.log(sectionTitle);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const handleSectionRef = (title: string) => (ref: HTMLElement | null): void => {
+    sectionRefs.current[title] = ref;
+  };
+
   return (
     <PageWrapper>
       <div>
         ma page
       </div>
-      <Section title='Education'>
+      <Section ref={handleSectionRef('Éducation')} title='Éducation'>
         <Education />
       </Section>
+      <Section ref={handleSectionRef('Contact')} title='Contact' className='h-screen'>
+        contact
+      </Section>
+      <Section ref={handleSectionRef('Madre mia')} title='Madre mia' className='h-screen'>
+        contact
+      </Section>
     </PageWrapper>
-  )
+  );
 }
