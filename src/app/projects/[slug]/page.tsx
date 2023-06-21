@@ -47,7 +47,7 @@ export default function Page({ params }: Props) {
   const renderTechnos = () => (
     <Section title="Technos">
       {project.technos.map((techno: string) => (
-        <div key={techno}>{techno}</div>
+        <LinkButton key={techno} href={`/projects?filters=${techno}`}>{techno}</LinkButton>
       ))}
     </Section>
   );
