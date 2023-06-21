@@ -13,6 +13,9 @@ export default function Page() {
 
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
+  /**
+   * Sets up filters
+   */
   useEffect(() => {
     const filtersParam = getFiltersParamFromURL();
     if (filtersParam) {
@@ -21,6 +24,9 @@ export default function Page() {
     }
   }, []);
 
+  /**
+   * Updates the project displayed according to active filters
+   */
   useEffect(() => {
     setProjectsDisplayed(getProjectsByTechnology(activeFilters));
     const filtersParam = activeFilters.length > 0 ? `filters=${activeFilters.join(',')}` : '';
@@ -29,12 +35,19 @@ export default function Page() {
     window.history.pushState({ path: url }, '', url);
   }, [activeFilters]);
 
+  /**
+   * Retrieves the eventual list of active filters when visiting the page
+   * @returns {string | null} the list of filters
+   */
   function getFiltersParamFromURL(): string | null {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     return urlParams.get('filters');
   }
 
+  /**
+   * When the user clicks on a filter, adds the element to the active filters list
+   */
   function handleFilterClick(techno: string): void {
     setActiveFilters(prevFilters => {
       if (prevFilters.includes(techno)) {
@@ -45,34 +58,47 @@ export default function Page() {
     });
   }
 
+  /**
+   * Adds event listener when mouse enters project
+   */
   function handleProjectMouseEnter(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const project = event.target as HTMLElement;
-
+    
     const customPointer = customPointerRef.current;
-    if (customPointer) {
-      customPointer.classList.remove('invisible')
-    }
+    customPointer.classList.remove('invisible')
 
     project.addEventListener('mousemove', handleProjectMouseMove);
   }
 
+  /**
+   * Moves the custom pointer according to real pointer position
+   */
   function handleProjectMouseMove(event: MouseEvent): void {
     const customPointer = customPointerRef.current;
-    // if (customPointer) {
-      customPointer.style.left = event.pageX + 'px';
-      customPointer.style.top = event.pageY + 'px';
-    // }
+
+    customPointer.style.left = event.pageX + 'px';
+    customPointer.style.top = event.pageY + 'px';
   }
 
+  /**
+   * Removes the event listener on project mouse leave
+   */
   function handleProjectMouseLeave(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const project = event.target as HTMLElement;
 
     const customPointer = customPointerRef.current;
-    if (customPointer) {
-      customPointer.classList.add('invisible')
-    }
+
+    customPointer.classList.add('invisible')
 
     project.removeEventListener('mousemove', handleProjectMouseMove);
+  }
+
+  /**
+   * Animation on custom pointer when clicking
+   */
+  function handleProjectMouseDown(): void {
+    customPointerRef.current.classList.remove('bg-lime-400')
+    customPointerRef.current.classList.add('bg-amber-400')
   }
 
   return (
@@ -95,6 +121,7 @@ export default function Page() {
               className="cursor-none"
               onMouseEnter={handleProjectMouseEnter}
               onMouseLeave={handleProjectMouseLeave}
+              onMouseDown={handleProjectMouseDown}
             >
               {project.title}
               {/* TODO: use image optimization by NextJS */}
@@ -103,7 +130,7 @@ export default function Page() {
           </Link>
         ))}
       </div>
-      <div ref={customPointerRef} className='custom-pointer invisible'>See details</div>
+      <div ref={customPointerRef} className='custom-pointer invisible bg-lime-400'>See details</div>
     </PageWrapper>
   );
 }
