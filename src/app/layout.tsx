@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Playfair_Display, Abril_Fatface } from 'next/font/google'
-import Header from './header'
+import Header from '@/components/header'
 import Image from 'next/image'
 import './globals.css'
 import '@/styles/globals.scss'
