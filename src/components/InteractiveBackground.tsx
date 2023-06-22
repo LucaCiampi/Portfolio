@@ -1,29 +1,26 @@
-import { useEffect, useState } from 'react';
-import '@/styles/interactiveBackground.scss';
+import { useContext, useEffect, useState } from 'react';
+import { TimeContext } from './TimeContext';
 import Background from 'public/images/italy.svg';
 import BackgroundNight from 'public/images/italy-night.svg';
+import '@/styles/interactiveBackground.scss';
 
 export default function InteractiveBackground() {
-    const [currentTime, setCurrentTime] = useState(new Date());
+    const { currentTime, toggleTime, darkModeActive } = useContext(TimeContext);
     const [villageStatus, setVillageStatus] = useState('is awake');
     const [villageAction, setVillageAction] = useState('Go to bed');
 
     useEffect(() => {
-        setCurrentTime(new Date());
+        toggleTime()
     }, []);
 
     useEffect(() => {
-        const currentHour = currentTime.getHours();
-        const isNight = currentHour < 6 || currentHour >= 18;
-
-        if (isNight) {
+        if (darkModeActive) {
             setVillageStatus('is sleeping');
             setVillageAction('Wake up now !');
         } else {
             setVillageStatus('is awake');
             setVillageAction('Time to go to bed');
         }
-
     }, [currentTime]);
 
     const formattedTime = formatTime(currentTime);
@@ -31,7 +28,7 @@ export default function InteractiveBackground() {
     function changeVillageTime() {
         const updatedTime = new Date(currentTime);
         updatedTime.setHours(updatedTime.getHours() + 12);
-        setCurrentTime(updatedTime);
+        toggleTime()
     }
 
     return (

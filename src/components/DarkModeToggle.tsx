@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { TimeContext } from './TimeContext';
 
 const isDark = (): boolean =>
     (localStorage && localStorage.theme === 'dark') ||
@@ -11,6 +12,7 @@ const getThemeString = (isDark: boolean): string => (isDark ? 'dark' : 'light')
 
 const DarkModeToggle = (): JSX.Element => {
     const [isDarkMode, setDarkMode] = useState(false)
+    const { toggleTime } = useContext(TimeContext);
 
     const toggleMode = (): void => {
         localStorage.theme = getThemeString(!isDarkMode)
@@ -20,6 +22,7 @@ const DarkModeToggle = (): JSX.Element => {
             document.documentElement.classList.remove('dark')
         }
         setDarkMode(!isDarkMode)
+        toggleTime()
     }
 
     useEffect(() => {
