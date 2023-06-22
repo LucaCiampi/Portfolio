@@ -25,18 +25,12 @@ export default function InteractiveBackground() {
 
     const formattedTime = formatTime(currentTime);
 
-    function changeVillageTime() {
-        const updatedTime = new Date(currentTime);
-        updatedTime.setHours(updatedTime.getHours() + 12);
-        toggleDarkMode()
-    }
-
     return (
         <div className="fullscreen--svg italy-background">
             <div className="absolute left-10 top-10 z-10">
                 {formattedTime}
                 <div>The village {villageStatus}</div>
-                <div onClick={changeVillageTime}>{villageAction}</div>
+                <div onClick={toggleDarkMode}>{villageAction}</div>
             </div>
             <div className="italy-background">
                 <Background />
