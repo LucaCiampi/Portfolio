@@ -97,8 +97,8 @@ export default function Page() {
    * Animation on custom pointer when clicking
    */
   function handleProjectMouseDown(): void {
-    customPointerRef.current.classList.remove('bg-lime-400')
-    customPointerRef.current.classList.add('bg-amber-400')
+    customPointerRef.current.classList.remove('bg-amber-400')
+    customPointerRef.current.classList.add('bg-lime-400')
   }
 
   return (
@@ -130,7 +130,7 @@ export default function Page() {
           </Link>
         ))}
       </div>
-      <div ref={customPointerRef} className='custom-pointer invisible bg-lime-400'>See details</div>
+      <div ref={customPointerRef} className='custom-pointer invisible bg-amber-400'>See details</div>
     </PageWrapper>
   );
 }

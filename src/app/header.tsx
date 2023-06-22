@@ -80,7 +80,7 @@ const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className
 					</nav>
 				</LayoutGroup>
 				<div className="block xl:hidden" onClick={handleNaviconClick}>
-					<span>aa</span>
+					<span>nav icon here</span>
 				</div>
 			</div>
 		</header>
