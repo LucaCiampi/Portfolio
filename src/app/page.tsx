@@ -50,9 +50,7 @@ export default function Page() {
   return (
     <PageWrapper>
       <Section fullscreen noRow>
-        <div className="fullscreen--svg italy-background">
-          <InteractiveBackground />
-        </div>
+        <InteractiveBackground />
       </Section>
       <Section ref={handleSectionRef('Éducation')} title='Éducation'>
         <Education />

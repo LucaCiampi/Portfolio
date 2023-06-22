@@ -44,7 +44,7 @@ const Header = () => {
 	}, []);
 
 	return (
-		<header className='fixed z-30'>
+		<header className='fixed z-30 right-0'>
 			<div className='flex'>
 				<LayoutGroup>
 					<nav>
