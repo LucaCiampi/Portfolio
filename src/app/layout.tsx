@@ -5,7 +5,6 @@ import DarkModeToggle from '../components/DarkModeToggle'
 import './globals.css'
 
 import '@/styles/globals.scss'
-import { Suspense } from 'react'
 
 
 const abril_fatface = Abril_Fatface({
@@ -41,9 +40,7 @@ export default function RootLayout({ children }: Props) {
       <body className={`${abril_fatface.variable} ${playfair_display.variable}`}>
         <Header />
         <DarkModeToggle />
-        <Suspense fallback={<p>Loading feed...</p>}>
-          {children}
-        </Suspense>
+        {children}
       </body>
     </html>
   )
