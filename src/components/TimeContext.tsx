@@ -5,7 +5,7 @@ import React, { createContext, useState } from 'react';
 type TimeContextType = {
     currentTime: Date;
     toggleTime: () => void;
-    darkModeActive: boolean;
+    nightTime: boolean;
 };
 
 export const TimeContext = createContext<TimeContextType>({} as TimeContextType);
@@ -24,10 +24,10 @@ export const TimeProvider = ({ children }: Props) => {
     };
 
     const currentHour = currentTime.getHours();
-    const darkModeActive = currentHour < 6 || currentHour >= 18;
+    const nightTime = currentHour < 6 || currentHour >= 18;
 
     return (
-        <TimeContext.Provider value={{ currentTime, toggleTime, darkModeActive }}>
+        <TimeContext.Provider value={{ currentTime, toggleTime, nightTime }}>
             {children}
         </TimeContext.Provider>
     );
