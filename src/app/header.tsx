@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import React from 'react'
 import { LayoutGroup } from 'framer-motion'
 
-import NoScrollLink from './no-scroll-link'
+import NoScrollLink from '@/components/NoScrollLink'
 import DarkModeToggle from '@/components/DarkModeToggle';
 
 interface Link {
