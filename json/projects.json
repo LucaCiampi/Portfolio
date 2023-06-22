@@ -6,7 +6,7 @@
         "slug": "roi-du-silence",
         "thumbnail": "logo.png",
         "content": "mon contenu",
-        "technos": ["Three.js", "React.js", "Firebase"],
+        "technos": ["Three.js", "Firebase"],
         "url": "https://roi-du-silence.netlify.app/"
     },
     {
