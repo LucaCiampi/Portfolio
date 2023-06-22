@@ -11,7 +11,7 @@ export default function Page() {
 
   function handleLottiePlayButtonClick(): void {
     if (lottieRef.current) {
-      lottieRef.current.play();
+      (lottieRef.current as Animation).play();
     }
   }
 
