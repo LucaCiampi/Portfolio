@@ -3,6 +3,7 @@ import { TimeContext } from './TimeContext';
 import Background from 'public/images/italy.svg';
 import BackgroundNight from 'public/images/italy-night.svg';
 import '@/styles/interactiveBackground.scss';
+import Button from './Button';
 
 export default function InteractiveBackground() {
     const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
@@ -30,7 +31,7 @@ export default function InteractiveBackground() {
             <div className="absolute left-10 top-10 z-10">
                 {formattedTime}
                 <div>The village {villageStatus}</div>
-                <div onClick={toggleDarkMode}>{villageAction}</div>
+                <Button onClick={toggleDarkMode}>{villageAction}</Button>
             </div>
             <div className="italy-background">
                 <Background />

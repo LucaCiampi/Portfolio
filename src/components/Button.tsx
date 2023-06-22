@@ -1,10 +1,12 @@
 interface Props {
-    children?: React.ReactNode,
-    className?: string,
+    children?: React.ReactNode;
+    className?: string;
+    onClick?: () => void;
 }
 
-const Button = ({ children, className }: Props) => (
-    <button className={`button ${className}`} title={children?.toString()}>
+// TODO: pass onClick events
+const Button = ({ children, className, onClick }: Props) => (
+    <button onClick={onClick} className={`rounded-full bg-emerald-500 px-3 py-1 ${className || ''}`} title={children?.toString()}>
         {children}
     </button>
 )

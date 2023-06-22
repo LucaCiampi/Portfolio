@@ -5,6 +5,7 @@ import Image from 'next/image';
 import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper';
 import Link from 'next/link';
+import Button from '@/components/Button';
 
 export default function Page() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
@@ -63,7 +64,7 @@ export default function Page() {
    */
   function handleProjectMouseEnter(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
     const project = event.target as HTMLElement;
-    
+
     const customPointer = customPointerRef.current;
     customPointer.classList.remove('invisible')
 
@@ -105,13 +106,13 @@ export default function Page() {
     <PageWrapper>
       <div className='flex'>
         {technosFilters.map(techno => (
-          <div
+          <Button
             key={techno}
-            className={`mr-4 ${activeFilters.includes(techno) ? 'bg-amber-400' : ''}`}
+            className={`mr-4 ${activeFilters.includes(techno) ? 'bg-rose-400' : ''}`}
             onClick={() => handleFilterClick(techno)}
           >
             {techno}
-          </div>
+          </Button>
         ))}
       </div>
       <div className='grid grid-cols-3'>
