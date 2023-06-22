@@ -6,6 +6,7 @@ import React from 'react'
 import { LayoutGroup } from 'framer-motion'
 
 import NoScrollLink from './no-scroll-link'
+import DarkModeToggle from '@/components/DarkModeToggle';
 
 interface Link {
 	label: string,
@@ -22,15 +23,7 @@ const links: Link[] = [
 
 const revealingHeaderScrollThreshold = 100
 
-interface Props {
-	fixed?: boolean,
-	revealOnScroll?: boolean,
-	tabletRevealOnScroll?: boolean,
-	className?: string,
-	id?: string,
-}
-
-const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className, id }: Props) => {
+const Header = () => {
 	const [mobilenavToggled, setMobilenavToggled] = useState(false);
 	const [revealingHeader, setRevealingHeader] = useState(false);
 
@@ -51,7 +44,7 @@ const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className
 	}, []);
 
 	return (
-		<header id={id}>
+		<header className='fixed z-30'>
 			<div className='flex'>
 				<LayoutGroup>
 					<nav>
@@ -78,6 +71,7 @@ const Header = ({ fixed = false, revealOnScroll, tabletRevealOnScroll, className
 							))}
 						</ul>
 					</nav>
+					<DarkModeToggle />
 				</LayoutGroup>
 				<div className="block xl:hidden" onClick={handleNaviconClick}>
 					<span>nav icon here</span>

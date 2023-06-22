@@ -4,7 +4,6 @@ interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
   className?: string;
   title?: string;
-  divider?: boolean;
   id?: string;
   backgroundImage?: string;
   fullscreen?: boolean;
@@ -13,7 +12,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 const Section = forwardRef<HTMLElement, Props>(
-  ({ children, className, title, divider, id, backgroundImage, fullscreen, innerPadding, noRow, ...rest }, ref) => {
+  ({ children, className, title, id, backgroundImage, fullscreen, innerPadding, noRow, ...rest }, ref) => {
     if (title && !id) {
       id = title.replaceAll(' ', '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
@@ -33,7 +32,7 @@ const Section = forwardRef<HTMLElement, Props>(
       className: classNames,
       ...(id && { id }),
       ...(backgroundImage && { style: { backgroundImage: `url(/images/${backgroundImage})` } }),
-	  ...(title && {sectiontitle : title}),
+      ...(title && { sectiontitle: title }),
       ...rest
     };
 
@@ -41,10 +40,7 @@ const Section = forwardRef<HTMLElement, Props>(
       <section ref={ref} {...sectionProps}>
         <div className={noRow ? "" : 'row'}>
           {title && <h2 className="h2">{title}</h2>}
-          {divider && <hr />}
-          <div className="pt-4 tab:pt-0">
-            {children}
-          </div>
+          {children}
         </div>
       </section>
     );

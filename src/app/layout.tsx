@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import { Playfair_Display, Abril_Fatface } from 'next/font/google'
 import Header from './header'
-import DarkModeToggle from '../components/DarkModeToggle'
 import './globals.css'
 
 import '@/styles/globals.scss'
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <body className={`${abril_fatface.variable} ${playfair_display.variable}`}>
         <Header />
-        <DarkModeToggle />
         {children}
       </body>
     </html>

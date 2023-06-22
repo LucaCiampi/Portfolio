@@ -48,6 +48,20 @@ h6 {
   pointer-events: none;
 }
 
+.fullscreen--svg {
+  height: 100vh;
+  width: 100vw;
+
+  & svg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* ----- Responsive ----- */
 /* Tablet */
 @media (max-width: $breakpoint--tablet) {}
