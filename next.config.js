@@ -8,6 +8,9 @@ const nextConfig = {
   // Optional: Change the output directory `out` -> `dist`
   // distDir: 'dist',
 
+  //TODO: comment here
+  images: { unoptimized: true },
+
   // SVGR
   webpack: (config, options) => {
     config.module.rules.push({

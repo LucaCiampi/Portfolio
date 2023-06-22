@@ -1,13 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Section from '@/components/Section';
 import Education from './education';
 import PageWrapper from './page-wrapper';
 
-// import Background from 'public/images/1.svg';
-import Background from 'public/images/2.svg';
-// import Background from 'public/images/3.svg';
+import InteractiveBackground from '@/components/InteractiveBackground';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -52,10 +50,9 @@ export default function Page() {
   return (
     <PageWrapper>
       <Section fullscreen noRow>
-      <div className="fullscreen--svg">
-        <Background />
-      </div>
-
+        <div className="fullscreen--svg italy-background">
+          <InteractiveBackground />
+        </div>
       </Section>
       <Section ref={handleSectionRef('Éducation')} title='Éducation'>
         <Education />

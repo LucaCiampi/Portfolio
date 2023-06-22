@@ -1,0 +1,25 @@
+@import "abstracts/variables";
+
+.italy-background * {
+  transition: 2s !important;
+}
+
+.italy-background--night {
+  opacity: 0;
+}
+
+.dark .italy-background--night {
+  opacity: 1;
+}
+
+// .dark {
+//   #SVGID_1_ {
+//     fill: red;
+//   }
+//   #SVGID_2_ {
+//     fill: blue;
+//   }
+//   #SVGID_3_ {
+//     fill: green;
+//   }
+// }

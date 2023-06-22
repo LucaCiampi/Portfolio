@@ -23,8 +23,8 @@ export default function Page() {
           <Lottie autoplay={false} loop={false} lottieRef={lottieRef} animationData={Cheers} />
         </div>
         <div>
-          <ExternalLinkSocial name={'github'} href={'https://github.com/LucaCiampi'} />
-          <ExternalLinkSocial name={'linkedin'} href={'https://linkedin.com/in/lucaciampi'} />
+          <ExternalLinkSocial className='icon' name={'github'} href={'https://github.com/LucaCiampi'} />
+          <ExternalLinkSocial className='icon' name={'linkedin'} href={'https://linkedin.com/in/lucaciampi'} />
           <button onClick={handleLottiePlayButtonClick}>PLAY LOTTIE</button>
         </div>
       </div>

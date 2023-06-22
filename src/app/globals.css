@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 body {
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #fff6dd;
   color: #111;
-  transition:  background-color 300ms;
+  transition: background-color 300ms;
 }
 
 .dark body {

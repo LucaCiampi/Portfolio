@@ -1,9 +1,11 @@
 import { Metadata } from 'next'
 import { Playfair_Display, Abril_Fatface } from 'next/font/google'
 import Header from './header'
+import Image from 'next/image'
 import './globals.css'
-
 import '@/styles/globals.scss'
+
+import Background from 'public/images/paper.jpg'
 
 
 const abril_fatface = Abril_Fatface({
@@ -39,6 +41,8 @@ export default function RootLayout({ children }: Props) {
       <body className={`${abril_fatface.variable} ${playfair_display.variable}`}>
         <Header />
         {children}
+        {/* <Image src={Background} alt={'background'} className='fixed inset-0 -z-10 w-screen' /> */}
+        <div className="background-paper"></div>
       </body>
     </html>
   )
