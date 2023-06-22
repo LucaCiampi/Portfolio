@@ -4,8 +4,8 @@ import React, { createContext, useState } from 'react';
 
 type TimeContextType = {
     currentTime: Date;
-    toggleTime: () => void;
-    nightTime: boolean;
+    darkMode: boolean;
+    toggleDarkMode: () => void;
 };
 
 export const TimeContext = createContext<TimeContextType>({} as TimeContextType);
@@ -14,20 +14,32 @@ interface Props {
     children: React.ReactNode
 }
 
+const getThemeString = (isDark: boolean): string => (isDark ? 'dark' : 'light')
+
+const darkModeUserPreference = (): boolean =>
+    (localStorage && localStorage.theme === 'dark') ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
 export const TimeProvider = ({ children }: Props) => {
     const [currentTime, setCurrentTime] = useState(new Date());
+    const [darkMode, setDarkMode] = useState(darkModeUserPreference);
 
-    const toggleTime = () => {
+    const toggleDarkMode = () => {
         const updatedTime = new Date(currentTime);
         updatedTime.setHours(updatedTime.getHours() + 12);
         setCurrentTime(updatedTime);
+
+        localStorage.theme = getThemeString(!darkMode)
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+        setDarkMode(!darkMode)
     };
 
-    const currentHour = currentTime.getHours();
-    const nightTime = currentHour < 6 || currentHour >= 18;
-
     return (
-        <TimeContext.Provider value={{ currentTime, toggleTime, nightTime }}>
+        <TimeContext.Provider value={{ currentTime, darkMode, toggleDarkMode }}>
             {children}
         </TimeContext.Provider>
     );

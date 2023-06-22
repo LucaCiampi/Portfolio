@@ -5,16 +5,16 @@ import BackgroundNight from 'public/images/italy-night.svg';
 import '@/styles/interactiveBackground.scss';
 
 export default function InteractiveBackground() {
-    const { currentTime, toggleTime, nightTime } = useContext(TimeContext);
+    const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
     const [villageStatus, setVillageStatus] = useState('is awake');
     const [villageAction, setVillageAction] = useState('Go to bed');
 
     useEffect(() => {
-        toggleTime()
+        toggleDarkMode()
     }, []);
 
     useEffect(() => {
-        if (nightTime) {
+        if (darkMode) {
             setVillageStatus('is sleeping');
             setVillageAction('Wake up now !');
         } else {
@@ -28,7 +28,7 @@ export default function InteractiveBackground() {
     function changeVillageTime() {
         const updatedTime = new Date(currentTime);
         updatedTime.setHours(updatedTime.getHours() + 12);
-        toggleTime()
+        toggleDarkMode()
     }
 
     return (
