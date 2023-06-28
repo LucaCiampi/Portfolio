@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import projectsData from 'json/projects.json';
 import PageWrapper from '../page-wrapper';
 import Link from 'next/link';

@@ -4,12 +4,12 @@
 
 body {
   /* background-color: #fff; */
-  background-color: #fff6dd;
+  background-color: #FEF1DB;
   color: #111;
   transition: background-color 300ms;
 }
 
 .dark body {
   background-color: #111;
-  color: #fff;
+  color: #FEF1DB;
 }

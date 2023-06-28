@@ -5,7 +5,12 @@ import BackgroundNight from 'public/images/italy-night.svg';
 import '@/styles/interactiveBackground.scss';
 import Button from './Button';
 
+import Cloud1 from 'public/images/cloud1.svg'
+import Cloud2 from 'public/images/cloud2.svg'
+import Cloud3 from 'public/images/cloud3.svg'
+
 export default function InteractiveBackground() {
+    // TODO: remove auto time check in this component, place it at entrance of website
     const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
     const [villageStatus, setVillageStatus] = useState('is awake');
     const [villageAction, setVillageAction] = useState('Go to bed');
