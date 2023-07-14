@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import React, { forwardRef, HTMLAttributes, ReactNode } from "react";
 
 interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
@@ -12,33 +12,51 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 const Section = forwardRef<HTMLElement, Props>(
-  ({ children, className, title, id, backgroundImage, fullscreen, innerPadding, noRow, ...rest }, ref) => {
+  (
+    {
+      children,
+      className,
+      title,
+      id,
+      backgroundImage,
+      fullscreen,
+      innerPadding,
+      noRow,
+      ...rest
+    },
+    ref
+  ) => {
     if (title && !id) {
-      id = title.replaceAll(' ', '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      id = title
+        .replaceAll(" ", "-")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
     }
 
-    let classNames = 'section';
+    let classNames = "section";
     if (fullscreen) {
-      classNames += ' fullscreen';
+      classNames += " fullscreen";
     }
     if (innerPadding) {
-      classNames += ' innerpadding';
+      classNames += " innerpadding";
     }
     if (className) {
-      classNames += ' ' + className;
+      classNames += " " + className;
     }
 
     const sectionProps = {
       className: classNames,
       ...(id && { id }),
-      ...(backgroundImage && { style: { backgroundImage: `url(/images/${backgroundImage})` } }),
+      ...(backgroundImage && {
+        style: { backgroundImage: `url(/images/${backgroundImage})` },
+      }),
       ...(title && { sectiontitle: title }),
-      ...rest
+      ...rest,
     };
 
     return (
       <section ref={ref} {...sectionProps}>
-        <div className={noRow ? "" : 'row'}>
+        <div className={noRow ? "" : "row"}>
           {title && <h2 className="h2">{title}</h2>}
           {children}
         </div>
@@ -47,5 +65,5 @@ const Section = forwardRef<HTMLElement, Props>(
   }
 );
 
-Section.displayName = 'Section'
+Section.displayName = "Section";
 export default Section;

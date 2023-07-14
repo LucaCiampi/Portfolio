@@ -6,6 +6,7 @@ import Education from './education';
 import PageWrapper from './page-wrapper';
 
 import InteractiveBackground from '@/components/InteractiveBackground';
+import Heading from '@/components/Heading';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -55,6 +56,7 @@ export default function Page() {
       <Section ref={handleSectionRef('Éducation')} title='Éducation'>
         <Education />
       </Section>
+      <Heading level={'h2'} className='yess'>coucou</Heading>
     </PageWrapper>
   );
 }

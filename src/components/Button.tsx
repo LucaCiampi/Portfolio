@@ -6,7 +6,7 @@ interface Props {
 
 // TODO: pass onClick events
 const Button = ({ children, className, onClick }: Props) => (
-    <button onClick={onClick} className={`rounded-full bg-emerald-500 px-3 py-1 ${className || ''}`} title={children?.toString()}>
+    <button onClick={onClick} className={`rounded-full border-olive px-3 ${className || ''}`} title={children?.toString()}>
         {children}
     </button>
 )

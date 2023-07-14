@@ -1,13 +1,13 @@
 "use client";
 
-import educationData from 'json/education.json'
-import Wax from 'public/images/wax.svg';
+import educationData from "json/education.json";
+import Wax from "public/images/wax.svg";
 
 export default function Education() {
   return (
     <div>
       {educationData.map((education, index) => (
-        <div key={index} className='mb-4'>
+        <div key={index} className="mb-4">
           <span>{education.date}</span>
           <h5>{education.schoolName}</h5>
           <div>{education.location}</div>
@@ -19,5 +19,5 @@ export default function Education() {
         </div>
       ))}
     </div>
-  )
+  );
 }

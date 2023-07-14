@@ -1,11 +1,12 @@
-import React from 'react';
-import projectsData from 'json/projects.json';
-import PageWrapper from '@/app/page-wrapper';
-import LinkButton from '@/components/LinkButton';
-import ExternalLinkButton from '@/components/ExternalLinkButton';
-import Section from '@/components/Section';
-import { Metadata, ResolvingMetadata } from 'next';
-import NotFound from './not-found';
+import React from "react";
+import projectsData from "json/projects.json";
+import PageWrapper from "@/app/page-wrapper";
+import LinkButton from "@/components/LinkButton";
+import ExternalLinkButton from "@/components/ExternalLinkButton";
+import Section from "@/components/Section";
+import { Metadata, ResolvingMetadata } from "next";
+import NotFound from "./not-found";
+import Image from "next/image";
 
 interface Project {
   slug: string;
@@ -47,7 +48,9 @@ export default function Page({ params }: Props) {
   const renderTechnos = () => (
     <Section title="Technos">
       {project.technos.map((techno: string) => (
-        <LinkButton key={techno} href={`/projects?filters=${techno}`}>{techno}</LinkButton>
+        <LinkButton key={techno} href={`/projects?filters=${techno}`}>
+          {techno}
+        </LinkButton>
       ))}
     </Section>
   );
@@ -55,13 +58,13 @@ export default function Page({ params }: Props) {
   const renderMedia = () => (
     <Section title="Media">
       {project.media?.map((media, index) => {
-        const mediaUrl = media.url.startsWith('http')
+        const mediaUrl = media.url.startsWith("http")
           ? media.url
           : `/images/projects/${project.slug}/${media.url}`;
 
         return (
           <div key={index}>
-            {media.type === 'video' ? (
+            {media.type === "video" ? (
               <div>
                 <video controls>
                   <source src={mediaUrl} type="video/mp4" />
@@ -71,7 +74,7 @@ export default function Page({ params }: Props) {
               </div>
             ) : (
               <div>
-                <img src={mediaUrl} alt="Preview" />
+                <Image src={mediaUrl} alt="Preview" width={400} height={260} />
                 {media.credits && <span>{media.credits}</span>}
               </div>
             )}
@@ -118,7 +121,10 @@ export async function generateMetadata(
     title: project.title,
     description: project.description,
     openGraph: {
-      images: [`images/projects/${project.slug}/${project.thumbnail}`, ...previousImages],
+      images: [
+        `images/projects/${project.slug}/${project.thumbnail}`,
+        ...previousImages,
+      ],
     },
   };
 }

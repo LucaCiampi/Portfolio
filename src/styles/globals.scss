@@ -60,6 +60,17 @@ h6 {
   }
 }
 
+// Colors
+.olive {
+  background-color: #424928;
+}
+
+.border-olive {
+  border-color: #424928;
+  border-style: solid;
+  border-width: 1px;
+}
+
 /* ----- Responsive ----- */
 /* Tablet */
 @media (max-width: $breakpoint--tablet) {}

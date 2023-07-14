@@ -1,16 +1,16 @@
 "use client";
 
-import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect } from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect } from "react";
 
 const variants = {
   hidden: { opacity: 0, x: -200, y: 0 },
   enter: { opacity: 1, x: 0, y: 0 },
   exit: { opacity: 0, x: 0, y: -100 },
-}
+};
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function PageWrapper({ children }: Props) {
@@ -21,10 +21,10 @@ export default function PageWrapper({ children }: Props) {
         animate="enter"
         exit="exit"
         variants={variants}
-        transition={{ type: 'linear' }}
+        transition={{ type: "linear" }}
       >
         {children}
       </motion.main>
     </AnimatePresence>
-  )
+  );
 }
