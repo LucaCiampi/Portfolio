@@ -18,10 +18,18 @@ interface Props {
 
 const getThemeString = (isDark: boolean): string => (isDark ? "dark" : "light");
 
-const darkModeUserPreference = (): boolean =>
-  (localStorage && localStorage.theme === "dark") ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches);
+const darkModeUserPreference = (): boolean => {
+  if (typeof localStorage !== "undefined") {
+    return (
+      (localStorage && localStorage.theme === "dark") ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+  } else {
+    console.log("No user dark mode preference found");
+    return false;
+  }
+};
 
 export const TimeProvider = ({ children }: Props) => {
   const [currentTime, setCurrentTime] = useState(new Date());
