@@ -1,7 +1,6 @@
 "use client";
 
 import educationData from "json/education.json";
-import Wax from "public/images/wax.svg";
 
 export default function Education() {
   return (
@@ -13,9 +12,7 @@ export default function Education() {
           <div>{education.location}</div>
           <div>{education.description}</div>
           <div>{education.distinction}</div>
-          <div className="w-8 wax">
-            <Wax />
-          </div>
+          <div className="w-8 wax"></div>
         </div>
       ))}
     </div>

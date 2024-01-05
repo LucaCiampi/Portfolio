@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import React from "react";
 import { LayoutGroup } from "framer-motion";
+import { TimeContext } from "./TimeContext";
 
 import NoScrollLink from "@/components/NoScrollLink";
 import DarkModeToggle from "@/components/DarkModeToggle";
@@ -26,6 +27,11 @@ const revealingHeaderScrollThreshold = 100;
 const Header = () => {
   const [mobilenavToggled, setMobilenavToggled] = useState(false);
   const [revealingHeader, setRevealingHeader] = useState(false);
+
+  // TODO: remove auto time check in this component, place it at entrance of website
+  const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
+  const [villageStatus, setVillageStatus] = useState("is awake");
+  const [villageAction, setVillageAction] = useState("Go to bed");
 
   const handleNaviconClick = () => {
     setMobilenavToggled((current) => !current);
