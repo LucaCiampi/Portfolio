@@ -4,10 +4,10 @@ interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
   className?: string;
   title?: string;
+  isTitleRight?: boolean;
   id?: string;
   backgroundImage?: string;
   fullscreen?: boolean;
-  noRow?: boolean;
 }
 
 const Section = forwardRef<HTMLElement, Props>(
@@ -16,10 +16,10 @@ const Section = forwardRef<HTMLElement, Props>(
       children,
       className,
       title,
+      isTitleRight,
       id,
       backgroundImage,
       fullscreen,
-      noRow,
       ...rest
     },
     ref
@@ -51,10 +51,25 @@ const Section = forwardRef<HTMLElement, Props>(
 
     return (
       <section ref={ref} {...sectionProps}>
-        <div className={noRow ? "" : "row"}>
-          {title && <h2 className="h2">{title}</h2>}
-          {children}
-        </div>
+        {title && (
+          <div className="relative">
+            <div
+              className={`absolute top-1/2 px-4 ${
+                isTitleRight ? "left-full" : "right-full"
+              }`}
+            >
+              ........................
+            </div>
+            <h2
+              className={`text-brown text-[96px] font-playfair-display ${
+                isTitleRight ? "ml-auto" : ""
+              }`}
+            >
+              {title}
+            </h2>
+          </div>
+        )}
+        {children}
       </section>
     );
   }

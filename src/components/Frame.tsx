@@ -26,13 +26,12 @@ const Frame = ({ children, className, borderStyle, onClick }: Props) => {
 
     case BorderStyles.double:
       return (
-        <div
-          onClick={onClick}
-          className={`relative inline-block ${className || ""}`}
-        >
-          <div className="absolute -left-2 -top-2 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>
-          <div className="absolute -left-0 -top-0 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>
-          {children}
+        <div onClick={onClick} className={`inline-block ${className || ""}`}>
+          <div className="relative">
+            <div className="absolute -left-2 -top-2 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>
+            <div className="absolute -left-0 -top-0 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>
+            {children}
+          </div>
         </div>
       );
 

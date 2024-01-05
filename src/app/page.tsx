@@ -60,14 +60,22 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section>
-        <Frame borderStyle={BorderStyles.solid}>
-          <Image src={FacadeImage} alt="Façade from Lyon" width={335} />
-        </Frame>
-        <Frame borderStyle={BorderStyles.double}>
-          <Image src={WaterImage} alt="Water" />
-        </Frame>
-        <div className="relative w-[440px] aspect-square pattern-1">
+      <Section className="flex items-center gap-11 pt-24">
+        <div className="relative flex h-[650px] grow">
+          <Frame
+            borderStyle={BorderStyles.double}
+            className="absolute -left-4 top-0"
+          >
+            <Image src={WaterImage} alt="Water" />
+          </Frame>
+          <Frame
+            borderStyle={BorderStyles.solid}
+            className="absolute bottom-0 right-0"
+          >
+            <Image src={FacadeImage} alt="Façade from Lyon" width={335} />
+          </Frame>
+        </div>
+        <div className="relative w-[448px] h-[480px] pattern-1">
           <h1 className="font-allison text-[128px] text-brown -ml-4">
             Luca Ciampi
           </h1>
