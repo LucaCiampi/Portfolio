@@ -31,7 +31,7 @@ const Section = forwardRef<HTMLElement, Props>(
         .replace(/[\u0300-\u036f]/g, "");
     }
 
-    let classNames = "section";
+    let classNames = "relative";
     if (!fullscreen) {
       classNames += " xl:container mx-auto";
     }

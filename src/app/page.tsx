@@ -9,6 +9,7 @@ import FacadeImage from "public/images/facade.jpg";
 import WaterImage from "public/images/water.jpg";
 
 import Heading from "@/components/Heading";
+import Frame, { BorderStyles } from "@/components/Frame";
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -59,10 +60,22 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section fullscreen>
-        <Image src={FacadeImage} alt="Façade from Lyon" />
-        <Image src={WaterImage} alt="Water" />
-        <div className="w-[440px] aspect-square pattern-1 font-allison"></div>
+      <Section>
+        <Frame borderStyle={BorderStyles.solid}>
+          <Image src={FacadeImage} alt="Façade from Lyon" width={335} />
+        </Frame>
+        <Frame borderStyle={BorderStyles.double}>
+          <Image src={WaterImage} alt="Water" />
+        </Frame>
+        <div className="relative w-[440px] aspect-square pattern-1">
+          <h1 className="font-allison text-[128px] text-brown -ml-4">
+            Luca Ciampi
+          </h1>
+          <div className="text-[64px] leading-[76px] ml-4 font-abril-fatface text-brown">
+            Front end <br />
+            <span className="font-playfair-display">Developer</span>
+          </div>
+        </div>
       </Section>
       <Section ref={handleSectionRef("Éducation")} title="Éducation">
         <Education />

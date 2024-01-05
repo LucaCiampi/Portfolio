@@ -16,6 +16,7 @@ module.exports = {
         yellow: "#FEEEB5",
         grey: "#E8F1F7",
         orange: "#F75D3B",
+        outline: "#060606",
       },
       fontFamily: {
         "abril-fatface": ["var(--font-abril-fatface)"],
