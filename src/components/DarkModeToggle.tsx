@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { TimeContext } from "./TimeContext";
 
+import Image from "next/image";
+
 const DarkModeToggle = (): JSX.Element => {
   const { darkMode, toggleDarkMode } = useContext(TimeContext);
 
@@ -18,7 +20,16 @@ const DarkModeToggle = (): JSX.Element => {
         exit={{ y: 20, opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-        {darkMode ? "🌙" : "🌤️"}
+        {darkMode ? (
+          "🌙"
+        ) : (
+          <Image
+            src="/images/dark-mode.svg"
+            width={28}
+            height={28}
+            alt="Dark mode off"
+          />
+        )}
       </motion.button>
     </AnimatePresence>
   );

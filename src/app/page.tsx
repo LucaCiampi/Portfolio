@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Section from "@/components/Section";
 import Education from "./education";
 import PageWrapper from "./page-wrapper";
+import Image from "next/image";
+import FacadeImage from "public/images/facade.jpg";
+import WaterImage from "public/images/water.jpg";
 
 import Heading from "@/components/Heading";
 
@@ -56,7 +59,11 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section fullscreen noRow></Section>
+      <Section fullscreen>
+        <Image src={FacadeImage} alt="Façade from Lyon" />
+        <Image src={WaterImage} alt="Water" />
+        <div className="w-[440px] aspect-square pattern-1 font-allison"></div>
+      </Section>
       <Section ref={handleSectionRef("Éducation")} title="Éducation">
         <Education />
       </Section>

@@ -1,6 +1,6 @@
 import { TimeProvider } from "@/components/TimeContext";
 import { Metadata } from "next";
-import { Playfair_Display, Abril_Fatface } from "next/font/google";
+import { Playfair_Display, Abril_Fatface, Allison } from "next/font/google";
 import Header from "@/components/Header";
 import Image from "next/image";
 
@@ -22,6 +22,13 @@ const playfair_display = Playfair_Display({
   display: "swap",
 });
 
+const allison = Allison({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-allison",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Luca Ciampi",
@@ -40,7 +47,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <TimeProvider>
         <body
-          className={`${abril_fatface.variable} ${playfair_display.variable}`}
+          className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background`}
         >
           <Header />
           {children}

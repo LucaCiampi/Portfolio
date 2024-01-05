@@ -7,7 +7,6 @@ interface Props extends HTMLAttributes<HTMLElement> {
   id?: string;
   backgroundImage?: string;
   fullscreen?: boolean;
-  innerPadding?: boolean;
   noRow?: boolean;
 }
 
@@ -20,7 +19,6 @@ const Section = forwardRef<HTMLElement, Props>(
       id,
       backgroundImage,
       fullscreen,
-      innerPadding,
       noRow,
       ...rest
     },
@@ -34,11 +32,8 @@ const Section = forwardRef<HTMLElement, Props>(
     }
 
     let classNames = "section";
-    if (fullscreen) {
-      classNames += " fullscreen";
-    }
-    if (innerPadding) {
-      classNames += " innerpadding";
+    if (!fullscreen) {
+      classNames += " xl:container mx-auto";
     }
     if (className) {
       classNames += " " + className;

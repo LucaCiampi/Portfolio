@@ -53,14 +53,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-30 left-0 top-0 w-full p-4 ${
+      className={`fixed z-30 left-0 top-0 w-full p-4 bg-background bg-opacity-80 border-b-[1px] border-brown ${
         revealingHeader ? "bg-green-light" : ""
       }`}
     >
-      <div className="flex items-center justify-between">
+      <div className="xl:container mx-auto flex justify-between relative">
         <LayoutGroup>
-          <nav className="hidden lg:block">
-            <ul className="flex gap-6">
+          <nav className="hidden lg:block font-semibold">
+            <ul className="flex gap-8">
               {links.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ""}`}>
                   <NoScrollLink href={href}>
@@ -83,6 +83,9 @@ const Header = () => {
               ))}
             </ul>
           </nav>
+          <div className="absolute flex w-full justify-center z-10">
+            | {formatTime(currentTime)} |
+          </div>
           <DarkModeToggle />
         </LayoutGroup>
         <div className="block lg:hidden" onClick={handleNaviconClick}>
@@ -91,6 +94,14 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+const formatTime = (date: Date) => {
+  return date.toLocaleTimeString([], {
+    hour12: true,
+    hour: "numeric",
+    minute: "numeric",
+  });
 };
 
 export default Header;
