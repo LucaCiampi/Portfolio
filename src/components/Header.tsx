@@ -46,11 +46,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed z-30 right-0">
-      <div className="flex">
+    <header
+      className={`fixed z-30 left-0 top-0 w-full p-4 ${
+        revealingHeader ? "bg-green-light" : ""
+      }`}
+    >
+      <div className="flex items-center justify-between">
         <LayoutGroup>
-          <nav>
-            <ul className="flex">
+          <nav className="hidden lg:block">
+            <ul className="flex gap-6">
               {links.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ""}`}>
                   <NoScrollLink href={href}>
@@ -75,7 +79,7 @@ const Header = () => {
           </nav>
           <DarkModeToggle />
         </LayoutGroup>
-        <div className="block xl:hidden" onClick={handleNaviconClick}>
+        <div className="block lg:hidden" onClick={handleNaviconClick}>
           <span>nav icon here</span>
         </div>
       </div>
