@@ -6,6 +6,7 @@ import projectsData from "json/projects.json";
 import Link from "next/link";
 import Button from "@/components/Button";
 import React from "react";
+import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 
 type Project = {
   title: string;
@@ -200,6 +201,17 @@ export default function WorkSection() {
     [projectsDisplayed]
   );
 
+  const isPresent = useIsPresent();
+  const animations = {
+    style: {
+      position: isPresent ? "static" : "absolute",
+    },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { type: "spring", stiffness: 900, damping: 40 },
+  };
+
   return (
     <div>
       <div className="sticky top-0 bg-grey flex z-20 p-2">
@@ -221,38 +233,38 @@ export default function WorkSection() {
         </div>
       </div>
       <div className="mt-8 overflow-hidden">
-        {Object.keys(groupedProjects)
-          .sort()
-          .reverse()
-          .map((year) => (
-            <div
-              key={year}
-              className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-12"
-            >
-              <h3>{year}</h3>
-              <div className="grid grid-cols-2 w-full gap-4">
-                {groupedProjects[Number(year)].map((project: Project) => (
-                  <Link href={`/projects/${project.slug}`} key={project.slug}>
-                    <div
-                      className="project cursor-none relative w-[400px] h-[250px]"
-                      onMouseEnter={handleProjectMouseEnter}
-                      onMouseLeave={handleProjectMouseLeave}
-                      onMouseDown={handleProjectMouseDown}
-                    >
-                      {project.title}
-                      <Image
-                        src={`images/projects/${project.slug}/${project.thumbnail}`}
-                        alt={project.title}
-                        width={9}
-                        height={16}
-                        layout="responsive"
-                      />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
+        <AnimatePresence>
+          {Object.keys(groupedProjects)
+            .sort()
+            .reverse()
+            .map((year) => (
+              <AnimatedYearGroupDiv year={year} key={year}>
+                <h3>{year}</h3>
+                <div className="grid grid-cols-2 w-full gap-4">
+                  {groupedProjects[Number(year)].map((project: Project) => (
+                    <Link href={`/projects/${project.slug}`} key={project.slug}>
+                      <div
+                        className="project cursor-none relative w-[400px] h-[250px]"
+                        onMouseEnter={handleProjectMouseEnter}
+                        onMouseLeave={handleProjectMouseLeave}
+                        onMouseDown={handleProjectMouseDown}
+                        // {...animations}
+                      >
+                        {project.title}
+                        <Image
+                          src={`images/projects/${project.slug}/${project.thumbnail}`}
+                          alt={project.title}
+                          width={9}
+                          height={16}
+                          layout="responsive"
+                        />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </AnimatedYearGroupDiv>
+            ))}
+        </AnimatePresence>
       </div>
       <div
         ref={customPointerRef}
@@ -263,6 +275,29 @@ export default function WorkSection() {
     </div>
   );
 }
+
+const AnimatedYearGroupDiv = ({ year, children }) => {
+  const isPresent = useIsPresent();
+  const animations = {
+    style: {
+      position: isPresent ? "static" : "absolute",
+    },
+    initial: { scale: 0, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    exit: { scale: 0, opacity: 0 },
+    transition: { type: "spring", stiffness: 900, damping: 40 },
+  };
+
+  return (
+    <motion.div
+      className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-12"
+      {...animations}
+      key={year}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 function getProjectsByTechnology(technologies: string[]) {
   return projectsData.filter((project) =>
