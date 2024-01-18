@@ -48,26 +48,26 @@ const Section = forwardRef<HTMLElement, Props>(
 
     return (
       <section ref={ref} {...sectionProps}>
-        <div className={fullscreen ? "" : "xl:container mx-auto"}>
-          {title && (
-            <div className="relative">
-              <div
-                className={`absolute top-1/2 px-4 ${
-                  isTitleRight ? "left-full" : "right-full"
-                }`}
-              >
-                ........................
-              </div>
-              <h2
-                className={`text-brown text-[96px] font-playfair-display ${
-                  isTitleRight ? "text-right" : ""
-                }`}
-              >
-                {title}
-              </h2>
+        {title && (
+          <div
+            className={`relative${fullscreen ? "" : " xl:container mx-auto"}`}
+          >
+            <div
+              className={`absolute top-1/2 px-4 ${
+                isTitleRight ? "left-full" : "right-full"
+              }`}
+            >
+              ........................
             </div>
-          )}
-        </div>
+            <h2
+              className={`text-brown text-[96px] font-playfair-display ${
+                isTitleRight ? "text-right" : ""
+              }`}
+            >
+              {title}
+            </h2>
+          </div>
+        )}
         <div className={fullscreen ? "" : "xl:container mx-auto"}>
           {children}
         </div>
