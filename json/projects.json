@@ -25,7 +25,7 @@
         "description": "School project",
         "date": 2022,
         "slug": "poesie-urbaine",
-        "thumbnail": "poesie-urbaine.jpg",
+        "thumbnail": "poesie-urbaine-vertical.jpg",
         "content": "mon contenu",
         "technos": ["Unity", "C#", "AR Foundation"],
         "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
@@ -36,6 +36,15 @@
                 "credits": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
             }
         ]
+    },
+    {
+        "title": "PRISMA Conseil",
+        "description": "School project",
+        "date": 2019,
+        "slug": "prisma-conseil",
+        "thumbnail": "eds.webp",
+        "content": "mon contenu",
+        "technos": ["PHP", "Wordpress", "JavaScript"]
     },
     {
         "title": "PRISMA Conseil",

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import Image from "next/image";
 import projectsData from "json/projects.json";
 import Link from "next/link";
 import Button from "@/components/Button";
+import React from "react";
 
 type Project = {
   title: string;
@@ -24,72 +25,60 @@ type Project = {
   }[];
 };
 
+const FilterButton = React.memo(({ techno, activeFilters, onClick }) => (
+  <Button
+    className={`mr-3 ${
+      activeFilters.includes(techno) ? "olive text-white" : ""
+    }`}
+    onClick={() => onClick(techno)}
+  >
+    {techno}
+  </Button>
+));
+
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [projectsDisplayed, setProjectsDisplayed] = useState(() =>
     getProjectsByTechnology(activeFilters)
   );
-
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
-    const handleMouseMove = (event: any) => {
+    const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
-
       document.querySelectorAll(".project").forEach((project) => {
-        // Calculez les positions cibles pour chaque projet
         const factorX = Number(project.getAttribute("data-factor-x"));
         const factorY = Number(project.getAttribute("data-factor-y"));
-
         const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
         const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
-
         project.setAttribute("data-l-follow-x", String(lFollowX));
         project.setAttribute("data-l-follow-y", String(lFollowY));
       });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    initializeProjects();
 
-    animateGlide();
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  });
-
-  // Générer des facteurs aléatoires pour chaque projet
-  document.querySelectorAll(".project").forEach((project) => {
-    project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
-    project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
-  });
   const friction = 0.1;
-  const animateGlide = () => {
+  const animateGlide = useCallback(() => {
     document.querySelectorAll(".project").forEach((project) => {
       let x = Number(project.getAttribute("data-x"));
       let y = Number(project.getAttribute("data-y"));
-
       const lFollowX = Number(project.getAttribute("data-l-follow-x"));
       const lFollowY = Number(project.getAttribute("data-l-follow-y"));
-
       x += (lFollowX - x) * friction;
       y += (lFollowY - y) * friction;
-
-      console.log(lFollowX);
-
       project.setAttribute("data-x", String(x));
       project.setAttribute("data-y", String(y));
-
       const translate = `translate(${x}px, ${y}px)`;
-
       project.style.transform = translate;
     });
-
     requestAnimationFrame(animateGlide);
-  };
-
-  // ... le reste du composant ...
+  }, []);
 
   /**
    * Sets up filters
@@ -114,87 +103,103 @@ export default function WorkSection() {
     const query = filtersParam ? `?${filtersParam}` : "";
     const url = `${window.location.pathname}${query}`;
     window.history.pushState({ path: url }, "", url);
+
+    setTimeout(() => {
+      initializeProjects();
+    }, 50);
   }, [activeFilters]);
 
   /**
-   * Retrieves the eventual list of active filters when visiting the page
-   * @returns {string | null} the list of filters
+   * Sets up the properties to move the projects according to mouse movements
    */
-  function getFiltersParamFromURL(): string | null {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    return urlParams.get("filters");
-  }
+  const initializeProjects = () => {
+    console.log("initializeprojects");
+
+    document.querySelectorAll(".project").forEach((project) => {
+      // Définir des facteurs aléatoires pour chaque projet
+      project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
+      project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
+
+      // Réinitialiser les valeurs pour l'animation
+      project.setAttribute("data-x", "0");
+      project.setAttribute("data-y", "0");
+      project.setAttribute("data-l-follow-x", "0");
+      project.setAttribute("data-l-follow-y", "0");
+
+      // Ajouter tout autre gestionnaire d'événements ou attributs nécessaires ici
+    });
+
+    // Si votre animation de glissement est dans une fonction séparée, appelez-la ici
+    animateGlide();
+  };
 
   /**
    * When the user clicks on a filter, adds the element to the active filters list
    */
-  function handleFilterClick(techno: string): void {
-    setActiveFilters((prevFilters) => {
-      if (prevFilters.includes(techno)) {
-        return prevFilters.filter((prevFilter) => prevFilter !== techno);
-      } else {
-        return [...prevFilters, techno];
-      }
-    });
-  }
+  const handleFilterClick = useCallback((techno: string): void => {
+    setActiveFilters((prevFilters) =>
+      prevFilters.includes(techno)
+        ? prevFilters.filter((prevFilter) => prevFilter !== techno)
+        : [...prevFilters, techno]
+    );
+  }, []);
 
   /**
    * Resets all filters
    */
-  function handleFilterResetClick(): void {
+  const handleFilterResetClick = useCallback((): void => {
     setActiveFilters([]);
-  }
-
-  /**
-   * Adds event listener when mouse enters project
-   */
-  function handleProjectMouseEnter(
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ): void {
-    const project = event.target as HTMLElement;
-
-    const customPointer = customPointerRef.current;
-    customPointer.classList.remove("invisible");
-
-    project.addEventListener("mousemove", handleProjectMouseMove);
-  }
+  }, []);
 
   /**
    * Moves the custom pointer according to real pointer position
    */
-  function handleProjectMouseMove(event: MouseEvent): void {
+  const handleProjectMouseMove = useCallback((event: MouseEvent): void => {
     const customPointer = customPointerRef.current;
+    customPointer.style.left = `${event.pageX}px`;
+    customPointer.style.top = `${event.pageY}px`;
+  }, []);
 
-    customPointer.style.left = event.pageX + "px";
-    customPointer.style.top = event.pageY + "px";
-  }
+  /**
+   * Adds event listener when mouse enters project
+   */
+  const handleProjectMouseEnter = useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+      const project = event.currentTarget;
+      const customPointer = customPointerRef.current;
+      customPointer.classList.remove("invisible");
+      project.addEventListener("mousemove", handleProjectMouseMove);
+    },
+    [handleProjectMouseMove]
+  );
 
   /**
    * Removes the event listener on project mouse leave
    */
-  function handleProjectMouseLeave(
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ): void {
-    const project = event.target as HTMLElement;
-
-    const customPointer = customPointerRef.current;
-
-    customPointer.classList.add("invisible");
-
-    project.removeEventListener("mousemove", handleProjectMouseMove);
-  }
+  const handleProjectMouseLeave = useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+      const project = event.currentTarget;
+      const customPointer = customPointerRef.current;
+      customPointer.classList.add("invisible");
+      project.removeEventListener("mousemove", handleProjectMouseMove);
+    },
+    [handleProjectMouseMove]
+  );
 
   /**
    * Animation on custom pointer when clicking
    */
-  function handleProjectMouseDown(): void {
-    customPointerRef.current.classList.remove("bg-amber-400");
-    customPointerRef.current.classList.add("bg-lime-400");
-  }
+  const handleProjectMouseDown = useCallback((): void => {
+    const customPointer = customPointerRef.current;
+    customPointer.classList.remove("bg-amber-400");
+    customPointer.classList.add("bg-lime-400");
+  }, []);
 
-  const groupedProjects: { [year: number]: Project[] } =
-    groupProjectsByYear(projectsDisplayed);
+  const groupedProjects = useMemo(
+    () => groupProjectsByYear(projectsDisplayed),
+    [projectsDisplayed]
+  );
+
   return (
     <div>
       <div className="sticky top-0 bg-grey flex z-20 p-2">
@@ -238,7 +243,9 @@ export default function WorkSection() {
                       <Image
                         src={`images/projects/${project.slug}/${project.thumbnail}`}
                         alt={project.title}
-                        fill
+                        width={9}
+                        height={16}
+                        layout="responsive"
                       />
                     </div>
                   </Link>
@@ -274,4 +281,14 @@ function groupProjectsByYear(projects: Project[]): {
     acc[year].push(project);
     return acc;
   }, {});
+}
+
+/**
+ * Retrieves the eventual list of active filters when visiting the page
+ * @returns {string | null} the list of filters
+ */
+function getFiltersParamFromURL(): string | null {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get("filters");
 }
