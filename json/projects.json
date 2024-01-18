@@ -2,7 +2,7 @@
     {
         "title": "Le roi du silence",
         "description": "School project",
-        "date": "2023",
+        "date": 2023,
         "slug": "roi-du-silence",
         "thumbnail": "logo.png",
         "content": "mon contenu",
@@ -13,7 +13,7 @@
     {
         "title": "Étoiles du sport",
         "description": "School project",
-        "date": "2022",
+        "date": 2022,
         "slug": "eds",
         "thumbnail": "eds.webp",
         "content": "mon contenu2",
@@ -23,7 +23,7 @@
     {
         "title": "Poésie urbaine",
         "description": "School project",
-        "date": "2022",
+        "date": 2022,
         "slug": "poesie-urbaine",
         "thumbnail": "poesie-urbaine.jpg",
         "content": "mon contenu",
@@ -40,7 +40,7 @@
     {
         "title": "PRISMA Conseil",
         "description": "School project",
-        "date": "2019",
+        "date": 2019,
         "slug": "prisma-conseil",
         "thumbnail": "eds.webp",
         "content": "mon contenu",
@@ -49,7 +49,7 @@
     {
         "title": "E.S.A.T \"Le Monthoux\"",
         "description": "School project",
-        "date": "2018",
+        "date": 2018,
         "slug": "esat-le-monthoux",
         "thumbnail": "eds.webp",
         "content": "mon contenu",
@@ -58,7 +58,7 @@
     {
         "title": "Animateam",
         "description": "School project",
-        "date": "2017",
+        "date": 2017,
         "slug": "animateam",
         "thumbnail": "1.jpg",
         "content": "mon contenu",

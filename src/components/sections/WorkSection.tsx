@@ -6,6 +6,24 @@ import projectsData from "json/projects.json";
 import Link from "next/link";
 import Button from "@/components/Button";
 
+type Project = {
+  title: string;
+  description: string;
+  date: number;
+  slug: string;
+  thumbnail: string;
+  content: string;
+  technos: string[];
+  url?: string;
+  repo?: string;
+  company?: string;
+  media?: {
+    type: string;
+    url: string;
+    credits?: string;
+  }[];
+};
+
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -117,11 +135,13 @@ export default function WorkSection() {
     customPointerRef.current.classList.add("bg-lime-400");
   }
 
+  const groupedProjects: { [year: number]: Project[] } =
+    groupProjectsByYear(projectsDisplayed);
   return (
     <div>
-      <div className="sticky top-0 bg-grey flex z-20">
-        <div className="absolute bg-grey h-full w-full right-full"></div>
-        <div className="absolute bg-grey h-full w-full left-full"></div>
+      <div className="sticky top-0 bg-grey flex z-20 p-2">
+        <div className="absolute bg-grey h-full w-full right-full top-0"></div>
+        <div className="absolute bg-grey h-full w-full left-full top-0"></div>
         {technosFilters.map((techno) => (
           <Button
             key={techno}
@@ -133,26 +153,41 @@ export default function WorkSection() {
             {techno}
           </Button>
         ))}
-        <div onClick={handleFilterResetClick}>Clear filters</div>
+        <div className="cursor-pointer" onClick={handleFilterResetClick}>
+          Clear filters
+        </div>
       </div>
-      <div className="grid grid-cols-3">
-        {projectsDisplayed.map((project) => (
-          <Link href={`/projects/${project.slug}`} key={project.slug}>
+      <div className="mt-8">
+        {Object.keys(groupedProjects)
+          .sort()
+          .reverse()
+          .map((year) => (
             <div
-              className="cursor-none relative w-[400px] h-[250px]"
-              onMouseEnter={handleProjectMouseEnter}
-              onMouseLeave={handleProjectMouseLeave}
-              onMouseDown={handleProjectMouseDown}
+              key={year}
+              className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-4"
             >
-              {project.title}
-              <Image
-                src={`images/projects/${project.slug}/${project.thumbnail}`}
-                alt={project.title}
-                fill
-              />
+              <h3>{year}</h3>
+              <div className="grid grid-cols-2">
+                {groupedProjects[Number(year)].map((project: Project) => (
+                  <Link href={`/projects/${project.slug}`} key={project.slug}>
+                    <div
+                      className="cursor-none relative w-[400px] h-[250px]"
+                      onMouseEnter={handleProjectMouseEnter}
+                      onMouseLeave={handleProjectMouseLeave}
+                      onMouseDown={handleProjectMouseDown}
+                    >
+                      {project.title}
+                      <Image
+                        src={`images/projects/${project.slug}/${project.thumbnail}`}
+                        alt={project.title}
+                        fill
+                      />
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </Link>
-        ))}
+          ))}
       </div>
       <div
         ref={customPointerRef}
@@ -168,4 +203,17 @@ function getProjectsByTechnology(technologies: string[]) {
   return projectsData.filter((project) =>
     technologies.every((technology) => project.technos.includes(technology))
   );
+}
+
+function groupProjectsByYear(projects: Project[]): {
+  [year: number]: Project[];
+} {
+  return projects.reduce((acc: { [year: number]: Project[] }, project) => {
+    const year = project.date;
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(project);
+    return acc;
+  }, {});
 }
