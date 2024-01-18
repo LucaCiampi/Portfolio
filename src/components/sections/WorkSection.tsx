@@ -164,10 +164,10 @@ export default function WorkSection() {
           .map((year) => (
             <div
               key={year}
-              className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-4"
+              className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-12"
             >
               <h3>{year}</h3>
-              <div className="grid grid-cols-2">
+              <div className="grid grid-cols-2 w-full gap-4">
                 {groupedProjects[Number(year)].map((project: Project) => (
                   <Link href={`/projects/${project.slug}`} key={project.slug}>
                     <div
