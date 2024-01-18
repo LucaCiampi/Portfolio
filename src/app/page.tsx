@@ -10,6 +10,7 @@ import WaterImage from "public/images/water.jpg";
 
 import Heading from "@/components/Heading";
 import Frame, { BorderStyles } from "@/components/Frame";
+import WorkSection from "@/components/sections/WorkSection";
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -85,7 +86,14 @@ export default function Page() {
           </div>
         </div>
       </Section>
-      <Section ref={handleSectionRef("Éducation")} title="Éducation">
+      <Section ref={handleSectionRef("Work")} title="Work">
+        <WorkSection />
+      </Section>
+      <Section
+        ref={handleSectionRef("Education")}
+        title="Education"
+        isTitleRight
+      >
         <Education />
       </Section>
       <Heading level={"h2"} className="yess">

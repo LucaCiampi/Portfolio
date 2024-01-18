@@ -25,8 +25,8 @@ const DarkModeToggle = (): JSX.Element => {
         ) : (
           <Image
             src="/images/dark-mode.svg"
-            width={28}
-            height={28}
+            width={20}
+            height={20}
             alt="Dark mode off"
           />
         )}

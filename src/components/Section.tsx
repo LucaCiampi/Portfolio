@@ -31,10 +31,7 @@ const Section = forwardRef<HTMLElement, Props>(
         .replace(/[\u0300-\u036f]/g, "");
     }
 
-    let classNames = "relative";
-    if (!fullscreen) {
-      classNames += " xl:container mx-auto";
-    }
+    let classNames = "overflow-x-hidden";
     if (className) {
       classNames += " " + className;
     }
@@ -51,25 +48,29 @@ const Section = forwardRef<HTMLElement, Props>(
 
     return (
       <section ref={ref} {...sectionProps}>
-        {title && (
-          <div className="relative">
-            <div
-              className={`absolute top-1/2 px-4 ${
-                isTitleRight ? "left-full" : "right-full"
-              }`}
-            >
-              ........................
+        <div className={fullscreen ? "" : "xl:container mx-auto"}>
+          {title && (
+            <div className="relative">
+              <div
+                className={`absolute top-1/2 px-4 ${
+                  isTitleRight ? "left-full" : "right-full"
+                }`}
+              >
+                ........................
+              </div>
+              <h2
+                className={`text-brown text-[96px] font-playfair-display ${
+                  isTitleRight ? "text-right" : ""
+                }`}
+              >
+                {title}
+              </h2>
             </div>
-            <h2
-              className={`text-brown text-[96px] font-playfair-display ${
-                isTitleRight ? "ml-auto" : ""
-              }`}
-            >
-              {title}
-            </h2>
-          </div>
-        )}
-        {children}
+          )}
+        </div>
+        <div className={fullscreen ? "" : "xl:container mx-auto"}>
+          {children}
+        </div>
       </section>
     );
   }

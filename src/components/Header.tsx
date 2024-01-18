@@ -53,7 +53,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-30 left-0 top-0 w-full p-4 bg-background bg-opacity-80 border-b-[1px] border-brown ${
+      className={`fixed z-30 left-0 top-0 w-full p-3 bg-background bg-opacity-80 border-b-[1px] border-brown ${
         revealingHeader ? "bg-green-light" : ""
       }`}
     >

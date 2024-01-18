@@ -2,12 +2,9 @@ import { TimeProvider } from "@/components/TimeContext";
 import { Metadata } from "next";
 import { Playfair_Display, Abril_Fatface, Allison } from "next/font/google";
 import Header from "@/components/Header";
-import Image from "next/image";
 
 import "./globals.css";
 import "@/styles/globals.scss";
-
-import Background from "public/images/paper.jpg";
 
 const abril_fatface = Abril_Fatface({
   subsets: ["latin"],
@@ -32,7 +29,7 @@ const allison = Allison({
 export const metadata: Metadata = {
   title: {
     template: "%s | Luca Ciampi",
-    default: "Luca Ciampi", // a default is required when creating a template
+    default: "Luca Ciampi",
   },
   description: "Portfolio de Luca Ciampi",
   // TODO: add default og image
