@@ -33,6 +33,64 @@ export default function WorkSection() {
 
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
+  useEffect(() => {
+    const handleMouseMove = (event: any) => {
+      const { clientX, clientY } = event;
+
+      document.querySelectorAll(".project").forEach((project) => {
+        // Calculez les positions cibles pour chaque projet
+        const factorX = Number(project.getAttribute("data-factor-x"));
+        const factorY = Number(project.getAttribute("data-factor-y"));
+
+        const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
+        const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
+
+        project.setAttribute("data-l-follow-x", String(lFollowX));
+        project.setAttribute("data-l-follow-y", String(lFollowY));
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    animateGlide();
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  });
+
+  // Générer des facteurs aléatoires pour chaque projet
+  document.querySelectorAll(".project").forEach((project) => {
+    project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
+    project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
+  });
+  const friction = 0.1;
+  const animateGlide = () => {
+    document.querySelectorAll(".project").forEach((project) => {
+      let x = Number(project.getAttribute("data-x"));
+      let y = Number(project.getAttribute("data-y"));
+
+      const lFollowX = Number(project.getAttribute("data-l-follow-x"));
+      const lFollowY = Number(project.getAttribute("data-l-follow-y"));
+
+      x += (lFollowX - x) * friction;
+      y += (lFollowY - y) * friction;
+
+      console.log(lFollowX);
+
+      project.setAttribute("data-x", String(x));
+      project.setAttribute("data-y", String(y));
+
+      const translate = `translate(${x}px, ${y}px)`;
+
+      project.style.transform = translate;
+    });
+
+    requestAnimationFrame(animateGlide);
+  };
+
+  // ... le reste du composant ...
+
   /**
    * Sets up filters
    */
@@ -157,7 +215,7 @@ export default function WorkSection() {
           Clear filters
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-8 overflow-hidden">
         {Object.keys(groupedProjects)
           .sort()
           .reverse()
@@ -171,7 +229,7 @@ export default function WorkSection() {
                 {groupedProjects[Number(year)].map((project: Project) => (
                   <Link href={`/projects/${project.slug}`} key={project.slug}>
                     <div
-                      className="cursor-none relative w-[400px] h-[250px]"
+                      className="project cursor-none relative w-[400px] h-[250px]"
                       onMouseEnter={handleProjectMouseEnter}
                       onMouseLeave={handleProjectMouseLeave}
                       onMouseDown={handleProjectMouseDown}
