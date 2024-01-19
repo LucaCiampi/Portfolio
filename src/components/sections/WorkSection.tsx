@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
-import Image from "next/image";
 import projectsData from "json/projects.json";
-import Link from "next/link";
-import Button from "@/components/Button";
 import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
-import { Action } from "lottie-react";
 import CrossIcon from "public/images/cross.svg";
 
 export default function WorkSection() {
@@ -21,6 +17,9 @@ export default function WorkSection() {
   const [isRotating, setIsRotating] = useState(false);
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
+  /**
+   * OnMount
+   */
   useEffect(() => {
     console.log("useEffect[]");
 
@@ -40,10 +39,6 @@ export default function WorkSection() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const animateGlide = useCallback(() => {
-    glideProjects(animateGlide);
-  }, []);
-
   /**
    * Updates the project displayed according to active filters
    */
@@ -58,6 +53,13 @@ export default function WorkSection() {
   useEffect(() => {
     initializeProjects(animateGlide);
   }, [projectsDisplayed]);
+
+  /**
+   * Recursive function to animate the projects gliding movement
+   */
+  const animateGlide = useCallback(() => {
+    glideProjects(animateGlide);
+  }, []);
 
   /**
    * When the user clicks on a filter, adds the element to the active filters list
@@ -203,42 +205,22 @@ export default function WorkSection() {
   );
 }
 
-const AnimatedYearGroupDiv = ({ year, children }: any) => {
-  const isPresent = useIsPresent();
-  const animations = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: {
-      opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
-    },
-    // transition: {
-    //   type: "spring",
-    //   stiffness: 900,
-    //   damping: 40,
-    // },
-  };
-
-  return (
-    <motion.div
-      className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-12"
-      {...animations}
-      layout
-      key={year}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-function getProjectsByTechnology(technologies: string[]) {
+/**
+ * Returns projects if they include all of the technologies passed as parameter
+ * @param technologies List of technologies as string
+ * @returns Array of projects containing all of the technologies
+ */
+function getProjectsByTechnology(technologies: string[]): Array<Project> {
   return projectsData.filter((project) =>
     technologies.every((technology) => project.technos.includes(technology))
   );
 }
 
+/**
+ * Returns projects grouped by year
+ * @param projects the array of visible projects
+ * @returns Array of projects grouped by year (number)
+ */
 function groupProjectsByYear(projects: Project[]): {
   [year: number]: Project[];
 } {
@@ -274,6 +256,9 @@ function updateFiltersToURL(activeFilters: Array<String>): void {
   window.history.pushState({ path: url }, "", url);
 }
 
+/**
+ * Handles the movement of the mouse (on all of the DOM)
+ */
 const handleMouseMove = (event: MouseEvent) => {
   const { clientX, clientY } = event;
   document.querySelectorAll(".project").forEach((project) => {
@@ -288,6 +273,9 @@ const handleMouseMove = (event: MouseEvent) => {
   console.log("HandleMouseMove");
 };
 
+/**
+ * Makes the projects move with a gliding effect
+ */
 const friction = 0.1;
 function glideProjects(animateGlide: FrameRequestCallback) {
   document.querySelectorAll(".project").forEach((project) => {
@@ -300,7 +288,9 @@ function glideProjects(animateGlide: FrameRequestCallback) {
     project.setAttribute("data-x", String(x));
     project.setAttribute("data-y", String(y));
     const translate = `translate(${x}px, ${y}px)`;
-    project.style.transform = translate;
+    if (project instanceof HTMLElement) {
+      project.style.transform = translate;
+    }
   });
   requestAnimationFrame(animateGlide);
 

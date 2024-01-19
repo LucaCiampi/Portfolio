@@ -30,15 +30,10 @@ export type Project = {
 };
 
 const ProjectItem = ({ project }: Props) => {
-  const isPresent = useIsPresent();
   const animations = {
-    style: {
-      position: isPresent ? "static" : "absolute",
-    },
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     exit: { opacity: 0 },
-    // transition: { type: "spring", stiffness: 900, damping: 40 },
   };
 
   return (
