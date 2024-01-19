@@ -29,6 +29,20 @@
         }
     },
     {
+        "title": "Étoiles du sport 2",
+        "description": "School project",
+        "date": 2022,
+        "slug": "eds",
+        "thumbnail": "eds.webp",
+        "content": "mon contenu2",
+        "technos": ["Next.js", "React.js"],
+        "company": "mooxy",
+        "layout": {
+            "orientation": "horizontal",
+            "design": 3
+        }
+    },
+    {
         "title": "Poésie urbaine",
         "description": "School project",
         "date": 2022,

@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
-import Image from "next/image";
 import projectsData from "json/projects.json";
-import Link from "next/link";
-import Button from "@/components/Button";
 import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
-import { Action } from "lottie-react";
 import CrossIcon from "public/images/cross.svg";
 
 export default function WorkSection() {
@@ -123,11 +119,6 @@ export default function WorkSection() {
     customPointer.classList.add("bg-lime-400");
   }, []);
 
-  const groupedProjects = useMemo(
-    () => groupProjectsByYear(projectsDisplayed),
-    [projectsDisplayed]
-  );
-
   return (
     <div>
       <div className="sticky text-white top-0 bg-grey flex gap-2 z-20 p-2">
@@ -150,16 +141,42 @@ export default function WorkSection() {
         </div>
       </div>
       <div className="mt-8 overflow-hidden">
-        <AnimatePresence>
-          {Object.keys(groupedProjects)
-            .sort()
-            .reverse()
-            .map((year) => (
-              <AnimatedYearGroupDiv year={year} key={year}>
-                <h3>{year}</h3>
-                <div className="grid grid-cols-2 w-full gap-16">
-                  <AnimatePresence>
-                    {groupedProjects[Number(year)].map((project: Project) => (
+        <div className="grid grid-cols-2 w-full gap-16 border-l-2 border-black border-dashed relative">
+          <AnimatePresence>
+            {projectsDisplayed
+              .sort((a, b) => a.date - b.date)
+              .reverse()
+              .reduce<React.ReactNode[]>((acc, project, index, array) => {
+                // Ajoutez ici le type <React.ReactNode[]> pour l'accumulateur
+                const projectDate = project.date;
+                const lastDate = index > 0 ? array[index - 1].date : null;
+
+                if (projectDate !== lastDate) {
+                  acc.push(
+                    <div className="relative">
+                      <motion.div>
+                        <div
+                          className="project p-12"
+                          onMouseEnter={handleProjectMouseEnter}
+                          onMouseLeave={handleProjectMouseLeave}
+                          onMouseDown={handleProjectMouseDown}
+                          key={project.title}
+                        >
+                          <ProjectItem project={project} />
+                          mo
+                        </div>
+                      </motion.div>
+                      <div
+                        className="absolute -left-fulltop-0"
+                        key={`delimiter-${projectDate}`}
+                      >
+                        {projectDate}
+                      </div>
+                    </div>
+                  );
+                } else {
+                  acc.push(
+                    <motion.div>
                       <div
                         className="project p-12"
                         onMouseEnter={handleProjectMouseEnter}
@@ -169,12 +186,14 @@ export default function WorkSection() {
                       >
                         <ProjectItem project={project} />
                       </div>
-                    ))}
-                  </AnimatePresence>
-                </div>
-              </AnimatedYearGroupDiv>
-            ))}
-        </AnimatePresence>
+                    </motion.div>
+                  );
+                }
+
+                return acc;
+              }, [])}
+          </AnimatePresence>
+        </div>
       </div>
       <div
         ref={customPointerRef}
@@ -220,19 +239,6 @@ function getProjectsByTechnology(technologies: string[]) {
   return projectsData.filter((project) =>
     technologies.every((technology) => project.technos.includes(technology))
   );
-}
-
-function groupProjectsByYear(projects: Project[]): {
-  [year: number]: Project[];
-} {
-  return projects.reduce((acc: { [year: number]: Project[] }, project) => {
-    const year = project.date;
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(project);
-    return acc;
-  }, {});
 }
 
 /**
