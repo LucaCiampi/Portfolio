@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import projectsData from "json/projects.json";
 import React from "react";
-import { AnimatePresence, motion, useIsPresent } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
 import CrossIcon from "public/images/cross.svg";
@@ -164,7 +164,7 @@ export default function WorkSection() {
           className="cursor-pointer flex gap-2 items-center"
           onClick={handleFilterResetClick}
         >
-          <div className={isRotating ? "rotate-180" : ""}>
+          <div className={isRotating ? "rotate-360" : ""}>
             <CrossIcon />
           </div>
           Clear filters
