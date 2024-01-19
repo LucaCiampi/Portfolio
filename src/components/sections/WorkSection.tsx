@@ -8,26 +8,7 @@ import Button from "@/components/Button";
 import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
-
-interface FilterButtonProps {
-  key: string;
-  techno: string;
-  activeFilters: string[];
-  onClick: (techno: string) => void;
-}
-
-const FilterButton: React.FC<FilterButtonProps> = React.memo(
-  ({ techno, activeFilters, onClick }) => (
-    <Button
-      className={`mr-3 ${
-        activeFilters.includes(techno) ? "olive text-white" : ""
-      }`}
-      onClick={() => onClick(techno)}
-    >
-      {techno}
-    </Button>
-  )
-);
+import FilterButton from "../FilterButton";
 
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
