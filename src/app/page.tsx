@@ -11,6 +11,7 @@ import WaterImage from "public/images/water.jpg";
 import Heading from "@/components/Heading";
 import Frame, { BorderStyles } from "@/components/Frame";
 import WorkSection from "@/components/sections/WorkSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -96,9 +97,12 @@ export default function Page() {
       >
         <Education />
       </Section>
-      <Heading level={"h2"} className="yess">
-        coucou
-      </Heading>
+      <Section title="Contact">
+        <Heading level={"h2"} className="yess">
+          coucou
+        </Heading>
+        <ContactSection />
+      </Section>
     </PageWrapper>
   );
 }

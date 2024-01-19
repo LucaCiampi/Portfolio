@@ -96,7 +96,7 @@ export default function Page({ params }: Props) {
         )}
         {project.media && project.media.length > 0 && renderMedia()}
       </article>
-      <LinkButton href="/projects">Back to projects</LinkButton>
+      <LinkButton href="/">Go back</LinkButton>
     </PageWrapper>
   );
 }
