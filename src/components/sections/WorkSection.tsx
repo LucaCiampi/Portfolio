@@ -9,6 +9,7 @@ import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
+import { Action } from "lottie-react";
 
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
@@ -19,45 +20,9 @@ export default function WorkSection() {
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      const { clientX, clientY } = event;
-      document.querySelectorAll(".project").forEach((project) => {
-        const factorX = Number(project.getAttribute("data-factor-x"));
-        const factorY = Number(project.getAttribute("data-factor-y"));
-        const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
-        const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
-        project.setAttribute("data-l-follow-x", String(lFollowX));
-        project.setAttribute("data-l-follow-y", String(lFollowY));
-      });
-    };
+    console.log("useEffect[]");
 
-    window.addEventListener("mousemove", handleMouseMove);
-    initializeProjects();
-
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  const friction = 0.1;
-  const animateGlide = useCallback(() => {
-    document.querySelectorAll(".project").forEach((project) => {
-      let x = Number(project.getAttribute("data-x"));
-      let y = Number(project.getAttribute("data-y"));
-      const lFollowX = Number(project.getAttribute("data-l-follow-x"));
-      const lFollowY = Number(project.getAttribute("data-l-follow-y"));
-      x += (lFollowX - x) * friction;
-      y += (lFollowY - y) * friction;
-      project.setAttribute("data-x", String(x));
-      project.setAttribute("data-y", String(y));
-      const translate = `translate(${x}px, ${y}px)`;
-      project.style.transform = translate;
-    });
-    requestAnimationFrame(animateGlide);
-  }, []);
-
-  /**
-   * Sets up filters
-   */
-  useEffect(() => {
+    // Sets active filters from URL
     const filtersParam = getFiltersParamFromURL();
     if (filtersParam) {
       const filters = filtersParam
@@ -65,6 +30,16 @@ export default function WorkSection() {
         .map((filter) => decodeURIComponent(filter));
       setActiveFilters(filters);
     }
+
+    // Adds movement to projects according to mouse
+    window.addEventListener("mousemove", handleMouseMove);
+    initializeProjects(animateGlide);
+
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const animateGlide = useCallback(() => {
+    glideProjects(animateGlide);
   }, []);
 
   /**
@@ -72,45 +47,14 @@ export default function WorkSection() {
    */
   useEffect(() => {
     setProjectsDisplayed(getProjectsByTechnology(activeFilters));
-    const filtersParam =
-      activeFilters.length > 0 ? `filters=${activeFilters.join(",")}` : "";
-    const query = filtersParam ? `?${filtersParam}` : "";
-    const url = `${window.location.pathname}${query}`;
-    window.history.pushState({ path: url }, "", url);
-
-    setTimeout(() => {
-      initializeProjects();
-    }, 50);
+    updateFiltersToURL(activeFilters);
   }, [activeFilters]);
-
-  /**
-   * Sets up the properties to move the projects according to mouse movements
-   */
-  const initializeProjects = () => {
-    console.log("initializeprojects");
-
-    document.querySelectorAll(".project").forEach((project) => {
-      // Définir des facteurs aléatoires pour chaque projet
-      project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
-      project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
-
-      // Réinitialiser les valeurs pour l'animation
-      project.setAttribute("data-x", "0");
-      project.setAttribute("data-y", "0");
-      project.setAttribute("data-l-follow-x", "0");
-      project.setAttribute("data-l-follow-y", "0");
-
-      // Ajouter tout autre gestionnaire d'événements ou attributs nécessaires ici
-    });
-
-    // Si votre animation de glissement est dans une fonction séparée, appelez-la ici
-    animateGlide();
-  };
 
   /**
    * When the user clicks on a filter, adds the element to the active filters list
    */
   const handleFilterClick = useCallback((techno: string): void => {
+    console.log("handleFilterClick");
     setActiveFilters((prevFilters) =>
       prevFilters.includes(techno)
         ? prevFilters.filter((prevFilter) => prevFilter !== techno)
@@ -122,6 +66,7 @@ export default function WorkSection() {
    * Resets all filters
    */
   const handleFilterResetClick = useCallback((): void => {
+    console.log("handleFilterResetClick");
     setActiveFilters([]);
   }, []);
 
@@ -129,6 +74,7 @@ export default function WorkSection() {
    * Moves the custom pointer according to real pointer position
    */
   const handleProjectMouseMove = useCallback((event: MouseEvent): void => {
+    console.log("handleProjectMouseMove");
     const customPointer = customPointerRef.current;
     customPointer.style.left = `${event.pageX}px`;
     customPointer.style.top = `${event.pageY}px`;
@@ -242,7 +188,7 @@ export default function WorkSection() {
   );
 }
 
-const AnimatedYearGroupDiv = ({ year, children }) => {
+const AnimatedYearGroupDiv = ({ year, children }: any) => {
   const isPresent = useIsPresent();
   const animations = {
     initial: { opacity: 0 },
@@ -300,3 +246,72 @@ function getFiltersParamFromURL(): string | null {
   const urlParams = new URLSearchParams(queryString);
   return urlParams.get("filters");
 }
+
+/**
+ * Puts the active filters in the URL
+ * @param activeFilters the array of active filters in the useState
+ */
+function updateFiltersToURL(activeFilters: Array<String>): void {
+  const filtersParam =
+    activeFilters.length > 0 ? `filters=${activeFilters.join(",")}` : "";
+  const query = filtersParam ? `?${filtersParam}` : "";
+  const url = `${window.location.pathname}${query}`;
+  window.history.pushState({ path: url }, "", url);
+}
+
+const handleMouseMove = (event: MouseEvent) => {
+  const { clientX, clientY } = event;
+  document.querySelectorAll(".project").forEach((project) => {
+    const factorX = Number(project.getAttribute("data-factor-x"));
+    const factorY = Number(project.getAttribute("data-factor-y"));
+    const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
+    const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
+    project.setAttribute("data-l-follow-x", String(lFollowX));
+    project.setAttribute("data-l-follow-y", String(lFollowY));
+  });
+
+  console.log("HandleMouseMove");
+};
+
+const friction = 0.1;
+function glideProjects(animateGlide: FrameRequestCallback) {
+  document.querySelectorAll(".project").forEach((project) => {
+    let x = Number(project.getAttribute("data-x"));
+    let y = Number(project.getAttribute("data-y"));
+    const lFollowX = Number(project.getAttribute("data-l-follow-x"));
+    const lFollowY = Number(project.getAttribute("data-l-follow-y"));
+    x += (lFollowX - x) * friction;
+    y += (lFollowY - y) * friction;
+    project.setAttribute("data-x", String(x));
+    project.setAttribute("data-y", String(y));
+    const translate = `translate(${x}px, ${y}px)`;
+    project.style.transform = translate;
+  });
+  requestAnimationFrame(animateGlide);
+
+  console.log("GLIDE projects");
+}
+
+/**
+ * Sets up the properties to move the projects according to mouse movements
+ */
+const initializeProjects = (animateGlide: FrameRequestCallback) => {
+  console.log("initializeprojects");
+
+  document.querySelectorAll(".project").forEach((project) => {
+    // Définir des facteurs aléatoires pour chaque projet
+    project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
+    project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
+
+    // Réinitialiser les valeurs pour l'animation
+    project.setAttribute("data-x", "0");
+    project.setAttribute("data-y", "0");
+    project.setAttribute("data-l-follow-x", "0");
+    project.setAttribute("data-l-follow-y", "0");
+
+    // Ajouter tout autre gestionnaire d'événements ou attributs nécessaires ici
+  });
+
+  // Si votre animation de glissement est dans une fonction séparée, appelez-la ici
+  animateGlide(1);
+};
