@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "@/components/Button";
-import Image from "next/image";
 import CheckMarkContour from "public/images/checkmark-contour.svg";
 import CheckMark from "public/images/checkmark.svg";
 
@@ -20,10 +19,8 @@ const FilterButton: React.FC<Props> = React.memo(
     >
       <div className="relative">
         <CheckMarkContour />
-        {activeFilters.includes(techno) ? (
-          <CheckMark className="absolute top-0 left-1" />
-        ) : (
-          <></>
+        {activeFilters.includes(techno) && (
+          <CheckMark className="absolute top-[2px] left-1 draw-animation" />
         )}
       </div>
       {techno}
