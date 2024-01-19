@@ -63,19 +63,6 @@
         }
     },
     {
-        "title": "PRISMA Conseil",
-        "description": "School project",
-        "date": 2019,
-        "slug": "prisma-conseil",
-        "thumbnail": "eds.webp",
-        "content": "mon contenu",
-        "technos": ["PHP", "Wordpress", "JavaScript"],
-        "layout": {
-            "orientation": "horizontal",
-            "design": 1
-        }
-    },
-    {
         "title": "E.S.A.T \"Le Monthoux\"",
         "description": "School project",
         "date": 2018,

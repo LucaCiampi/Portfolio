@@ -41,8 +41,6 @@ const ProjectItem = ({ project }: Props) => {
     // transition: { type: "spring", stiffness: 900, damping: 40 },
   };
 
-  console.log(project);
-
   return (
     <motion.div {...animations} layout>
       <Link
@@ -56,6 +54,7 @@ const ProjectItem = ({ project }: Props) => {
             alt={project.title}
             width={project.layout?.orientation == "horizontal" ? 9 : 16}
             height={project.layout?.orientation == "horizontal" ? 16 : 9}
+            // TODO: remove layout (deprecated)
             layout="responsive"
           />
         </ProjectItemFrame>
@@ -114,7 +113,19 @@ const ProjectItemFrame = ({ project, children }: ProjectItemFrameProps) => {
       );
 
     default:
-      return null;
+      return (
+        <div className="relative">
+          <div className="absolute -left-10 -top-10 w-full -bottom-10 bg-background-darker -z-10">
+            <div className="absolute top-0 left-0 w-3/4 h-5/6 pattern-2"></div>
+          </div>
+          <Frame borderStyle={BorderStyles.solid}>{children}</Frame>
+          <div className="mt-12 mb-4 flex gap-2 items-end">
+            <h3 className="text-xl font-bold">{project?.title}</h3>
+            <div className="text-sm">{project?.technos.join(", ")}</div>
+          </div>
+          <hr />
+        </div>
+      );
   }
 };
 

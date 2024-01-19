@@ -161,7 +161,7 @@ export default function WorkSection() {
                   <AnimatePresence>
                     {groupedProjects[Number(year)].map((project: Project) => (
                       <div
-                        className="project"
+                        className="project p-12"
                         onMouseEnter={handleProjectMouseEnter}
                         onMouseLeave={handleProjectMouseLeave}
                         onMouseDown={handleProjectMouseDown}
