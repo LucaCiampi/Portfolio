@@ -168,7 +168,7 @@ export default function WorkSection() {
           <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
             {allProjects.map(({ title, year, globalIndex }) => (
               <div
-                className={`project p-12 relative ${
+                className={`project h-fit m-12 relative ${
                   globalIndex % 2 === 0 ? "left-column" : "right-column"
                 }`}
                 onMouseEnter={handleProjectMouseEnter}
