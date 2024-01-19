@@ -51,6 +51,13 @@ export default function WorkSection() {
   }, [activeFilters]);
 
   /**
+   * Reinitializes projects movements on new display
+   */
+  useEffect(() => {
+    initializeProjects(animateGlide);
+  }, [projectsDisplayed]);
+
+  /**
    * When the user clicks on a filter, adds the element to the active filters list
    */
   const handleFilterClick = useCallback((techno: string): void => {
