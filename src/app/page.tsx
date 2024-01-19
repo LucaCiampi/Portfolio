@@ -87,7 +87,7 @@ export default function Page() {
           </div>
         </div>
       </Section>
-      <Section ref={handleSectionRef("Work")} title="Work">
+      <Section ref={handleSectionRef("Work")} title="Work" fullscreen>
         <WorkSection />
       </Section>
       <Section

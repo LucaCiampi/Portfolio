@@ -31,7 +31,7 @@ const Section = forwardRef<HTMLElement, Props>(
         .replace(/[\u0300-\u036f]/g, "");
     }
 
-    let classNames = "overflow-x-hidden";
+    let classNames = "";
     if (className) {
       classNames += " " + className;
     }
@@ -49,9 +49,7 @@ const Section = forwardRef<HTMLElement, Props>(
     return (
       <section ref={ref} {...sectionProps}>
         {title && (
-          <div
-            className={`relative${fullscreen ? "" : " xl:container mx-auto"}`}
-          >
+          <div className="relative xl:container mx-auto z-20">
             <div
               className={`absolute top-1/2 px-4 ${
                 isTitleRight ? "left-full" : "right-full"

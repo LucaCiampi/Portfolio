@@ -148,60 +148,62 @@ export default function WorkSection() {
   }, [groupedProjects]);
 
   return (
-    <div>
-      <div className="sticky text-white top-0 bg-grey flex gap-2 z-20 p-2">
-        <div className="absolute bg-grey h-full w-full right-full top-0"></div>
-        <div className="absolute bg-grey h-full w-full left-full top-0"></div>
-        {technosFilters.map((techno) => (
-          <FilterButton
-            key={techno}
-            techno={techno}
-            activeFilters={activeFilters}
-            onClick={handleFilterClick}
-          />
-        ))}
-        <div
-          className="cursor-pointer flex gap-2 items-center"
-          onClick={handleFilterResetClick}
-        >
-          <div className={isRotating ? "rotate-360" : ""}>
-            <CrossIcon />
+    <>
+      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-8 w-screen">
+        <div className="xl:container mx-auto flex gap-2 py-2">
+          {technosFilters.map((techno) => (
+            <FilterButton
+              key={techno}
+              techno={techno}
+              activeFilters={activeFilters}
+              onClick={handleFilterClick}
+            />
+          ))}
+          <div
+            className="cursor-pointer flex gap-2 items-center"
+            onClick={handleFilterResetClick}
+          >
+            <div className={isRotating ? "rotate-360" : ""}>
+              <CrossIcon />
+            </div>
+            Clear filters
           </div>
-          Clear filters
         </div>
       </div>
-      <div className="mt-8 overflow-hidden border-dashed border-l-2 border-text">
-        <AnimatePresence>
-          <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
-            {allProjects.map(({ title, year, globalIndex }) => (
-              <div
-                className={`project h-fit m-12 relative ${
-                  globalIndex % 2 === 0 ? "left-column" : "right-column"
-                }`}
-                onMouseEnter={handleProjectMouseEnter}
-                onMouseLeave={handleProjectMouseLeave}
-                onMouseDown={handleProjectMouseDown}
-                key={title}
-              >
-                {globalIndex === 0 ||
-                allProjects[globalIndex - 1].year !== year ? (
-                  <div key={year} className="year-header absolute">
-                    {year}
-                  </div>
-                ) : null}
-                <ProjectItem project={allProjects[globalIndex]} />
-              </div>
-            ))}
-          </div>
-        </AnimatePresence>
+      <div className="xl:container mx-auto">
+        <div className="mt-8 border-dashed border-l-2 border-text overflow-x-clip">
+          <AnimatePresence>
+            <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
+              {allProjects.map(({ title, year, globalIndex }) => (
+                <div
+                  className={`project h-fit m-12 relative ${
+                    globalIndex % 2 === 0 ? "left-column" : "right-column"
+                  }`}
+                  onMouseEnter={handleProjectMouseEnter}
+                  onMouseLeave={handleProjectMouseLeave}
+                  onMouseDown={handleProjectMouseDown}
+                  key={title}
+                >
+                  {globalIndex === 0 ||
+                  allProjects[globalIndex - 1].year !== year ? (
+                    <div key={year} className="year-header absolute">
+                      {year}
+                    </div>
+                  ) : null}
+                  <ProjectItem project={allProjects[globalIndex]} />
+                </div>
+              ))}
+            </div>
+          </AnimatePresence>
+        </div>
+        <div
+          ref={customPointerRef}
+          className="custom-pointer invisible bg-amber-400"
+        >
+          See details
+        </div>
       </div>
-      <div
-        ref={customPointerRef}
-        className="custom-pointer invisible bg-amber-400"
-      >
-        See details
-      </div>
-    </div>
+    </>
   );
 }
 
