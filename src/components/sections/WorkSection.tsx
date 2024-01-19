@@ -241,26 +241,36 @@ export default function WorkSection() {
               <AnimatedYearGroupDiv year={year} key={year}>
                 <h3>{year}</h3>
                 <div className="grid grid-cols-2 w-full gap-4">
-                  {groupedProjects[Number(year)].map((project: Project) => (
-                    <Link href={`/projects/${project.slug}`} key={project.slug}>
-                      <div
-                        className="project cursor-none relative w-[400px] h-[250px]"
-                        onMouseEnter={handleProjectMouseEnter}
-                        onMouseLeave={handleProjectMouseLeave}
-                        onMouseDown={handleProjectMouseDown}
-                        // {...animations}
+                  <AnimatePresence>
+                    {groupedProjects[Number(year)].map((project: Project) => (
+                      <AnimatedProjectDiv
+                        year={project.title}
+                        key={project.title}
                       >
-                        {project.title}
-                        <Image
-                          src={`images/projects/${project.slug}/${project.thumbnail}`}
-                          alt={project.title}
-                          width={9}
-                          height={16}
-                          layout="responsive"
-                        />
-                      </div>
-                    </Link>
-                  ))}
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          key={project.slug}
+                        >
+                          <div
+                            className="project cursor-none relative w-[400px] h-[250px]"
+                            onMouseEnter={handleProjectMouseEnter}
+                            onMouseLeave={handleProjectMouseLeave}
+                            onMouseDown={handleProjectMouseDown}
+                            // {...animations}
+                          >
+                            {project.title}
+                            <Image
+                              src={`images/projects/${project.slug}/${project.thumbnail}`}
+                              alt={project.title}
+                              width={9}
+                              height={16}
+                              layout="responsive"
+                            />
+                          </div>
+                        </Link>
+                      </AnimatedProjectDiv>
+                    ))}
+                  </AnimatePresence>
                 </div>
               </AnimatedYearGroupDiv>
             ))}
@@ -279,21 +289,47 @@ export default function WorkSection() {
 const AnimatedYearGroupDiv = ({ year, children }) => {
   const isPresent = useIsPresent();
   const animations = {
-    style: {
-      position: isPresent ? "static" : "absolute",
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
     },
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 900, damping: 40 },
+    // transition: {
+    //   type: "spring",
+    //   stiffness: 900,
+    //   damping: 40,
+    // },
   };
 
   return (
     <motion.div
       className="relative border-l-2 border-l-black pl-4 border-dashed pt-4 flex gap-12"
       {...animations}
+      layout
       key={year}
     >
+      {children}
+    </motion.div>
+  );
+};
+
+const AnimatedProjectDiv = ({ title, children }) => {
+  const isPresent = useIsPresent();
+  const animations = {
+    style: {
+      position: isPresent ? "static" : "absolute",
+    },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    // transition: { type: "spring", stiffness: 900, damping: 40 },
+  };
+
+  return (
+    <motion.div {...animations} layout key={title}>
       {children}
     </motion.div>
   );
