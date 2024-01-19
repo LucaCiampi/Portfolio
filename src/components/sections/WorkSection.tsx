@@ -160,29 +160,15 @@ export default function WorkSection() {
                 <div className="grid grid-cols-2 w-full gap-4">
                   <AnimatePresence>
                     {groupedProjects[Number(year)].map((project: Project) => (
-                      <ProjectItem key={project.title} project={project}>
-                        <Link
-                          href={`/projects/${project.slug}`}
-                          key={project.slug}
-                        >
-                          <div
-                            className="project cursor-none relative w-[400px] h-[250px]"
-                            onMouseEnter={handleProjectMouseEnter}
-                            onMouseLeave={handleProjectMouseLeave}
-                            onMouseDown={handleProjectMouseDown}
-                            // {...animations}
-                          >
-                            {project.title}
-                            <Image
-                              src={`images/projects/${project.slug}/${project.thumbnail}`}
-                              alt={project.title}
-                              width={9}
-                              height={16}
-                              layout="responsive"
-                            />
-                          </div>
-                        </Link>
-                      </ProjectItem>
+                      <div
+                        className="project"
+                        onMouseEnter={handleProjectMouseEnter}
+                        onMouseLeave={handleProjectMouseLeave}
+                        onMouseDown={handleProjectMouseDown}
+                        key={project.title}
+                      >
+                        <ProjectItem project={project} />
+                      </div>
                     ))}
                   </AnimatePresence>
                 </div>

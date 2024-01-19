@@ -1,4 +1,6 @@
 import { motion, useIsPresent } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   children?: React.ReactNode;
@@ -23,6 +25,10 @@ export type Project = {
     url: string;
     credits?: string;
   }[];
+  layout?: {
+    orientation: string;
+    design: number;
+  };
 };
 
 const ProjectItem = ({ children, className, onClick, project }: Props) => {
@@ -39,7 +45,20 @@ const ProjectItem = ({ children, className, onClick, project }: Props) => {
 
   return (
     <motion.div {...animations} layout>
-      {children}
+      <Link
+        href={`/projects/${project.slug}`}
+        key={project.slug}
+        className="cursor-none"
+      >
+        {project.title}
+        <Image
+          src={`images/projects/${project.slug}/${project.thumbnail}`}
+          alt={project.title}
+          width={project.layout?.orientation == "horizontal" ? 9 : 16}
+          height={project.layout?.orientation == "horizontal" ? 16 : 9}
+          layout="responsive"
+        />
+      </Link>
     </motion.div>
   );
 };

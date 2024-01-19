@@ -8,7 +8,11 @@
         "content": "mon contenu",
         "technos": ["Three.js", "Firebase"],
         "url": "https://roi-du-silence.netlify.app/",
-        "repo": ""
+        "repo": "",
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "Étoiles du sport",
@@ -18,7 +22,11 @@
         "thumbnail": "eds.webp",
         "content": "mon contenu2",
         "technos": ["Next.js", "React.js"],
-        "company": "mooxy"
+        "company": "mooxy",
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "Poésie urbaine",
@@ -35,7 +43,11 @@
                 "url": "poesie-urbaine-trailer.mp4",
                 "credits": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
             }
-        ]
+        ],
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "PRISMA Conseil",
@@ -44,7 +56,11 @@
         "slug": "prisma-conseil",
         "thumbnail": "eds.webp",
         "content": "mon contenu",
-        "technos": ["PHP", "Wordpress", "JavaScript"]
+        "technos": ["PHP", "Wordpress", "JavaScript"],
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "PRISMA Conseil",
@@ -53,7 +69,11 @@
         "slug": "prisma-conseil",
         "thumbnail": "eds.webp",
         "content": "mon contenu",
-        "technos": ["PHP", "Wordpress", "JavaScript"]
+        "technos": ["PHP", "Wordpress", "JavaScript"],
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "E.S.A.T \"Le Monthoux\"",
@@ -62,7 +82,11 @@
         "slug": "esat-le-monthoux",
         "thumbnail": "eds.webp",
         "content": "mon contenu",
-        "technos": ["CSS", "JavaScript"]
+        "technos": ["CSS", "JavaScript"],
+        "layout": {
+            "orientation": "horizontal",
+            "design": 1
+        }
     },
     {
         "title": "Animateam",
