@@ -157,7 +157,7 @@ export default function WorkSection() {
             .map((year) => (
               <AnimatedYearGroupDiv year={year} key={year}>
                 <h3>{year}</h3>
-                <div className="grid grid-cols-2 w-full gap-4">
+                <div className="grid grid-cols-2 w-full gap-16">
                   <AnimatePresence>
                     {groupedProjects[Number(year)].map((project: Project) => (
                       <div

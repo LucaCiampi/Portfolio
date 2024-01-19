@@ -74,7 +74,7 @@ const ProjectItemFrame = ({ project, children }: ProjectItemFrameProps) => {
     case 1:
       return (
         <div className="relative">
-          <div className="absolute -left-20 -top-20 w-full -bottom-20 bg-background-darker -z-10">
+          <div className="absolute -left-10 -top-10 w-full -bottom-10 bg-background-darker -z-10">
             <div className="absolute top-0 left-0 w-3/4 h-5/6 pattern-2"></div>
           </div>
           <Frame borderStyle={BorderStyles.solid}>{children}</Frame>
@@ -88,13 +88,16 @@ const ProjectItemFrame = ({ project, children }: ProjectItemFrameProps) => {
 
     case 2:
       return (
-        <div className="bg-marine text-white p-8">
-          {children}
-          <div className="mt-12 mb-4 flex gap-2 items-end">
+        <div className="relative">
+          <div className="absolute -left-6 top-6 w-full -bottom-6 bg-background-darker -z-10">
+            <div className="absolute top-0 left-0 w-3/4 h-5/6 pattern-2"></div>
+          </div>
+          <Frame borderStyle={BorderStyles.solid}>{children}</Frame>
+          <hr className="my-6" />
+          <div className="flex gap-2 items-end">
             <h3 className="text-xl font-bold">{project.title}</h3>
             <div className="text-sm">{project.technos.join(", ")}</div>
           </div>
-          <hr />
         </div>
       );
 
@@ -106,7 +109,7 @@ const ProjectItemFrame = ({ project, children }: ProjectItemFrameProps) => {
             <h3 className="text-xl font-bold">{project.title}</h3>
             <div className="text-sm">{project.technos.join(", ")}</div>
           </div>
-          <hr />
+          <hr className="border-white" />
         </div>
       );
 
