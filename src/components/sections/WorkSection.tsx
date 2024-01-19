@@ -10,6 +10,7 @@ import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
 import { Action } from "lottie-react";
+import CrossIcon from "public/images/cross.svg";
 
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
@@ -129,7 +130,7 @@ export default function WorkSection() {
 
   return (
     <div>
-      <div className="sticky top-0 bg-grey flex z-20 p-2">
+      <div className="sticky text-white top-0 bg-grey flex gap-2 z-20 p-2">
         <div className="absolute bg-grey h-full w-full right-full top-0"></div>
         <div className="absolute bg-grey h-full w-full left-full top-0"></div>
         {technosFilters.map((techno) => (
@@ -140,7 +141,11 @@ export default function WorkSection() {
             onClick={handleFilterClick}
           />
         ))}
-        <div className="cursor-pointer" onClick={handleFilterResetClick}>
+        <div
+          className="cursor-pointer flex gap-2 items-center"
+          onClick={handleFilterResetClick}
+        >
+          <CrossIcon />
           Clear filters
         </div>
       </div>

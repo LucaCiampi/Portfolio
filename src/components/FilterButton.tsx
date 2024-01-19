@@ -1,5 +1,8 @@
 import React from "react";
 import Button from "@/components/Button";
+import Image from "next/image";
+import CheckMarkContour from "public/images/checkmark-contour.svg";
+import CheckMark from "public/images/checkmark.svg";
 
 interface Props {
   techno: string;
@@ -10,11 +13,19 @@ interface Props {
 const FilterButton: React.FC<Props> = React.memo(
   ({ techno, activeFilters, onClick }) => (
     <Button
-      className={`mr-3 ${
-        activeFilters.includes(techno) ? "olive text-white" : ""
+      className={`flex gap-2 items-center ${
+        activeFilters.includes(techno) ? "bg-marine" : ""
       }`}
       onClick={() => onClick(techno)}
     >
+      <div className="relative">
+        <CheckMarkContour />
+        {activeFilters.includes(techno) ? (
+          <CheckMark className="absolute top-0 left-1" />
+        ) : (
+          <></>
+        )}
+      </div>
       {techno}
     </Button>
   )
