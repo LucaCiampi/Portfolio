@@ -160,7 +160,7 @@ export default function WorkSection() {
             />
           ))}
           <div
-            className="cursor-pointer flex gap-2 items-center"
+            className="cursor-pointer flex gap-2 items-center ml-4"
             onClick={handleFilterResetClick}
           >
             <div className={isRotating ? "rotate-360" : ""}>
@@ -170,8 +170,8 @@ export default function WorkSection() {
           </div>
         </div>
       </div>
-      <div className="xl:container mx-auto">
-        <div className="mt-8 border-dashed border-l-2 border-text overflow-x-clip">
+      <div className="overflow-x-hidden">
+        <div className="xl:container mx-auto mt-8 border-dashed border-l-2 border-text">
           <AnimatePresence>
             <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (

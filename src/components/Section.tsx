@@ -49,21 +49,19 @@ const Section = forwardRef<HTMLElement, Props>(
     return (
       <section ref={ref} {...sectionProps}>
         {title && (
-          <div className="relative xl:container mx-auto z-20">
+          <div className="overflow-x-hidden w-full">
             <div
-              className={`absolute top-1/2 px-4 ${
-                isTitleRight ? "left-full" : "right-full"
-              }`}
-            >
-              ........................
-            </div>
-            <h2
-              className={`text-brown text-[96px] font-playfair-display ${
+              className={`relative xl:container mx-auto z-20 text-brown ${
                 isTitleRight ? "text-right" : ""
               }`}
             >
-              {title}
-            </h2>
+              <h2 className="text-[96px] font-playfair-display">{title}</h2>
+              <div
+                className={`absolute top-2/3 right-full border-dotted w-full border-b-2 border-text ${
+                  isTitleRight ? "left-full" : "right-full"
+                }`}
+              ></div>
+            </div>
           </div>
         )}
         <div className={fullscreen ? "" : "xl:container mx-auto"}>
