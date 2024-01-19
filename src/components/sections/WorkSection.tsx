@@ -7,24 +7,7 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
-
-type Project = {
-  title: string;
-  description: string;
-  date: number;
-  slug: string;
-  thumbnail: string;
-  content: string;
-  technos: string[];
-  url?: string;
-  repo?: string;
-  company?: string;
-  media?: {
-    type: string;
-    url: string;
-    credits?: string;
-  }[];
-};
+import ProjectItem, { Project } from "../ProjectItem";
 
 const FilterButton = React.memo(({ techno, activeFilters, onClick }) => (
   <Button
@@ -201,17 +184,6 @@ export default function WorkSection() {
     [projectsDisplayed]
   );
 
-  const isPresent = useIsPresent();
-  const animations = {
-    style: {
-      position: isPresent ? "static" : "absolute",
-    },
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-    transition: { type: "spring", stiffness: 900, damping: 40 },
-  };
-
   return (
     <div>
       <div className="sticky top-0 bg-grey flex z-20 p-2">
@@ -243,10 +215,7 @@ export default function WorkSection() {
                 <div className="grid grid-cols-2 w-full gap-4">
                   <AnimatePresence>
                     {groupedProjects[Number(year)].map((project: Project) => (
-                      <AnimatedProjectDiv
-                        year={project.title}
-                        key={project.title}
-                      >
+                      <ProjectItem key={project.title} project={project}>
                         <Link
                           href={`/projects/${project.slug}`}
                           key={project.slug}
@@ -268,7 +237,7 @@ export default function WorkSection() {
                             />
                           </div>
                         </Link>
-                      </AnimatedProjectDiv>
+                      </ProjectItem>
                     ))}
                   </AnimatePresence>
                 </div>
@@ -311,25 +280,6 @@ const AnimatedYearGroupDiv = ({ year, children }) => {
       layout
       key={year}
     >
-      {children}
-    </motion.div>
-  );
-};
-
-const AnimatedProjectDiv = ({ title, children }) => {
-  const isPresent = useIsPresent();
-  const animations = {
-    style: {
-      position: isPresent ? "static" : "absolute",
-    },
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-    // transition: { type: "spring", stiffness: 900, damping: 40 },
-  };
-
-  return (
-    <motion.div {...animations} layout key={title}>
       {children}
     </motion.div>
   );
