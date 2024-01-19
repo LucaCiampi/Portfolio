@@ -38,8 +38,23 @@ export default function WorkSection() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const handleMouseMove = (event: MouseEvent) => {
+    const { clientX, clientY } = event;
+    document.querySelectorAll(".project").forEach((project) => {
+      const factorX = Number(project.getAttribute("data-factor-x"));
+      const factorY = Number(project.getAttribute("data-factor-y"));
+      const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
+      const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
+      project.setAttribute("data-l-follow-x", String(lFollowX));
+      project.setAttribute("data-l-follow-y", String(lFollowY));
+    });
+
+    requestAnimationFrame(animateGlide);
+    console.log("HandleMouseMove");
+  };
+
   const animateGlide = useCallback(() => {
-    glideProjects(animateGlide);
+    glideProjects();
   }, []);
 
   /**
@@ -259,22 +274,8 @@ function updateFiltersToURL(activeFilters: Array<String>): void {
   window.history.pushState({ path: url }, "", url);
 }
 
-const handleMouseMove = (event: MouseEvent) => {
-  const { clientX, clientY } = event;
-  document.querySelectorAll(".project").forEach((project) => {
-    const factorX = Number(project.getAttribute("data-factor-x"));
-    const factorY = Number(project.getAttribute("data-factor-y"));
-    const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
-    const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
-    project.setAttribute("data-l-follow-x", String(lFollowX));
-    project.setAttribute("data-l-follow-y", String(lFollowY));
-  });
-
-  console.log("HandleMouseMove");
-};
-
 const friction = 0.1;
-function glideProjects(animateGlide: FrameRequestCallback) {
+function glideProjects() {
   document.querySelectorAll(".project").forEach((project) => {
     let x = Number(project.getAttribute("data-x"));
     let y = Number(project.getAttribute("data-y"));
@@ -287,7 +288,6 @@ function glideProjects(animateGlide: FrameRequestCallback) {
     const translate = `translate(${x}px, ${y}px)`;
     project.style.transform = translate;
   });
-  requestAnimationFrame(animateGlide);
 
   console.log("GLIDE projects");
 }
