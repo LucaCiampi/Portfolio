@@ -151,29 +151,29 @@ export default function WorkSection() {
       </div>
       <div className="mt-8 overflow-hidden">
         <AnimatePresence>
-          {Object.keys(groupedProjects)
-            .sort()
-            .reverse()
-            .map((year) => (
-              <AnimatedYearGroupDiv year={year} key={year}>
-                <h3>{year}</h3>
-                <div className="grid grid-cols-2 w-full gap-16">
-                  <AnimatePresence>
-                    {groupedProjects[Number(year)].map((project: Project) => (
-                      <div
-                        className="project p-12"
-                        onMouseEnter={handleProjectMouseEnter}
-                        onMouseLeave={handleProjectMouseLeave}
-                        onMouseDown={handleProjectMouseDown}
-                        key={project.title}
-                      >
-                        <ProjectItem project={project} />
+          <div className="grid grid-cols-2 w-full gap-16 border-l-2 border-dashed border-black pl-12">
+            {Object.keys(groupedProjects)
+              .sort()
+              .reverse()
+              .flatMap((year) =>
+                groupedProjects[Number(year)].map((project: Project, index) => (
+                  <div
+                    className="project p-12 relative"
+                    onMouseEnter={handleProjectMouseEnter}
+                    onMouseLeave={handleProjectMouseLeave}
+                    onMouseDown={handleProjectMouseDown}
+                    key={project.title}
+                  >
+                    {index === 0 && (
+                      <div key={year} className="absolute left-0">
+                        {year}
                       </div>
-                    ))}
-                  </AnimatePresence>
-                </div>
-              </AnimatedYearGroupDiv>
-            ))}
+                    )}
+                    <ProjectItem project={project} />
+                  </div>
+                ))
+              )}
+          </div>
         </AnimatePresence>
       </div>
       <div
