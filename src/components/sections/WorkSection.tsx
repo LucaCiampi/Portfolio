@@ -18,6 +18,7 @@ export default function WorkSection() {
   const [projectsDisplayed, setProjectsDisplayed] = useState(() =>
     getProjectsByTechnology(activeFilters)
   );
+  const [isRotating, setIsRotating] = useState(false);
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
@@ -76,6 +77,8 @@ export default function WorkSection() {
   const handleFilterResetClick = useCallback((): void => {
     console.log("handleFilterResetClick");
     setActiveFilters([]);
+    setIsRotating(true);
+    setTimeout(() => setIsRotating(false), 1000);
   }, []);
 
   /**
@@ -159,7 +162,9 @@ export default function WorkSection() {
           className="cursor-pointer flex gap-2 items-center"
           onClick={handleFilterResetClick}
         >
-          <CrossIcon />
+          <div className={isRotating ? "rotate-180" : ""}>
+            <CrossIcon />
+          </div>
           Clear filters
         </div>
       </div>
