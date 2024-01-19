@@ -18,7 +18,7 @@ const Frame = ({ children, className, borderStyle, onClick }: Props) => {
       return (
         <div
           onClick={onClick}
-          className={`border-4 border-grey ${className || ""}`}
+          className={`border border-grey ${className || ""}`}
         >
           {children}
         </div>
