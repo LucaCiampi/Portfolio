@@ -128,6 +128,20 @@ export default function WorkSection() {
     [projectsDisplayed]
   );
 
+  const allProjects = useMemo(() => {
+    let globalIndex = 0;
+    return Object.keys(groupedProjects)
+      .sort()
+      .reverse()
+      .flatMap((year) =>
+        groupedProjects[Number(year)].map((project) => ({
+          ...project,
+          year,
+          globalIndex: globalIndex++,
+        }))
+      );
+  }, [groupedProjects]);
+
   return (
     <div>
       <div className="sticky text-white top-0 bg-grey flex gap-2 z-20 p-2">
@@ -149,30 +163,28 @@ export default function WorkSection() {
           Clear filters
         </div>
       </div>
-      <div className="mt-8 overflow-hidden">
+      <div className="mt-8 overflow-hidden border-dashed border-l-2 border-text">
         <AnimatePresence>
-          <div className="grid grid-cols-2 w-full gap-16 border-l-2 border-dashed border-black pl-12">
-            {Object.keys(groupedProjects)
-              .sort()
-              .reverse()
-              .flatMap((year) =>
-                groupedProjects[Number(year)].map((project: Project, index) => (
-                  <div
-                    className="project p-12 relative"
-                    onMouseEnter={handleProjectMouseEnter}
-                    onMouseLeave={handleProjectMouseLeave}
-                    onMouseDown={handleProjectMouseDown}
-                    key={project.title}
-                  >
-                    {index === 0 && (
-                      <div key={year} className="absolute left-0">
-                        {year}
-                      </div>
-                    )}
-                    <ProjectItem project={project} />
+          <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
+            {allProjects.map(({ title, year, globalIndex }) => (
+              <div
+                className={`project p-12 relative ${
+                  globalIndex % 2 === 0 ? "left-column" : "right-column"
+                }`}
+                onMouseEnter={handleProjectMouseEnter}
+                onMouseLeave={handleProjectMouseLeave}
+                onMouseDown={handleProjectMouseDown}
+                key={title}
+              >
+                {globalIndex === 0 ||
+                allProjects[globalIndex - 1].year !== year ? (
+                  <div key={year} className="year-header absolute">
+                    {year}
                   </div>
-                ))
-              )}
+                ) : null}
+                <ProjectItem project={allProjects[globalIndex]} />
+              </div>
+            ))}
           </div>
         </AnimatePresence>
       </div>
