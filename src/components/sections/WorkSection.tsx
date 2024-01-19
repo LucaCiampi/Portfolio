@@ -9,16 +9,25 @@ import React from "react";
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 
-const FilterButton = React.memo(({ techno, activeFilters, onClick }) => (
-  <Button
-    className={`mr-3 ${
-      activeFilters.includes(techno) ? "olive text-white" : ""
-    }`}
-    onClick={() => onClick(techno)}
-  >
-    {techno}
-  </Button>
-));
+interface FilterButtonProps {
+  key: string;
+  techno: string;
+  activeFilters: string[];
+  onClick: (techno: string) => void;
+}
+
+const FilterButton: React.FC<FilterButtonProps> = React.memo(
+  ({ techno, activeFilters, onClick }) => (
+    <Button
+      className={`mr-3 ${
+        activeFilters.includes(techno) ? "olive text-white" : ""
+      }`}
+      onClick={() => onClick(techno)}
+    >
+      {techno}
+    </Button>
+  )
+);
 
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
@@ -190,15 +199,12 @@ export default function WorkSection() {
         <div className="absolute bg-grey h-full w-full right-full top-0"></div>
         <div className="absolute bg-grey h-full w-full left-full top-0"></div>
         {technosFilters.map((techno) => (
-          <Button
+          <FilterButton
             key={techno}
-            className={`mr-3 ${
-              activeFilters.includes(techno) ? "olive text-white" : ""
-            }`}
-            onClick={() => handleFilterClick(techno)}
-          >
-            {techno}
-          </Button>
+            techno={techno}
+            activeFilters={activeFilters}
+            onClick={handleFilterClick}
+          />
         ))}
         <div className="cursor-pointer" onClick={handleFilterResetClick}>
           Clear filters
