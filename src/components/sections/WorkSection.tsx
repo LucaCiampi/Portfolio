@@ -7,12 +7,14 @@ import { AnimatePresence } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
 import CrossIcon from "public/images/cross.svg";
+import SearchInput from "../SearchInput";
 
 export default function WorkSection() {
   const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [projectsDisplayed, setProjectsDisplayed] = useState(() =>
-    getProjectsByTechnology(activeFilters)
+    getProjectsByTechnologyAndSearchTerm(activeFilters, searchTerm)
   );
   const [isRotating, setIsRotating] = useState(false);
   const customPointerRef = useRef<HTMLDivElement>(null!);
@@ -43,9 +45,11 @@ export default function WorkSection() {
    * Updates the project displayed according to active filters
    */
   useEffect(() => {
-    setProjectsDisplayed(getProjectsByTechnology(activeFilters));
+    setProjectsDisplayed(
+      getProjectsByTechnologyAndSearchTerm(activeFilters, searchTerm)
+    );
     updateFiltersToURL(activeFilters);
-  }, [activeFilters]);
+  }, [activeFilters, searchTerm]);
 
   /**
    * Reinitializes projects movements on new display
@@ -150,24 +154,31 @@ export default function WorkSection() {
   return (
     <>
       <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-8 w-screen">
-        <div className="xl:container mx-auto flex gap-2 py-2">
-          {technosFilters.map((techno) => (
-            <FilterButton
-              key={techno}
-              techno={techno}
-              activeFilters={activeFilters}
-              onClick={handleFilterClick}
-            />
-          ))}
-          <div
-            className="cursor-pointer flex gap-2 items-center ml-4"
-            onClick={handleFilterResetClick}
-          >
-            <div className={isRotating ? "rotate-360" : ""}>
-              <CrossIcon />
+        <div className="xl:container mx-auto flex justify-between gap-4 py-2">
+          <div className="flex gap-2">
+            {technosFilters.map((techno) => (
+              <FilterButton
+                key={techno}
+                techno={techno}
+                activeFilters={activeFilters}
+                onClick={handleFilterClick}
+              />
+            ))}
+            <div
+              className="cursor-pointer flex gap-2 items-center ml-4"
+              onClick={handleFilterResetClick}
+            >
+              <div className={isRotating ? "rotate-360" : ""}>
+                <CrossIcon />
+              </div>
+              Clear filters
             </div>
-            Clear filters
           </div>
+          <SearchInput
+            placeholder="Rechercher un projet..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
       </div>
       <div className="overflow-x-hidden">
@@ -208,13 +219,24 @@ export default function WorkSection() {
 }
 
 /**
- * Returns projects if they include all of the technologies passed as parameter
- * @param technologies List of technologies as string
- * @returns Array of projects containing all of the technologies
+ * Retourne les projets qui correspondent aux technologies et à la chaîne de recherche
+ * @param technologies Liste des technologies
+ * @param searchTerm Chaîne de recherche
+ * @returns Array de projets correspondants
  */
-function getProjectsByTechnology(technologies: string[]): Array<Project> {
-  return projectsData.filter((project) =>
-    technologies.every((technology) => project.technos.includes(technology))
+function getProjectsByTechnologyAndSearchTerm(
+  technologies: string[],
+  searchTerm: string
+): Array<Project> {
+  return projectsData.filter(
+    (project) =>
+      technologies.every((technology) =>
+        project.technos.includes(technology)
+      ) &&
+      (project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.technos.some((techno) =>
+          techno.toLowerCase().includes(searchTerm.toLowerCase())
+        ))
   );
 }
 
