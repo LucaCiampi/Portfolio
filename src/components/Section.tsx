@@ -28,7 +28,8 @@ const Section = forwardRef<HTMLElement, Props>(
       id = title
         .replaceAll(" ", "-")
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
     }
 
     let classNames = "";

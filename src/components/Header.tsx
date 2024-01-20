@@ -17,9 +17,9 @@ interface Link {
 }
 
 const links: Link[] = [
-  { label: "HOME", href: "/" },
-  { label: "PROJECTS", href: "/projects" },
-  { label: "CONTACT", href: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "#work" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const revealingHeaderScrollThreshold = 100;
@@ -59,7 +59,7 @@ const Header = () => {
     >
       <div className="xl:container mx-auto flex justify-between relative">
         <LayoutGroup>
-          <nav className="hidden lg:block font-semibold">
+          <nav className="hidden lg:block font-semibold z-10">
             <ul className="flex gap-8">
               {links.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ""}`}>
@@ -83,7 +83,7 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <div className="absolute flex w-full justify-center z-10">
+          <div className="absolute flex w-full justify-center">
             | {formatTime(currentTime)} |
           </div>
           <DarkModeToggle />

@@ -172,8 +172,9 @@ export default function WorkSection() {
                 <Image
                   src="/images/cross.svg"
                   alt="cross"
-                  height={11}
-                  width={11}
+                  height={9}
+                  width={9}
+                  className="mt-[2px]"
                 />
               </div>
               Clear filters
