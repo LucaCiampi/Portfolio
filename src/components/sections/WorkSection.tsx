@@ -128,8 +128,8 @@ export default function WorkSection() {
    */
   const handleProjectMouseDown = useCallback((): void => {
     const customPointer = customPointerRef.current;
-    customPointer.classList.remove("bg-amber-400");
-    customPointer.classList.add("bg-lime-400");
+    customPointer.classList.add("!bg-marine");
+    customPointer.classList.add("!text-background");
   }, []);
 
   const groupedProjects = useMemo(
@@ -153,7 +153,7 @@ export default function WorkSection() {
 
   return (
     <>
-      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-8 w-screen text-sm">
+      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-6 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
           <div className="flex gap-1">
             {technosFilters.map((techno) => (
@@ -215,7 +215,7 @@ export default function WorkSection() {
         </div>
         <div
           ref={customPointerRef}
-          className="custom-pointer invisible bg-amber-400"
+          className="invisible bg-yellow pointer-events-none p-4 rounded-lg absolute"
         >
           See details
         </div>
