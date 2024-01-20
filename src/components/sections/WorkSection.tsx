@@ -6,7 +6,7 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 import ProjectItem, { Project } from "../ProjectItem";
 import FilterButton from "../FilterButton";
-import CrossIcon from "public/images/cross.svg";
+import Image from "next/image";
 import SearchInput from "../SearchInput";
 
 export default function WorkSection() {
@@ -153,9 +153,9 @@ export default function WorkSection() {
 
   return (
     <>
-      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-8 w-screen">
+      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-8 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
-          <div className="flex gap-2">
+          <div className="flex gap-1">
             {technosFilters.map((techno) => (
               <FilterButton
                 key={techno}
@@ -169,13 +169,18 @@ export default function WorkSection() {
               onClick={handleFilterResetClick}
             >
               <div className={isRotating ? "rotate-360" : ""}>
-                <CrossIcon />
+                <Image
+                  src="/images/cross.svg"
+                  alt="cross"
+                  height={11}
+                  width={11}
+                />
               </div>
               Clear filters
             </div>
           </div>
           <SearchInput
-            placeholder="Rechercher un projet..."
+            placeholder="Search…"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
