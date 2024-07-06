@@ -1,10 +1,9 @@
 interface Props {
-  children?: React.ReactNode;
-  className?: string;
-  title?: string;
-  onClick?: () => void;
+  large?: boolean;
 }
 
-const Arrow = () => <div className="arrow" />;
+const Arrow = ({ large }: Props) => (
+  <div className={`arrow ${large && 'arrow--large'}`} />
+);
 
 export default Arrow;

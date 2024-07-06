@@ -33,7 +33,7 @@ const ExternalLinkSocial = ({ name, href, className, color }: Props) => {
           {properName}
         </span>
       </div>
-      <Arrow />
+      <Arrow large />
     </ExternalLink>
   );
 };

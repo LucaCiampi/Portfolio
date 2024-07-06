@@ -74,9 +74,24 @@ h6 {
   top: 0;
   width: 9px;
   margin-top: -4px;
-  border-top: solid 1px;
-  border-right: solid 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
   transform: rotate(45deg);
+}
+
+.arrow--large {
+  height: 2px;
+  transform: rotate(-45deg);
+  width: 41px;
+}
+
+.arrow--large::after {
+  height: 32px;
+  width: 32px;
+  margin-top: -15px;
+  right: 4px;
+  border-top-width: 2px;
+  border-right-width: 2px;
 }
 
 .pattern-1 {
