@@ -4,10 +4,10 @@ import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 import projectsData from 'json/projects.json';
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
-import ProjectItem, { Project } from '../ProjectItem';
-import FilterButton from '../FilterButton';
+import ProjectItem, { Project } from '@/components/ProjectItem';
+import FilterButton from '@/components/FilterButton';
 import Image from 'next/image';
-import SearchInput from '../SearchInput';
+import SearchInput from '@/components/SearchInput';
 import Filters from '@/constants/Filters';
 
 export default function WorkSection() {

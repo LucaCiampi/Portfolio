@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 import './globals.css';
+import '@/styles/globals.scss';
 
 const abril_fatface = Abril_Fatface({
   subsets: ['latin'],

@@ -9,7 +9,6 @@ import WaveImage from 'public/images/wave-painting.png';
 import Heading from '@/components/Heading';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
-import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 
 interface SectionRef {
