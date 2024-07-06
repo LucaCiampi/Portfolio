@@ -7,7 +7,6 @@ import { LayoutGroup } from 'framer-motion';
 import { TimeContext } from './TimeContext';
 
 import NoScrollLink from '@/components/NoScrollLink';
-import DarkModeToggle from '@/components/DarkModeToggle';
 import NavIcon from '@/components/NavIcon';
 
 interface Props {
@@ -34,7 +33,7 @@ const Header = ({ revealOnScroll }: Props) => {
   const [revealingHeader, setRevealingHeader] = useState(false);
 
   // TODO: remove auto time check in this component, place it at entrance of website
-  const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
+  const { currentTime } = useContext(TimeContext);
 
   const handleNavIconClick = () => {
     setMobilenavToggled((current) => !current);
@@ -50,11 +49,11 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 py-5 border-text flex items-center ${
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 pt-5 border-text flex items-center ${
         revealingHeader ? 'opacity-50 translate-y-0' : ''
       } ${revealOnScroll ? '!fixed -translate-y-full bg-background' : 'mt-7'}`}
     >
-      <div className="xl:container mx-auto flex justify-between relative text-brown">
+      <div className="xl:container mx-auto flex justify-between relative text-brown pb-5 border-b-[1px] border-text">
         <LayoutGroup>
           <nav className="hidden lg:flex items-center font-semibold z-10">
             <ul className="flex gap-8">

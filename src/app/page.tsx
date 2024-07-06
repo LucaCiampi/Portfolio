@@ -65,12 +65,16 @@ export default function Page() {
           <Image src={WaveImage} alt="The Great Wave off Kanagawa" />
           <Button></Button>
         </div>
-        <div className="relative z-10 text-brown">
-          <div className="pattern-1 absolute top-28 left-0 -z-10 w-[448px] h-[448px]" />
-          <h1 className="font-allison text-[164px]">Luca Ciampi</h1>
-          <div className="text-[164px] leading-[180px]">
-            Front<span className="font-playfair-display">-end</span> <br />
-            <span className="font-playfair-display">Developer</span>
+        <div className="pt-[120px] z-10 text-brown">
+          <div className="relative">
+            <div className="pattern-1 absolute top-0 left-0 -z-10 w-[448px] h-[448px]" />
+            <h1 className="font-allison text-[164px]">Luca Ciampi</h1>
+            <div className="text-[144px] leading-[160px]">
+              Front<span className="font-playfair-display">-end</span> <br />
+              <span className="font-playfair-display hero--developer">
+                Developer
+              </span>
+            </div>
           </div>
         </div>
       </Section>
