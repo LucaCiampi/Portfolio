@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-import React from "react";
-import { LayoutGroup } from "framer-motion";
-import { TimeContext } from "./TimeContext";
+import Link from 'next/link';
+import { useContext, useEffect, useState } from 'react';
+import React from 'react';
+import { LayoutGroup } from 'framer-motion';
+import { TimeContext } from './TimeContext';
 
-import NoScrollLink from "@/components/NoScrollLink";
-import DarkModeToggle from "@/components/DarkModeToggle";
+import NoScrollLink from '@/components/NoScrollLink';
+import DarkModeToggle from '@/components/DarkModeToggle';
 
 interface Link {
   label: string;
@@ -17,9 +17,9 @@ interface Link {
 }
 
 const links: Link[] = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "#work" },
-  { label: "Contact", href: "#contact" },
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '#work' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const revealingHeaderScrollThreshold = 100;
@@ -30,8 +30,8 @@ const Header = () => {
 
   // TODO: remove auto time check in this component, place it at entrance of website
   const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
-  const [villageStatus, setVillageStatus] = useState("is awake");
-  const [villageAction, setVillageAction] = useState("Go to bed");
+  const [villageStatus, setVillageStatus] = useState('is awake');
+  const [villageAction, setVillageAction] = useState('Go to bed');
 
   const handleNaviconClick = () => {
     setMobilenavToggled((current) => !current);
@@ -47,14 +47,14 @@ const Header = () => {
   useEffect(() => {
     setRevealingHeader(false);
     setMobilenavToggled(false);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed z-30 left-0 top-0 w-full p-3 bg-background bg-opacity-70 border-b-[1px] border-brown ${
-        revealingHeader ? "bg-green-light" : ""
+      className={`fixed z-30 left-0 top-0 w-full transition-all hover:opacity-100 px-3 py-5 bg-background bg-opacity-70 border-b-[1px] border-brown ${
+        revealingHeader ? 'opacity-30' : ''
       }`}
     >
       <div className="xl:container mx-auto flex justify-between relative text-marine">
@@ -62,7 +62,7 @@ const Header = () => {
           <nav className="hidden lg:block font-semibold z-10">
             <ul className="flex gap-8">
               {links.map(({ label, href, classes, submenu }) => (
-                <li key={label} className={`${classes || ""}`}>
+                <li key={label} className={`${classes || ''}`}>
                   <NoScrollLink href={href}>
                     <span title={label} onClick={handleMenuLinkClick}>
                       <span>{label}</span>
@@ -83,9 +83,6 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <div className="absolute flex w-full justify-center">
-            | {formatTime(currentTime)} |
-          </div>
           <DarkModeToggle />
         </LayoutGroup>
         <div className="block lg:hidden" onClick={handleNaviconClick}>
@@ -99,8 +96,8 @@ const Header = () => {
 const formatTime = (date: Date) => {
   return date.toLocaleTimeString([], {
     hour12: true,
-    hour: "numeric",
-    minute: "numeric",
+    hour: 'numeric',
+    minute: 'numeric',
   });
 };
 
