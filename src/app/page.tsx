@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import Section from "@/components/Section";
-import Education from "./education";
-import PageWrapper from "./page-wrapper";
-import Image from "next/image";
-import FacadeImage from "public/images/facade.jpg";
-import WaterImage from "public/images/water.jpg";
+import { useEffect, useRef, useState } from 'react';
+import Section from '@/components/Section';
+import Education from './education';
+import PageWrapper from './page-wrapper';
+import Image from 'next/image';
+import FacadeImage from 'public/images/facade.jpg';
+import WaterImage from 'public/images/water.jpg';
 
-import Heading from "@/components/Heading";
-import Frame, { BorderStyles } from "@/components/Frame";
-import WorkSection from "@/components/sections/WorkSection";
-import ContactSection from "@/components/sections/ContactSection";
+import Heading from '@/components/Heading';
+import Frame, { BorderStyles } from '@/components/Frame';
+import WorkSection from '@/components/sections/WorkSection';
+import ContactSection from '@/components/sections/ContactSection';
+import Footer from '@/components/Footer';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -23,7 +24,7 @@ export default function Page() {
   useEffect(() => {
     const observerOptions: IntersectionObserverInit = {
       root: null,
-      rootMargin: "0px",
+      rootMargin: '0px',
       threshold: 0.5,
     };
 
@@ -31,7 +32,7 @@ export default function Page() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionTitle = (entry.target as HTMLElement).getAttribute(
-            "sectiontitle"
+            'sectiontitle'
           );
           console.log(sectionTitle);
         }
@@ -89,22 +90,23 @@ export default function Page() {
           </div>
         </div>
       </Section>
-      <Section ref={handleSectionRef("Work")} title="Work" fullscreen>
+      <Section ref={handleSectionRef('Work')} title="Work" fullscreen>
         <WorkSection />
       </Section>
-      <Section
+      {/* <Section
         ref={handleSectionRef("Education")}
         title="Education"
         isTitleRight
       >
         <Education />
-      </Section>
+      </Section> */}
       <Section title="Contact">
-        <Heading level={"h2"} className="yess">
+        <Heading level={'h2'} className="yess">
           coucou
         </Heading>
         <ContactSection />
       </Section>
+      <Footer />
     </PageWrapper>
   );
 }

@@ -57,7 +57,7 @@ const Header = () => {
         revealingHeader ? "bg-green-light" : ""
       }`}
     >
-      <div className="xl:container mx-auto flex justify-between relative">
+      <div className="xl:container mx-auto flex justify-between relative text-marine">
         <LayoutGroup>
           <nav className="hidden lg:block font-semibold z-10">
             <ul className="flex gap-8">
