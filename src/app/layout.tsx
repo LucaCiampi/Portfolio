@@ -45,7 +45,7 @@ export default function RootLayout({ children }: Props) {
     <html lang="en">
       <TimeProvider>
         <body
-          className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background`}
+          className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
         >
           <Header />
           <Header revealOnScroll />

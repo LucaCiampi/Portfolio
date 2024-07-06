@@ -16,7 +16,6 @@ module.exports = {
         yellow: '#FFEB84',
         grey: '#E8F1F7',
         orange: '#F75D3B',
-        marine: '#0E1E31',
         outline: '#060606',
       },
       fontFamily: {

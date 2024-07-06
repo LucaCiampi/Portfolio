@@ -128,7 +128,7 @@ export default function WorkSection() {
    */
   const handleProjectMouseDown = useCallback((): void => {
     const customPointer = customPointerRef.current;
-    customPointer.classList.add('!bg-marine');
+    customPointer.classList.add('!bg-green');
     customPointer.classList.add('!text-background');
   }, []);
 
@@ -155,7 +155,7 @@ export default function WorkSection() {
     <>
       <div className="sticky top-0 bg-grey z-10 pt-24 -mt-12 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             {Filters.map((techno) => (
               <FilterButton
                 key={techno}
@@ -215,7 +215,7 @@ export default function WorkSection() {
         </div>
         <div
           ref={customPointerRef}
-          className="invisible bg-yellow pointer-events-none p-4 rounded-lg absolute"
+          className="invisible bg-yellow pointer-events-none px-3 py-1 rounded-full absolute"
         >
           See details
         </div>

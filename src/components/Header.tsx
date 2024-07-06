@@ -49,9 +49,13 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 pt-5 border-text flex items-center ${
-        revealingHeader ? 'opacity-50 translate-y-0' : ''
-      } ${revealOnScroll ? '!fixed -translate-y-full bg-background' : 'mt-7'}`}
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-5 border-text flex items-center ${
+        revealingHeader ? 'translate-y-0' : ''
+      } ${
+        revealOnScroll
+          ? '!fixed -translate-y-full bg-background bg-opacity-50'
+          : 'mt-7'
+      }`}
     >
       <div className="xl:container mx-auto flex justify-between relative text-brown pb-5 border-b-[1px] border-text">
         <LayoutGroup>

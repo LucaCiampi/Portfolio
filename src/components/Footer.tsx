@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="bg-marine text-background pt-20 pb-10">
+  <footer className="bg-green text-background pt-20 pb-10">
     <div className="xl:container mx-auto flex justify-between">
       <div>item</div>
       <div>item</div>
