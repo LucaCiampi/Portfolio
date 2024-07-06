@@ -49,6 +49,7 @@ export default function RootLayout({ children }: Props) {
           <Header />
           <Header revealOnScroll />
           {children}
+          <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
         </body>
       </TimeProvider>
     </html>

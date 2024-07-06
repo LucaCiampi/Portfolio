@@ -24,6 +24,9 @@ module.exports = {
         'playfair-display': ['var(--font-playfair-display)'],
         allison: ['var(--font-allison)'],
       },
+      backgroundImage: {
+        noise: "url('/images/noise.png')",
+      },
     },
   },
   plugins: [],
