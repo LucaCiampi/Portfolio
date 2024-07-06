@@ -20,6 +20,13 @@ export default function WorkSection() {
   const customPointerRef = useRef<HTMLDivElement>(null!);
 
   /**
+   * Recursive function to animate the projects gliding movement
+   */
+  const animateGlide = useCallback(() => {
+    glideProjects(animateGlide);
+  }, []);
+
+  /**
    * OnMount
    */
   useEffect(() => {
@@ -39,7 +46,7 @@ export default function WorkSection() {
     initializeProjects(animateGlide);
 
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [animateGlide]);
 
   /**
    * Updates the project displayed according to active filters
@@ -56,14 +63,7 @@ export default function WorkSection() {
    */
   useEffect(() => {
     initializeProjects(animateGlide);
-  }, [projectsDisplayed]);
-
-  /**
-   * Recursive function to animate the projects gliding movement
-   */
-  const animateGlide = useCallback(() => {
-    glideProjects(animateGlide);
-  }, []);
+  }, [projectsDisplayed, animateGlide]);
 
   /**
    * When the user clicks on a filter, adds the element to the active filters list
