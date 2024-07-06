@@ -8,6 +8,7 @@ import { TimeContext } from './TimeContext';
 
 import NoScrollLink from '@/components/NoScrollLink';
 import NavIcon from '@/components/NavIcon';
+import Container from '@/components/Container';
 
 interface Props {
   revealOnScroll?: boolean;
@@ -57,7 +58,7 @@ const Header = ({ revealOnScroll }: Props) => {
           : 'mt-7'
       }`}
     >
-      <div className="xl:container w-full mx-auto flex items-center justify-between relative text-brown pb-2 md:pb-5 border-b-[1px] border-text">
+      <Container className="w-full flex items-center justify-between relative text-brown pb-2 md:pb-5 border-b-[1px] border-text">
         <LayoutGroup>
           <nav className="hidden md:flex items-center font-semibold z-10">
             <ul className="flex gap-8">
@@ -87,7 +88,7 @@ const Header = ({ revealOnScroll }: Props) => {
           {formatTime(currentTime)}
           <NavIcon onClick={handleNavIconClick} isOpen={mobilenavToggled} />
         </div>
-      </div>
+      </Container>
     </header>
   );
 };

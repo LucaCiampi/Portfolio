@@ -10,6 +10,7 @@ import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
 import Filters from '@/constants/Filters';
 import Arrow from '@/components/Arrow';
+import Container from '@/components/Container';
 
 export default function WorkSection() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -154,7 +155,7 @@ export default function WorkSection() {
   return (
     <>
       <div className="sticky top-0 bg-grey z-10 pt-16 md:pt-24 -mt-14 md:-mt-28 w-screen text-sm">
-        <div className="xl:container mx-auto px-3 md:px-0 flex justify-between gap-4 py-2 overflow-scroll">
+        <Container className="flex justify-between gap-4 py-2 overflow-scroll">
           <div className="flex items-center gap-4">
             {Filters.map((techno) => (
               <FilterButton
@@ -185,10 +186,10 @@ export default function WorkSection() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-        </div>
+        </Container>
       </div>
       <div className="overflow-x-hidden">
-        <div className="xl:container mx-auto mt-8 border-dashed border-l-2 border-text">
+        <Container className="mt-8 border-dashed border-l-2 border-text">
           <AnimatePresence>
             <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 pl-16 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (
@@ -212,7 +213,7 @@ export default function WorkSection() {
               ))}
             </div>
           </AnimatePresence>
-        </div>
+        </Container>
         <div
           ref={customPointerRef}
           className="invisible flex gap-2 items-center border-text border-[1px] bg-background pointer-events-none px-3 py-1 rounded-full absolute"

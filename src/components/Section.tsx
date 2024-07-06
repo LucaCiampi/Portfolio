@@ -1,5 +1,6 @@
 import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
-import SectionTitle from './SectionTitle';
+import SectionTitle from '@/components/SectionTitle';
+import Container from '@/components/Container';
 
 interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
@@ -51,9 +52,7 @@ const Section = forwardRef<HTMLElement, Props>(
     return (
       <section ref={ref} {...sectionProps}>
         {title && <SectionTitle title={title} isTitleRight={isTitleRight} />}
-        <div className={fullscreen ? '' : 'xl:container mx-auto px-6 md:px-0'}>
-          {children}
-        </div>
+        <Container fullscreen={fullscreen}>{children}</Container>
       </section>
     );
   }

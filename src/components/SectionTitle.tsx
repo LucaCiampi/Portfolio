@@ -1,3 +1,5 @@
+import Container from '@/components/Container';
+
 interface Props {
   title: string;
   isTitleRight?: boolean;
@@ -6,12 +8,12 @@ interface Props {
 const SectionTitle = ({ title, isTitleRight }: Props) => {
   return (
     <div className="overflow-x-clip relative w-full">
-      <div
-        className={`relative xl:container px-6 md:px-0 mx-auto z-20 text-brown ${
+      <Container
+        className={`relative z-20 text-brown ${
           isTitleRight ? 'text-right' : ''
         }`}
       >
-        <h2 className="2xl:text-[96px] text-4xl mb-14 font-playfair-display">
+        <h2 className="lg:text-[96px] lg:leading-[100px] text-4xl mb-14 font-playfair-display">
           {title}
         </h2>
         <div
@@ -19,7 +21,7 @@ const SectionTitle = ({ title, isTitleRight }: Props) => {
             isTitleRight ? 'left-full' : 'right-full'
           }`}
         />
-      </div>
+      </Container>
       <div className="absolute left-0 w-full h-12 md:h-24 translate-y-1 md:translate-y-4 top-1/2 bg-grey"></div>
     </div>
   );
