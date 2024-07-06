@@ -63,13 +63,15 @@ export default function Page() {
       <Section className="relative min-h-screen">
         <div className="absolute bottom-0 right-0">
           <Image src={WaveImage} alt="The Great Wave off Kanagawa" />
-          <Button></Button>
+          <Button>See my work</Button>
         </div>
-        <div className="pt-[120px] z-10 text-brown">
+        <div className="2xl:pt-[120px] pt-24 z-10 text-brown">
           <div className="relative">
             <div className="pattern-1 absolute top-0 left-0 -z-10 w-[448px] h-[448px]" />
-            <h1 className="font-allison text-[164px]">Luca Ciampi</h1>
-            <div className="text-[144px] leading-[160px]">
+            <h1 className="font-allison text-2xl 2xl:text-[164px]">
+              Luca Ciampi
+            </h1>
+            <div className="text-2xl 2xl:text-[144px] 2xl:leading-[160px]">
               Front<span className="font-playfair-display">-end</span> <br />
               <span className="font-playfair-display hero--developer">
                 Developer
@@ -87,9 +89,6 @@ export default function Page() {
         <WorkSection />
       </Section>
       <Section title="Contact">
-        <Heading level={'h2'} className="yess">
-          coucou
-        </Heading>
         <ContactSection />
       </Section>
     </PageWrapper>

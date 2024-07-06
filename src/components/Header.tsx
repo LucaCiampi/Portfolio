@@ -49,7 +49,7 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-5 border-text flex items-center ${
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 md:pt-5 border-text flex items-center ${
         revealingHeader ? 'translate-y-0' : ''
       } ${
         revealOnScroll
@@ -57,9 +57,9 @@ const Header = ({ revealOnScroll }: Props) => {
           : 'mt-7'
       }`}
     >
-      <div className="xl:container mx-auto flex justify-between relative text-brown pb-5 border-b-[1px] border-text">
+      <div className="xl:container w-full mx-auto flex items-center justify-between relative text-brown pb-2 md:pb-5 border-b-[1px] border-text">
         <LayoutGroup>
-          <nav className="hidden lg:flex items-center font-semibold z-10">
+          <nav className="hidden md:flex items-center font-semibold z-10">
             <ul className="flex gap-8">
               {links.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ''}`}>
@@ -82,6 +82,7 @@ const Header = ({ revealOnScroll }: Props) => {
             </ul>
           </nav>
         </LayoutGroup>
+        <div className="md:hidden">Luca Ciampi</div>
         <div className="flex items-center gap-3">
           {formatTime(currentTime)}
           <NavIcon onClick={handleNavIconClick} isOpen={mobilenavToggled} />
