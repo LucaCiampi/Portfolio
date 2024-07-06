@@ -1,5 +1,5 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
 
 interface Props {
   value?: string;
@@ -8,20 +8,20 @@ interface Props {
 }
 
 const SearchInput: React.FC<Props> = ({ value, placeholder, onChange }) => (
-  <label className="flex items-end gap-2">
+  <label className="flex items-center gap-2">
     <input
       type="text"
       value={value}
       placeholder={placeholder}
-      className="border-b-[1px] border-background bg-transparent focus:outline-none focus:ring-1 focus:ring-yellow focus:border-transparent"
+      className="border-b-[1px] px-3 py-1 border-text bg-transparent focus:outline-none"
       onChange={onChange}
     />
-    <div className="cursor-pointer">
+    <div className="cursor-pointer mt-1">
       <Image src="/images/search.svg" width={16} height={16} alt="Search" />
     </div>
   </label>
 );
 
-SearchInput.displayName = "SearchInput";
+SearchInput.displayName = 'SearchInput';
 
 export default SearchInput;

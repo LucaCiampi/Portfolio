@@ -14,6 +14,7 @@ const FilterButton: React.FC<Props> = React.memo(
       className={`flex gap-2 border-green text-text border-[1px] items-center ${
         isActive ? 'bg-green !text-white' : ''
       }`}
+      title={techno}
       onClick={() => onClick(techno)}
     >
       <div className="relative">

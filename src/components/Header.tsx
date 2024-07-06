@@ -8,6 +8,7 @@ import { TimeContext } from './TimeContext';
 
 import NoScrollLink from '@/components/NoScrollLink';
 import DarkModeToggle from '@/components/DarkModeToggle';
+import NavIcon from '@/components/NavIcon';
 
 interface Props {
   revealOnScroll?: boolean;
@@ -34,43 +35,33 @@ const Header = ({ revealOnScroll }: Props) => {
 
   // TODO: remove auto time check in this component, place it at entrance of website
   const { currentTime, darkMode, toggleDarkMode } = useContext(TimeContext);
-  const [villageStatus, setVillageStatus] = useState('is awake');
-  const [villageAction, setVillageAction] = useState('Go to bed');
 
-  const handleNaviconClick = () => {
+  const handleNavIconClick = () => {
     setMobilenavToggled((current) => !current);
   };
   const handleScroll = () => {
     setRevealingHeader(window.scrollY > revealingHeaderScrollThreshold);
   };
 
-  const handleMenuLinkClick = (e: React.MouseEvent<HTMLElement>) => {
-    setMobilenavToggled(false);
-  };
-
   useEffect(() => {
-    setRevealingHeader(false);
-    setMobilenavToggled(false);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 pt-12 pb-5 bg-background bg-opacity-70 border-text ${
-        revealingHeader ? 'opacity-30 translate-y-0' : ''
-      } ${revealOnScroll ? '!fixed -translate-y-full' : ''}`}
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 py-5 border-text flex items-center ${
+        revealingHeader ? 'opacity-50 translate-y-0' : ''
+      } ${revealOnScroll ? '!fixed -translate-y-full bg-background' : 'mt-7'}`}
     >
       <div className="xl:container mx-auto flex justify-between relative text-brown">
         <LayoutGroup>
-          <nav className="hidden lg:block font-semibold z-10">
+          <nav className="hidden lg:flex items-center font-semibold z-10">
             <ul className="flex gap-8">
               {links.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ''}`}>
                   <NoScrollLink href={href}>
-                    <span title={label} onClick={handleMenuLinkClick}>
-                      <span>{label}</span>
-                    </span>
+                    <span>{label}</span>
                   </NoScrollLink>
                   {submenu && (
                     <ul className="flex flex-col">
@@ -87,10 +78,10 @@ const Header = ({ revealOnScroll }: Props) => {
               ))}
             </ul>
           </nav>
-          <DarkModeToggle />
         </LayoutGroup>
-        <div className="block lg:hidden" onClick={handleNaviconClick}>
-          <span>nav icon here</span>
+        <div className="flex items-center gap-3">
+          {formatTime(currentTime)}
+          <NavIcon onClick={handleNavIconClick} isOpen={mobilenavToggled} />
         </div>
       </div>
     </header>
