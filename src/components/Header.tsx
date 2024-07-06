@@ -9,6 +9,10 @@ import { TimeContext } from './TimeContext';
 import NoScrollLink from '@/components/NoScrollLink';
 import DarkModeToggle from '@/components/DarkModeToggle';
 
+interface Props {
+  revealOnScroll?: boolean;
+}
+
 interface Link {
   label: string;
   href: string;
@@ -22,9 +26,9 @@ const links: Link[] = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const revealingHeaderScrollThreshold = 100;
+const revealingHeaderScrollThreshold = 400;
 
-const Header = () => {
+const Header = ({ revealOnScroll }: Props) => {
   const [mobilenavToggled, setMobilenavToggled] = useState(false);
   const [revealingHeader, setRevealingHeader] = useState(false);
 
@@ -53,11 +57,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-30 left-0 top-0 w-full transition-all hover:opacity-100 px-3 py-5 bg-background bg-opacity-70 border-b-[1px] border-brown ${
-        revealingHeader ? 'opacity-30' : ''
-      }`}
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:opacity-100 px-3 pt-12 pb-5 bg-background bg-opacity-70 border-text ${
+        revealingHeader ? 'opacity-30 translate-y-0' : ''
+      } ${revealOnScroll ? '!fixed -translate-y-full' : ''}`}
     >
-      <div className="xl:container mx-auto flex justify-between relative text-marine">
+      <div className="xl:container mx-auto flex justify-between relative text-brown">
         <LayoutGroup>
           <nav className="hidden lg:block font-semibold z-10">
             <ul className="flex gap-8">

@@ -5,8 +5,7 @@ import Section from '@/components/Section';
 import Education from './education';
 import PageWrapper from './page-wrapper';
 import Image from 'next/image';
-import FacadeImage from 'public/images/facade.jpg';
-import WaterImage from 'public/images/water.jpg';
+import WaveImage from 'public/images/wave-painting.png';
 
 import Heading from '@/components/Heading';
 import Frame, { BorderStyles } from '@/components/Frame';
@@ -63,34 +62,27 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section>
-        <div className="flex items-center gap-11 pt-24">
-          <div className="relative flex h-[650px] grow">
-            <Frame
-              borderStyle={BorderStyles.double}
-              className="absolute -left-4 top-0"
-            >
-              <Image src={WaterImage} alt="Water" />
-            </Frame>
-            <Frame
-              borderStyle={BorderStyles.solid}
-              className="absolute bottom-0 right-0"
-            >
-              <Image src={FacadeImage} alt="Façade from Lyon" width={335} />
-            </Frame>
-          </div>
-          <div className="relative w-[448px] h-[480px] pattern-1">
-            <h1 className="font-allison text-[128px] text-brown -ml-4">
-              Luca Ciampi
-            </h1>
-            <div className="text-[64px] leading-[76px] ml-4 font-abril-fatface text-brown">
-              Front end <br />
-              <span className="font-playfair-display">Developer</span>
-            </div>
+      <Section className="relative min-h-screen">
+        <Image
+          src={WaveImage}
+          className="absolute bottom-0 right-0"
+          alt="The Great Wave off Kanagawa"
+        />
+        <div className="relative z-10 text-brown">
+          <div className="pattern-1 absolute top-24 left-0 -z-10 w-[448px] h-[448px]" />
+          <h1 className="font-allison text-[164px]">Luca Ciampi</h1>
+          <div className="text-[164px] leading-[180px]">
+            Front<span className="font-playfair-display">-end</span> <br />
+            <span className="font-playfair-display">Developer</span>
           </div>
         </div>
       </Section>
-      <Section ref={handleSectionRef('Work')} title="Work" fullscreen>
+      <Section
+        className="-mt-40"
+        ref={handleSectionRef('Work')}
+        title="Work"
+        fullscreen
+      >
         <WorkSection />
       </Section>
       {/* <Section

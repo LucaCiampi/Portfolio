@@ -1,9 +1,10 @@
-@import "abstracts/variables";
+@import 'abstracts/variables';
 
 /* General */
 html {
   min-height: calc(100% + env(safe-area-inset-top));
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 }
 
 main {
-  color: #363636;
+  color: var(--color-text);
 }
 
 ::selection {
@@ -96,10 +97,12 @@ h6 {
 
 /* ----- Responsive ----- */
 /* Tablet */
-@media (max-width: $breakpoint--tablet) {}
+@media (max-width: $breakpoint--tablet) {
+}
 
 /* Phone */
-@media (max-width: $breakpoint--phone) {}
+@media (max-width: $breakpoint--phone) {
+}
 
 /* ----- Keyframes ----- */
 .rotate-360 {
