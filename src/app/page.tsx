@@ -67,7 +67,7 @@ export default function Page() {
         </div>
         <div className="2xl:pt-[120px] pt-24 z-10 text-brown">
           <div className="relative">
-            <div className="pattern-1 absolute top-0 left-0 -z-10 w-[448px] h-[448px]" />
+            <div className="pattern-1 absolute top-0 left-0 -z-10 w-full h-44 md:w-[448px] md:h-[448px]" />
             <h1 className="font-allison text-2xl 2xl:text-[164px]">
               Luca Ciampi
             </h1>

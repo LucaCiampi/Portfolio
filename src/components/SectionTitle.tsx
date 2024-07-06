@@ -7,11 +7,11 @@ const SectionTitle = ({ title, isTitleRight }: Props) => {
   return (
     <div className="overflow-x-clip relative w-full">
       <div
-        className={`relative xl:container mx-auto z-20 text-brown ${
+        className={`relative xl:container px-6 md:px-0 mx-auto z-20 text-brown ${
           isTitleRight ? 'text-right' : ''
         }`}
       >
-        <h2 className="2xl:text-[96px] text-2xl mb-14 font-playfair-display">
+        <h2 className="2xl:text-[96px] text-4xl mb-14 font-playfair-display">
           {title}
         </h2>
         <div

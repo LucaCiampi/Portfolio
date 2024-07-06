@@ -4,7 +4,7 @@ import ExternalLinkSocial from '@/components/ExternalLinkSocial';
 
 export default function ContactSection() {
   return (
-    <div className="flex justify-between gap-4 flex-wrap max-w-3xl m-auto py-12">
+    <div className="flex justify-between gap-8 flex-wrap max-w-3xl m-auto py-12">
       <ExternalLinkSocial
         className="icon"
         name={'github'}

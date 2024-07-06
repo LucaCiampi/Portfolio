@@ -154,7 +154,7 @@ export default function WorkSection() {
   return (
     <>
       <div className="sticky top-0 bg-grey z-10 pt-16 md:pt-24 -mt-14 md:-mt-28 w-screen text-sm">
-        <div className="xl:container mx-auto flex justify-between gap-4 py-2 overflow-scroll">
+        <div className="xl:container mx-auto px-3 md:px-0 flex justify-between gap-4 py-2 overflow-scroll">
           <div className="flex items-center gap-4">
             {Filters.map((techno) => (
               <FilterButton
@@ -190,10 +190,10 @@ export default function WorkSection() {
       <div className="overflow-x-hidden">
         <div className="xl:container mx-auto mt-8 border-dashed border-l-2 border-text">
           <AnimatePresence>
-            <div className="grid grid-cols-2 w-full gap-16 py-12 pl-16 pr-0">
+            <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 pl-16 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (
                 <div
-                  className={`project h-fit m-12 relative ${
+                  className={`project h-fit m-6 md:m-12 relative ${
                     globalIndex % 2 === 0 ? 'left-column' : 'right-column'
                   }`}
                   onMouseEnter={handleProjectMouseEnter}

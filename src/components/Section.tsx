@@ -51,7 +51,7 @@ const Section = forwardRef<HTMLElement, Props>(
     return (
       <section ref={ref} {...sectionProps}>
         {title && <SectionTitle title={title} isTitleRight={isTitleRight} />}
-        <div className={fullscreen ? '' : 'xl:container mx-auto'}>
+        <div className={fullscreen ? '' : 'xl:container mx-auto px-6 md:px-0'}>
           {children}
         </div>
       </section>
