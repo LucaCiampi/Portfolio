@@ -59,7 +59,7 @@ const Section = forwardRef<HTMLElement, Props>(
             >
               <h2 className="text-[96px] font-playfair-display">{title}</h2>
               <div
-                className={`absolute top-1/2 translate-y-1 right-full border-dotted w-full border-b-2 border-text ${
+                className={`absolute top-1/2 translate-y-1 -translate-x-4 right-full border-dotted w-full border-b-2 border-text ${
                   isTitleRight ? 'left-full' : 'right-full'
                 }`}
               />

@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useState, useRef, useCallback, useMemo } from "react";
-import projectsData from "json/projects.json";
-import React from "react";
-import { AnimatePresence } from "framer-motion";
-import ProjectItem, { Project } from "../ProjectItem";
-import FilterButton from "../FilterButton";
-import Image from "next/image";
-import SearchInput from "../SearchInput";
+import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
+import projectsData from 'json/projects.json';
+import React from 'react';
+import { AnimatePresence } from 'framer-motion';
+import ProjectItem, { Project } from '../ProjectItem';
+import FilterButton from '../FilterButton';
+import Image from 'next/image';
+import SearchInput from '../SearchInput';
+import Filters from '@/constants/Filters';
 
 export default function WorkSection() {
-  const technosFilters = ["Next.js", "React.js", "Three.js", "Unity"];
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [projectsDisplayed, setProjectsDisplayed] = useState(() =>
     getProjectsByTechnologyAndSearchTerm(activeFilters, searchTerm)
   );
@@ -23,22 +23,22 @@ export default function WorkSection() {
    * OnMount
    */
   useEffect(() => {
-    console.log("useEffect[]");
+    console.log('useEffect[]');
 
     // Sets active filters from URL
     const filtersParam = getFiltersParamFromURL();
     if (filtersParam) {
       const filters = filtersParam
-        .split(",")
+        .split(',')
         .map((filter) => decodeURIComponent(filter));
       setActiveFilters(filters);
     }
 
     // Adds movement to projects according to mouse
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
     initializeProjects(animateGlide);
 
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   /**
@@ -69,7 +69,7 @@ export default function WorkSection() {
    * When the user clicks on a filter, adds the element to the active filters list
    */
   const handleFilterClick = useCallback((techno: string): void => {
-    console.log("handleFilterClick");
+    console.log('handleFilterClick');
     setActiveFilters((prevFilters) =>
       prevFilters.includes(techno)
         ? prevFilters.filter((prevFilter) => prevFilter !== techno)
@@ -81,7 +81,7 @@ export default function WorkSection() {
    * Resets all filters
    */
   const handleFilterResetClick = useCallback((): void => {
-    console.log("handleFilterResetClick");
+    console.log('handleFilterResetClick');
     setActiveFilters([]);
     setIsRotating(true);
     setTimeout(() => setIsRotating(false), 1000);
@@ -91,7 +91,7 @@ export default function WorkSection() {
    * Moves the custom pointer according to real pointer position
    */
   const handleProjectMouseMove = useCallback((event: MouseEvent): void => {
-    console.log("handleProjectMouseMove");
+    console.log('handleProjectMouseMove');
     const customPointer = customPointerRef.current;
     customPointer.style.left = `${event.pageX}px`;
     customPointer.style.top = `${event.pageY}px`;
@@ -104,8 +104,8 @@ export default function WorkSection() {
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
       const project = event.currentTarget;
       const customPointer = customPointerRef.current;
-      customPointer.classList.remove("invisible");
-      project.addEventListener("mousemove", handleProjectMouseMove);
+      customPointer.classList.remove('invisible');
+      project.addEventListener('mousemove', handleProjectMouseMove);
     },
     [handleProjectMouseMove]
   );
@@ -117,8 +117,8 @@ export default function WorkSection() {
     (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
       const project = event.currentTarget;
       const customPointer = customPointerRef.current;
-      customPointer.classList.add("invisible");
-      project.removeEventListener("mousemove", handleProjectMouseMove);
+      customPointer.classList.add('invisible');
+      project.removeEventListener('mousemove', handleProjectMouseMove);
     },
     [handleProjectMouseMove]
   );
@@ -128,8 +128,8 @@ export default function WorkSection() {
    */
   const handleProjectMouseDown = useCallback((): void => {
     const customPointer = customPointerRef.current;
-    customPointer.classList.add("!bg-marine");
-    customPointer.classList.add("!text-background");
+    customPointer.classList.add('!bg-marine');
+    customPointer.classList.add('!text-background');
   }, []);
 
   const groupedProjects = useMemo(
@@ -156,7 +156,7 @@ export default function WorkSection() {
       <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-6 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
           <div className="flex gap-1">
-            {technosFilters.map((techno) => (
+            {Filters.map((techno) => (
               <FilterButton
                 key={techno}
                 techno={techno}
@@ -168,7 +168,7 @@ export default function WorkSection() {
               className="cursor-pointer flex gap-2 items-center ml-4"
               onClick={handleFilterResetClick}
             >
-              <div className={isRotating ? "rotate-360" : ""}>
+              <div className={isRotating ? 'rotate-360' : ''}>
                 <Image
                   src="/images/cross.svg"
                   alt="cross"
@@ -194,7 +194,7 @@ export default function WorkSection() {
               {allProjects.map(({ title, year, globalIndex }) => (
                 <div
                   className={`project h-fit m-12 relative ${
-                    globalIndex % 2 === 0 ? "left-column" : "right-column"
+                    globalIndex % 2 === 0 ? 'left-column' : 'right-column'
                   }`}
                   onMouseEnter={handleProjectMouseEnter}
                   onMouseLeave={handleProjectMouseLeave}
@@ -271,7 +271,7 @@ function groupProjectsByYear(projects: Project[]): {
 function getFiltersParamFromURL(): string | null {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  return urlParams.get("filters");
+  return urlParams.get('filters');
 }
 
 /**
@@ -280,10 +280,10 @@ function getFiltersParamFromURL(): string | null {
  */
 function updateFiltersToURL(activeFilters: Array<String>): void {
   const filtersParam =
-    activeFilters.length > 0 ? `filters=${activeFilters.join(",")}` : "";
-  const query = filtersParam ? `?${filtersParam}` : "";
+    activeFilters.length > 0 ? `filters=${activeFilters.join(',')}` : '';
+  const query = filtersParam ? `?${filtersParam}` : '';
   const url = `${window.location.pathname}${query}`;
-  window.history.pushState({ path: url }, "", url);
+  window.history.pushState({ path: url }, '', url);
 }
 
 /**
@@ -291,16 +291,16 @@ function updateFiltersToURL(activeFilters: Array<String>): void {
  */
 const handleMouseMove = (event: MouseEvent) => {
   const { clientX, clientY } = event;
-  document.querySelectorAll(".project").forEach((project) => {
-    const factorX = Number(project.getAttribute("data-factor-x"));
-    const factorY = Number(project.getAttribute("data-factor-y"));
+  document.querySelectorAll('.project').forEach((project) => {
+    const factorX = Number(project.getAttribute('data-factor-x'));
+    const factorY = Number(project.getAttribute('data-factor-y'));
     const lFollowX = ((clientX - window.innerWidth / 2) / 4) * factorX;
     const lFollowY = ((clientY - window.innerHeight / 2) / 4) * factorY;
-    project.setAttribute("data-l-follow-x", String(lFollowX));
-    project.setAttribute("data-l-follow-y", String(lFollowY));
+    project.setAttribute('data-l-follow-x', String(lFollowX));
+    project.setAttribute('data-l-follow-y', String(lFollowY));
   });
 
-  console.log("HandleMouseMove");
+  console.log('HandleMouseMove');
 };
 
 /**
@@ -308,15 +308,15 @@ const handleMouseMove = (event: MouseEvent) => {
  */
 const friction = 0.1;
 function glideProjects(animateGlide: FrameRequestCallback) {
-  document.querySelectorAll(".project").forEach((project) => {
-    let x = Number(project.getAttribute("data-x"));
-    let y = Number(project.getAttribute("data-y"));
-    const lFollowX = Number(project.getAttribute("data-l-follow-x"));
-    const lFollowY = Number(project.getAttribute("data-l-follow-y"));
+  document.querySelectorAll('.project').forEach((project) => {
+    let x = Number(project.getAttribute('data-x'));
+    let y = Number(project.getAttribute('data-y'));
+    const lFollowX = Number(project.getAttribute('data-l-follow-x'));
+    const lFollowY = Number(project.getAttribute('data-l-follow-y'));
     x += (lFollowX - x) * friction;
     y += (lFollowY - y) * friction;
-    project.setAttribute("data-x", String(x));
-    project.setAttribute("data-y", String(y));
+    project.setAttribute('data-x', String(x));
+    project.setAttribute('data-y', String(y));
     const translate = `translate(${x}px, ${y}px)`;
     if (project instanceof HTMLElement) {
       project.style.transform = translate;
@@ -324,25 +324,25 @@ function glideProjects(animateGlide: FrameRequestCallback) {
   });
   requestAnimationFrame(animateGlide);
 
-  console.log("GLIDE projects");
+  console.log('GLIDE projects');
 }
 
 /**
  * Sets up the properties to move the projects according to mouse movements
  */
 const initializeProjects = (animateGlide: FrameRequestCallback) => {
-  console.log("initializeprojects");
+  console.log('initializeprojects');
 
-  document.querySelectorAll(".project").forEach((project) => {
+  document.querySelectorAll('.project').forEach((project) => {
     // Définir des facteurs aléatoires pour chaque projet
-    project.setAttribute("data-factor-x", String(Math.random() * 2 - 1)); // -1 à 1
-    project.setAttribute("data-factor-y", String(Math.random() * 2 - 1)); // -1 à 1
+    project.setAttribute('data-factor-x', String(Math.random() * 2 - 1)); // -1 à 1
+    project.setAttribute('data-factor-y', String(Math.random() * 2 - 1)); // -1 à 1
 
     // Réinitialiser les valeurs pour l'animation
-    project.setAttribute("data-x", "0");
-    project.setAttribute("data-y", "0");
-    project.setAttribute("data-l-follow-x", "0");
-    project.setAttribute("data-l-follow-y", "0");
+    project.setAttribute('data-x', '0');
+    project.setAttribute('data-y', '0');
+    project.setAttribute('data-l-follow-x', '0');
+    project.setAttribute('data-l-follow-y', '0');
 
     // Ajouter tout autre gestionnaire d'événements ou attributs nécessaires ici
   });

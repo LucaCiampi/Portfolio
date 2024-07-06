@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
 
 const variants = {
   hidden: { opacity: 0, x: -200, y: 0 },
@@ -21,7 +20,7 @@ export default function PageWrapper({ children }: Props) {
         animate="enter"
         exit="exit"
         variants={variants}
-        transition={{ type: "linear" }}
+        transition={{ type: 'linear' }}
       >
         {children}
       </motion.main>
