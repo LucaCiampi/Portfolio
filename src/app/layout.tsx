@@ -2,9 +2,9 @@ import { TimeProvider } from '@/components/TimeContext';
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 import './globals.css';
-import '@/styles/globals.scss';
 
 const abril_fatface = Abril_Fatface({
   subsets: ['latin'],
@@ -49,6 +49,7 @@ export default function RootLayout({ children }: Props) {
           <Header />
           <Header revealOnScroll />
           {children}
+          <Footer />
           <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
         </body>
       </TimeProvider>

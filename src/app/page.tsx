@@ -2,16 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Section from '@/components/Section';
-import Education from './education';
 import PageWrapper from './page-wrapper';
 import Image from 'next/image';
 import WaveImage from 'public/images/wave-painting.png';
 
 import Heading from '@/components/Heading';
-import Frame, { BorderStyles } from '@/components/Frame';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/Footer';
+import Button from '@/components/Button';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -63,11 +62,10 @@ export default function Page() {
   return (
     <PageWrapper>
       <Section className="relative min-h-screen">
-        <Image
-          src={WaveImage}
-          className="absolute bottom-0 right-0"
-          alt="The Great Wave off Kanagawa"
-        />
+        <div className="absolute bottom-0 right-0">
+          <Image src={WaveImage} alt="The Great Wave off Kanagawa" />
+          <Button></Button>
+        </div>
         <div className="relative z-10 text-brown">
           <div className="pattern-1 absolute top-24 left-0 -z-10 w-[448px] h-[448px]" />
           <h1 className="font-allison text-[164px]">Luca Ciampi</h1>
@@ -78,27 +76,19 @@ export default function Page() {
         </div>
       </Section>
       <Section
-        className="-mt-40"
+        className="-mt-32"
         ref={handleSectionRef('Work')}
         title="Work"
         fullscreen
       >
         <WorkSection />
       </Section>
-      {/* <Section
-        ref={handleSectionRef("Education")}
-        title="Education"
-        isTitleRight
-      >
-        <Education />
-      </Section> */}
       <Section title="Contact">
         <Heading level={'h2'} className="yess">
           coucou
         </Heading>
         <ContactSection />
       </Section>
-      <Footer />
     </PageWrapper>
   );
 }
