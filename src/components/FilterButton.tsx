@@ -11,14 +11,14 @@ interface Props {
 const FilterButton: React.FC<Props> = React.memo(
   ({ techno, isActive, onClick }) => (
     <Button
-      className={`flex gap-2 border-green text-green border-[1px] items-center ${
+      className={`flex gap-2 border-green text-text border-[1px] items-center ${
         isActive ? 'bg-green !text-white' : ''
       }`}
       onClick={() => onClick(techno)}
     >
       <div className="relative">
         <div
-          className={`h-[14px] w-[14px] border-[1px] border-green rotate-45 ${
+          className={`h-[14px] w-[14px] border-[1px] border-text rotate-45 ${
             isActive && 'border-white'
           }`}
         ></div>

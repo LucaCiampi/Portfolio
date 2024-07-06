@@ -165,7 +165,7 @@ export default function WorkSection() {
               />
             ))}
             <div
-              className="cursor-pointer flex gap-2 items-center ml-4"
+              className="cursor-pointer flex gap-2 items-center"
               onClick={handleFilterResetClick}
             >
               <div className={isRotating ? 'rotate-360' : ''}>
