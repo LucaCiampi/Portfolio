@@ -153,14 +153,14 @@ export default function WorkSection() {
 
   return (
     <>
-      <div className="sticky top-0 text-white bg-grey z-10 pt-12 -mt-6 w-screen text-sm">
+      <div className="sticky top-0 bg-grey z-10 pt-24 -mt-12 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
-          <div className="flex gap-1">
+          <div className="flex gap-4">
             {Filters.map((techno) => (
               <FilterButton
                 key={techno}
                 techno={techno}
-                activeFilters={activeFilters}
+                isActive={activeFilters.includes(techno)}
                 onClick={handleFilterClick}
               />
             ))}
