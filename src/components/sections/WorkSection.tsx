@@ -9,6 +9,7 @@ import FilterButton from '@/components/FilterButton';
 import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
 import Filters from '@/constants/Filters';
+import Arrow from '@/components/Arrow';
 
 export default function WorkSection() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -129,7 +130,6 @@ export default function WorkSection() {
   const handleProjectMouseDown = useCallback((): void => {
     const customPointer = customPointerRef.current;
     customPointer.classList.add('!bg-green');
-    customPointer.classList.add('!text-background');
   }, []);
 
   const groupedProjects = useMemo(
@@ -215,9 +215,10 @@ export default function WorkSection() {
         </div>
         <div
           ref={customPointerRef}
-          className="invisible bg-yellow pointer-events-none px-3 py-1 rounded-full absolute"
+          className="invisible flex gap-2 items-center border-text border-[1px] bg-background pointer-events-none px-3 py-1 rounded-full absolute"
         >
           See details
+          <Arrow />
         </div>
       </div>
     </>
