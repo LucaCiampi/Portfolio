@@ -1,4 +1,5 @@
 import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import SectionTitle from './SectionTitle';
 
 interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
@@ -49,23 +50,7 @@ const Section = forwardRef<HTMLElement, Props>(
 
     return (
       <section ref={ref} {...sectionProps}>
-        {title && (
-          <div className="overflow-x-clip relative w-full">
-            <div className="absolute left-0 w-full h-2/3 translate-y-4 top-1/2 bg-grey"></div>
-            <div
-              className={`relative xl:container mx-auto z-20 text-brown ${
-                isTitleRight ? 'text-right' : ''
-              }`}
-            >
-              <h2 className="text-[96px] font-playfair-display">{title}</h2>
-              <div
-                className={`absolute top-1/2 translate-y-1 -translate-x-4 right-full border-dotted w-full border-b-2 border-text ${
-                  isTitleRight ? 'left-full' : 'right-full'
-                }`}
-              />
-            </div>
-          </div>
-        )}
+        {title && <SectionTitle title={title} isTitleRight={isTitleRight} />}
         <div className={fullscreen ? '' : 'xl:container mx-auto'}>
           {children}
         </div>

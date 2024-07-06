@@ -1,5 +1,5 @@
-import Button from "./Button";
-import ExternalLink from "./ExternalLink";
+import Button from './Button';
+import ExternalLink from './ExternalLink';
 
 interface Props {
   children?: React.ReactNode;
@@ -9,7 +9,7 @@ interface Props {
 
 const ExternalLinkButton = ({ children, href, className }: Props) => (
   <ExternalLink href={href}>
-    <Button className={`button--elink ${className || ""}`}>{children}</Button>
+    <Button className={className || ''}>{children}</Button>
   </ExternalLink>
 );
 

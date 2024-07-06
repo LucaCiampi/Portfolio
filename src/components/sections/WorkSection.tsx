@@ -153,7 +153,7 @@ export default function WorkSection() {
 
   return (
     <>
-      <div className="sticky top-0 bg-grey z-10 pt-24 -mt-12 w-screen text-sm">
+      <div className="sticky top-0 bg-grey z-10 pt-24 -mt-28 w-screen text-sm">
         <div className="xl:container mx-auto flex justify-between gap-4 py-2">
           <div className="flex items-center gap-4">
             {Filters.map((techno) => (
