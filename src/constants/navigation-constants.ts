@@ -1,5 +1,5 @@
 export const NAVIGATION: Link[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '#hero' },
   { label: 'Projects', href: '#work' },
   { label: 'Contact', href: '#contact' },
   { label: 'Book', href: '#book' },

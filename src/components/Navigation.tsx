@@ -12,9 +12,9 @@ const Navigation = ({ className, ulClassName }: Props) => (
     <ul className={`flex gap-8 ${ulClassName && ulClassName}`}>
       {NAVIGATION.map(({ label, href, classes, submenu }) => (
         <li key={label} className={`${classes || ''}`}>
-          <NoScrollLink href={href}>
-            <span>{label}</span>
-          </NoScrollLink>
+          <a href={href}>
+            <span className="text-lg">{label}</span>
+          </a>
           {submenu && (
             <ul className="flex flex-col" aria-label={`${label} submenu`}>
               {submenu.map(({ label, href }) => (
