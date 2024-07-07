@@ -35,7 +35,7 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 border-text flex items-center ${
+      className={`z-50 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 border-text flex items-center ${
         revealingHeader ? 'translate-y-0 opacity-100' : ''
       } ${
         revealOnScroll
