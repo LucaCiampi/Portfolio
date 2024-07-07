@@ -13,7 +13,7 @@ const Navigation = ({ className, ulClassName }: Props) => (
       {NAVIGATION.map(({ label, href, classes, submenu }) => (
         <li key={label} className={`${classes || ''}`}>
           <a href={href}>
-            <span className="text-lg">{label}</span>
+            <span className="text-lg dynamic-underline">{label}</span>
           </a>
           {submenu && (
             <ul className="flex flex-col" aria-label={`${label} submenu`}>
