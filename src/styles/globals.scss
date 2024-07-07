@@ -16,12 +16,12 @@ main {
 }
 
 ::selection {
-  background-color: $yellow;
-  color: $text;
+  background-color: theme('colors.yellow');
+  color: theme('colors.text');
 }
 
 hr {
-  border-color: $text;
+  border-color: theme('colors.text');
   border-width: 1px 0 0 0;
   margin-bottom: 3vh;
 }
@@ -41,7 +41,7 @@ h3 {
 
 // Dark mode
 .dark .icon svg path {
-  fill: $white;
+  fill: theme('colors.background');
 }
 
 .fullscreen--svg {
@@ -62,7 +62,7 @@ h3 {
   position: relative;
   height: 1px;
   width: 30px;
-  background-color: $text;
+  background-color: theme('colors.text');
 }
 
 .arrow::after {
@@ -70,7 +70,7 @@ h3 {
   position: absolute;
   right: 1px;
   height: 9px;
-  border-color: $text;
+  border-color: theme('colors.text');
   top: 0;
   width: 9px;
   margin-top: -4px;
@@ -134,7 +134,7 @@ h3 {
   content: '';
   position: absolute;
   width: 80%;
-  background-color: $yellow;
+  background-color: theme('colors.yellow');
   left: 0;
   top: 0.4em;
   bottom: 0;
