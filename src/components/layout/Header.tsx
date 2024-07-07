@@ -7,7 +7,7 @@ import { TimeContext } from '@/contexts/TimeContext';
 
 import HamburgerIcon from '@/components/HamburgerIcon';
 import Container from '@/components/layout/Container';
-import { revealingHeaderScrollThreshold } from '@/constants/navigation';
+import { REVEALING_HEADER_SCROLL_THRESHOLD } from '@/constants/navigation';
 import Navigation from '@/components/Navigation';
 
 interface Props {
@@ -25,7 +25,7 @@ const Header = ({ revealOnScroll }: Props) => {
     setMobilenavToggled((current) => !current);
   };
   const handleScroll = () => {
-    setRevealingHeader(window.scrollY > revealingHeaderScrollThreshold);
+    setRevealingHeader(window.scrollY > REVEALING_HEADER_SCROLL_THRESHOLD);
   };
 
   useEffect(() => {

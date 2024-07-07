@@ -4,11 +4,11 @@ import { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 import projectsData from 'json/projects.json';
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
-import ProjectItem, { Project } from '@/components/ProjectItem';
+import ProjectItem from '@/components/ProjectItem';
 import FilterButton from '@/components/FilterButton';
 import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
-import filters from '@/constants/filters';
+import FILTERS from '@/constants/filters';
 import Arrow from '@/components/Arrow';
 import Container from '@/components/layout/Container';
 
@@ -157,7 +157,7 @@ export default function WorkSection() {
       <div className="sticky top-0 bg-grey z-10 pt-16 md:pt-24 -mt-14 md:-mt-28 w-screen text-sm">
         <Container className="flex justify-between gap-4 py-2 overflow-scroll">
           <div className="flex items-center gap-4">
-            {filters.map((techno) => (
+            {FILTERS.map((techno) => (
               <FilterButton
                 key={techno}
                 techno={techno}

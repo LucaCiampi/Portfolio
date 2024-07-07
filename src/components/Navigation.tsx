@@ -1,4 +1,4 @@
-import { navigation } from '@/constants/navigation';
+import { NAVIGATION } from '@/constants/navigation';
 import NoScrollLink from '@/components/NoScrollLink';
 import Link from 'next/link';
 
@@ -10,7 +10,7 @@ interface Props {
 const Navigation = ({ className, ulClassName }: Props) => (
   <nav className={`${className && className}`} aria-label="Main Navigation">
     <ul className={`flex gap-8 ${ulClassName && ulClassName}`}>
-      {navigation.map(({ label, href, classes, submenu }) => (
+      {NAVIGATION.map(({ label, href, classes, submenu }) => (
         <li key={label} className={`${classes || ''}`}>
           <NoScrollLink href={href}>
             <span>{label}</span>
