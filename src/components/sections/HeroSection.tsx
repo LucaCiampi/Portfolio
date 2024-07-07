@@ -40,7 +40,7 @@ const HeroSection = () => (
           alt="The Great Wave off Kanagawa"
         />
         <a href="#work">
-          <Button className="absolute z-30 bottom-24 right-1/2 bg-green text-background text-2xl translate-x-1/2">
+          <Button className="pattern--dots !px-6 py-4 absolute z-30 bottom-24 right-1/2 bg-green text-background text-2xl translate-x-1/2">
             See my work
           </Button>
         </a>
