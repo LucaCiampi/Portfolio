@@ -1,11 +1,21 @@
-interface Project {
-  slug: string;
+type Project = {
   title: string;
   description: string;
+  date: number;
+  slug: string;
   thumbnail: string;
-  technos: string[];
   content: string;
-  company?: string;
+  technos: string[];
   url?: string;
-  media?: Media[];
-}
+  repo?: string;
+  company?: string;
+  media?: {
+    type: string;
+    url: string;
+    credits?: string;
+  }[];
+  layout?: {
+    orientation: string;
+    design: number;
+  };
+};

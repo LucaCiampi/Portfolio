@@ -10,7 +10,7 @@ import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
 import filters from '@/constants/filters';
 import Arrow from '@/components/Arrow';
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
 export default function WorkSection() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);

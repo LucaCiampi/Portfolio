@@ -1,8 +1,8 @@
 import { TimeProvider } from '@/contexts/TimeContext';
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 import './globals.css';
 import '@/styles/globals.scss';

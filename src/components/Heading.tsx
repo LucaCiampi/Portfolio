@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
+interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
+  level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 }
 
-const Heading = ({ level = "p", children, className }: HeadingProps) => {
+const Heading = ({ level = 'p', children, className }: Props) => {
   const HeadingTag = ({ ...props }: React.HTMLAttributes<HTMLHeadingElement>) =>
     React.createElement(level, props, children);
 

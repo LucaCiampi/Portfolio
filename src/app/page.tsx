@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Section from '@/components/Section';
+import Section from '@/components/layout/Section';
 import PageWrapper from './page-wrapper';
 import Image from 'next/image';
 import WaveImage from 'public/images/wave-painting.png';

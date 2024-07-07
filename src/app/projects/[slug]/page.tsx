@@ -3,7 +3,7 @@ import projectsData from 'json/projects.json';
 import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
-import Section from '@/components/Section';
+import Section from '@/components/layout/Section';
 import { Metadata, ResolvingMetadata } from 'next';
 import NotFound from './not-found';
 import Image from 'next/image';

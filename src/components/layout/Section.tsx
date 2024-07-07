@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
 import SectionTitle from '@/components/SectionTitle';
-import Container from '@/components/Container';
+import Container from '@/components/layout/Container';
 
 interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;

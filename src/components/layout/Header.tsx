@@ -7,8 +7,8 @@ import { LayoutGroup } from 'framer-motion';
 import { TimeContext } from '@/contexts/TimeContext';
 
 import NoScrollLink from '@/components/NoScrollLink';
-import NavIcon from '@/components/NavIcon';
-import Container from '@/components/Container';
+import HamburgerIcon from '@/components/HamburgerIcon';
+import Container from '@/components/layout/Container';
 import {
   navigation,
   revealingHeaderScrollThreshold,
@@ -25,7 +25,7 @@ const Header = ({ revealOnScroll }: Props) => {
   // TODO: remove auto time check in this component, place it at entrance of website
   const { currentTime } = useContext(TimeContext);
 
-  const handleNavIconClick = () => {
+  const handleHamburgerIconClick = () => {
     setMobilenavToggled((current) => !current);
   };
   const handleScroll = () => {
@@ -75,7 +75,10 @@ const Header = ({ revealOnScroll }: Props) => {
         <div className="md:hidden">Luca Ciampi</div>
         <div className="flex items-center gap-3">
           {formatTime(currentTime)}
-          <NavIcon onClick={handleNavIconClick} isOpen={mobilenavToggled} />
+          <HamburgerIcon
+            onClick={handleHamburgerIconClick}
+            isOpen={mobilenavToggled}
+          />
         </div>
       </Container>
     </header>

@@ -3,7 +3,7 @@ interface Props {
   isOpen?: boolean;
 }
 
-const NavIcon = ({ onClick, isOpen }: Props) => (
+const HamburgerIcon = ({ onClick, isOpen }: Props) => (
   <button
     onClick={onClick}
     className={`rounded-full bg-text border-olive px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center`}
@@ -21,4 +21,4 @@ const NavIcon = ({ onClick, isOpen }: Props) => (
   </button>
 );
 
-export default NavIcon;
+export default HamburgerIcon;
