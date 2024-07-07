@@ -1,18 +1,14 @@
 'use client';
 
-import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import React from 'react';
 import { LayoutGroup } from 'framer-motion';
 import { TimeContext } from '@/contexts/TimeContext';
 
-import NoScrollLink from '@/components/NoScrollLink';
 import HamburgerIcon from '@/components/HamburgerIcon';
 import Container from '@/components/layout/Container';
-import {
-  navigation,
-  revealingHeaderScrollThreshold,
-} from '@/constants/navigation';
+import { revealingHeaderScrollThreshold } from '@/constants/navigation';
+import Navigation from '@/components/Navigation';
 
 interface Props {
   revealOnScroll?: boolean;
@@ -49,28 +45,7 @@ const Header = ({ revealOnScroll }: Props) => {
     >
       <Container className="w-full flex items-center justify-between relative text-brown pb-2 md:pb-5 border-b-[1px] border-text">
         <LayoutGroup>
-          <nav className="hidden md:flex items-center font-semibold z-10">
-            <ul className="flex gap-8">
-              {navigation.map(({ label, href, classes, submenu }) => (
-                <li key={label} className={`${classes || ''}`}>
-                  <NoScrollLink href={href}>
-                    <span>{label}</span>
-                  </NoScrollLink>
-                  {submenu && (
-                    <ul className="flex flex-col">
-                      {submenu.map(({ label, href }) => (
-                        <li key={label}>
-                          <Link href={href}>
-                            <span title={label}>{label}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Navigation className="hidden md:flex items-center font-semibold z-10" />
         </LayoutGroup>
         <div className="md:hidden">Luca Ciampi</div>
         <div className="flex items-center gap-3">
