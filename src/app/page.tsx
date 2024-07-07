@@ -6,10 +6,10 @@ import PageWrapper from './page-wrapper';
 import Image from 'next/image';
 import WaveImage from 'public/images/wave-painting.png';
 
-import Heading from '@/components/Heading';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Button from '@/components/Button';
+import BookSection from '@/components/sections/BookSection';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -95,6 +95,9 @@ export default function Page() {
       <Section title="Contact">
         <ContactSection />
       </Section>
+      {/* <Section title="Book">
+        <BookSection />
+      </Section> */}
     </PageWrapper>
   );
 }

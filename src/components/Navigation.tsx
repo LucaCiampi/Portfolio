@@ -1,4 +1,4 @@
-import { NAVIGATION } from '@/constants/navigation';
+import { NAVIGATION } from '@/constants/navigation-constants';
 import NoScrollLink from '@/components/NoScrollLink';
 import Link from 'next/link';
 

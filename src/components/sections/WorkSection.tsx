@@ -8,7 +8,7 @@ import ProjectItem from '@/components/ProjectItem';
 import FilterButton from '@/components/FilterButton';
 import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
-import FILTERS from '@/constants/filters';
+import FILTERS from '@/constants/filters-constants';
 import Arrow from '@/components/Arrow';
 import Container from '@/components/layout/Container';
 

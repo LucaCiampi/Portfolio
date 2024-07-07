@@ -7,7 +7,7 @@ import { TimeContext } from '@/contexts/TimeContext';
 
 import HamburgerIcon from '@/components/HamburgerIcon';
 import Container from '@/components/layout/Container';
-import { REVEALING_HEADER_SCROLL_THRESHOLD } from '@/constants/navigation';
+import { REVEALING_HEADER_SCROLL_THRESHOLD } from '@/constants/navigation-constants';
 import Navigation from '@/components/Navigation';
 
 interface Props {
@@ -36,10 +36,10 @@ const Header = ({ revealOnScroll }: Props) => {
   return (
     <header
       className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 border-text flex items-center ${
-        revealingHeader ? 'translate-y-0' : ''
+        revealingHeader ? 'translate-y-0 opacity-100' : ''
       } ${
         revealOnScroll
-          ? '!fixed -translate-y-full bg-background bg-opacity-50'
+          ? '!fixed -translate-y-full opacity-0 bg-background bg-opacity-50'
           : 'mt-7'
       }`}
     >
