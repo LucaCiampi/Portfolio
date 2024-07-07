@@ -1,5 +1,6 @@
-import Link from "next/link";
-import Button from "./Button";
+import Link from 'next/link';
+import Button from './Button';
+import clsx from 'clsx';
 
 interface Props {
   children?: React.ReactNode;
@@ -10,7 +11,7 @@ interface Props {
 const LinkButton = ({ children, href, className }: Props) => (
   <Link href={href}>
     <span>
-      <Button className={`button--link ${className}`}>{children}</Button>
+      <Button className={clsx('button--link', className)}>{children}</Button>
     </span>
   </Link>
 );

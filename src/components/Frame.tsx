@@ -1,8 +1,8 @@
-import React from "react";
+import clsx from 'clsx';
 
 export enum BorderStyles {
-  solid = "solid",
-  double = "double",
+  solid = 'solid',
+  double = 'double',
 }
 
 interface Props {
@@ -18,7 +18,7 @@ const Frame = ({ children, className, borderStyle, onClick }: Props) => {
       return (
         <div
           onClick={onClick}
-          className={`border border-grey ${className || ""}`}
+          className={clsx('border border-grey', className)}
         >
           {children}
         </div>
@@ -26,7 +26,7 @@ const Frame = ({ children, className, borderStyle, onClick }: Props) => {
 
     case BorderStyles.double:
       return (
-        <div onClick={onClick} className={`inline-block ${className || ""}`}>
+        <div onClick={onClick} className={clsx('inline-block', className)}>
           <div className="relative">
             <div className="absolute -left-2 -top-2 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>
             <div className="absolute -left-0 -top-0 w-[calc(100%+8px)] h-[calc(100%+8px)] border border-outline"></div>

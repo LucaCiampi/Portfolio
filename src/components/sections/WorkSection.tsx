@@ -11,6 +11,7 @@ import SearchInput from '@/components/SearchInput';
 import FILTERS from '@/constants/filters-constants';
 import Arrow from '@/components/Arrow';
 import Container from '@/components/layout/Container';
+import clsx from 'clsx';
 
 export default function WorkSection() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -194,9 +195,10 @@ export default function WorkSection() {
             <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 pl-16 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (
                 <div
-                  className={`project h-fit m-6 md:m-12 relative ${
-                    globalIndex % 2 === 0 ? 'left-column' : 'right-column'
-                  }`}
+                  className={clsx('project h-fit m-6 md:m-12 relative', {
+                    'left-column': globalIndex % 2 === 0,
+                    'right-column': globalIndex % 2 !== 0,
+                  })}
                   onMouseEnter={handleProjectMouseEnter}
                   onMouseLeave={handleProjectMouseLeave}
                   onMouseDown={handleProjectMouseDown}

@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import Heading from '@/components/Heading';
 import { useCallback } from 'react';
 import Arrow from '@/components/Arrow';
+import clsx from 'clsx';
 
 interface Props {
   onClick?: () => void;
@@ -19,9 +20,10 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
   return (
     <div
       onClick={onClick}
-      className={`absolute w-80 rounded-b-full z-10 flex flex-col items-center top-0 right-0 bg-green text-background -translate-y-full opacity-0 transition-all ${
+      className={clsx(
+        'absolute w-80 rounded-b-full z-10 flex flex-col items-center top-0 right-0 bg-green text-background -translate-y-full opacity-0 transition-all',
         isOpen && 'translate-y-0 opacity-100'
-      }`}
+      )}
     >
       <div className="relative px-9 py-32">
         <Heading level={'h3'} className="text-xl mb-10">

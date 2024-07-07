@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 interface Props {
   children?: React.ReactNode;
   className?: string;
@@ -8,7 +10,7 @@ interface Props {
 const Button = ({ children, className, title, onClick }: Props) => (
   <button
     onClick={onClick}
-    className={`rounded-full border-green px-3 ${className || ''}`}
+    className={clsx('rounded-full border-green px-3', className)}
     title={title ?? children?.toString()}
   >
     {children}

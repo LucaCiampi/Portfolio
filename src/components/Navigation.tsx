@@ -1,6 +1,7 @@
 import { NAVIGATION } from '@/constants/navigation-constants';
 import NoScrollLink from '@/components/NoScrollLink';
 import Link from 'next/link';
+import clsx from 'clsx';
 
 interface Props {
   className?: string;
@@ -8,10 +9,10 @@ interface Props {
 }
 
 const Navigation = ({ className, ulClassName }: Props) => (
-  <nav className={`${className && className}`} aria-label="Main Navigation">
-    <ul className={`flex gap-8 ${ulClassName && ulClassName}`}>
+  <nav className={clsx(className)} aria-label="Main Navigation">
+    <ul className={clsx('flex gap-8', ulClassName)}>
       {NAVIGATION.map(({ label, href, classes, submenu }) => (
-        <li key={label} className={`${classes || ''}`}>
+        <li key={label} className={clsx(classes)}>
           <a href={href}>
             <span className="text-lg dynamic-underline">{label}</span>
           </a>

@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 interface Props {
   children?: React.ReactNode;
   className?: string;
@@ -6,9 +8,10 @@ interface Props {
 
 const Container = ({ children, className, fullscreen }: Props) => (
   <div
-    className={`${fullscreen ? '' : 'xl:container mx-auto px-6 xl:px-0'} ${
-      className || ''
-    }`}
+    className={clsx(
+      !fullscreen && 'xl:container mx-auto px-6 xl:px-0',
+      className
+    )}
   >
     {children}
   </div>

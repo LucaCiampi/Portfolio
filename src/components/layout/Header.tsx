@@ -10,6 +10,7 @@ import Container from '@/components/layout/Container';
 import { REVEALING_HEADER_SCROLL_THRESHOLD } from '@/constants/navigation-constants';
 import Navigation from '@/components/Navigation';
 import Sidenav from '@/components/Sidenav';
+import clsx from 'clsx';
 
 interface Props {
   revealOnScroll?: boolean;
@@ -36,12 +37,12 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-50 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 border-text ${
-        revealingHeader && 'translate-y-0 opacity-100'
-      } ${
+      className={clsx(
+        'z-50 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 border-text',
+        revealingHeader && 'translate-y-0 opacity-100',
         revealOnScroll &&
-        '!fixed -translate-y-full opacity-0 bg-background bg-opacity-50'
-      }`}
+          '!fixed -translate-y-full opacity-0 bg-background bg-opacity-50'
+      )}
     >
       <div className="max-w-[1778px] relative mx-auto">
         <Sidenav onClick={handleHamburgerIconClick} isOpen={mobilenavToggled} />

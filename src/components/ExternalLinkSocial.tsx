@@ -1,7 +1,8 @@
-import ExternalLink from './ExternalLink';
+import ExternalLink from '@/components/ExternalLink';
 import Github from 'public/images/social/github.svg';
 import Linkedin from 'public/images/social/linkedin.svg';
 import Arrow from '@/components/Arrow';
+import clsx from 'clsx';
 
 interface Props {
   name: string;
@@ -18,9 +19,10 @@ const ExternalLinkSocial = ({ name, href, className, color }: Props) => {
   return (
     <ExternalLink
       href={href}
-      className={`flex items-center gap-2 min-w-60 justify-between ${
-        className || ''
-      }`}
+      className={clsx(
+        'flex items-center gap-2 min-w-60 justify-between',
+        className
+      )}
     >
       <div className="flex items-center gap-6">
         {IconComponent && (
