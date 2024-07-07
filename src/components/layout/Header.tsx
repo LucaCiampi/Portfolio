@@ -35,7 +35,7 @@ const Header = ({ revealOnScroll }: Props) => {
 
   return (
     <header
-      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 md:pt-5 border-text flex items-center ${
+      className={`z-30 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 px-3 pt-2 border-text flex items-center ${
         revealingHeader ? 'translate-y-0' : ''
       } ${
         revealOnScroll
@@ -43,7 +43,7 @@ const Header = ({ revealOnScroll }: Props) => {
           : 'mt-7'
       }`}
     >
-      <Container className="w-full flex items-center justify-between relative text-brown pb-2 md:pb-5 border-b-[1px] border-text">
+      <Container className="w-full flex items-center justify-between relative text-brown pb-2 border-b-[1px] border-text">
         <LayoutGroup>
           <Navigation className="hidden md:flex items-center font-semibold z-10" />
         </LayoutGroup>
