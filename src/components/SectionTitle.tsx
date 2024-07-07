@@ -7,13 +7,13 @@ interface Props {
 
 const SectionTitle = ({ title, isTitleRight }: Props) => {
   return (
-    <div className="overflow-x-clip relative w-full">
+    <div className="overflow-x-clip relative w-full mb-14">
       <Container
         className={`relative z-20 text-brown ${
           isTitleRight ? 'text-right' : ''
         }`}
       >
-        <h2 className="lg:text-[96px] lg:leading-[100px] text-4xl mb-14 font-playfair-display inline-block">
+        <h2 className="lg:text-[96px] lg:leading-[100px] text-4xl font-playfair-display inline-block">
           {title}
         </h2>
         <div

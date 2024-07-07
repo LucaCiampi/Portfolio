@@ -181,7 +181,8 @@ h3 {
   transition: background-size 200ms;
 }
 
-.dynamic-underline:hover {
+.dynamic-underline:hover,
+.dynamic-underline--active {
   background-size: 80% 100%;
 }
 
