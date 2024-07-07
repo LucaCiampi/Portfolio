@@ -8,7 +8,7 @@ import ProjectItem, { Project } from '@/components/ProjectItem';
 import FilterButton from '@/components/FilterButton';
 import Image from 'next/image';
 import SearchInput from '@/components/SearchInput';
-import Filters from '@/constants/Filters';
+import filters from '@/constants/filters';
 import Arrow from '@/components/Arrow';
 import Container from '@/components/Container';
 
@@ -157,7 +157,7 @@ export default function WorkSection() {
       <div className="sticky top-0 bg-grey z-10 pt-16 md:pt-24 -mt-14 md:-mt-28 w-screen text-sm">
         <Container className="flex justify-between gap-4 py-2 overflow-scroll">
           <div className="flex items-center gap-4">
-            {Filters.map((techno) => (
+            {filters.map((techno) => (
               <FilterButton
                 key={techno}
                 techno={techno}

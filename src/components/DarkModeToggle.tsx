@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { TimeContext } from "./TimeContext";
+import { useContext } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { TimeContext } from '@/contexts/TimeContext';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 const DarkModeToggle = (): JSX.Element => {
   const { darkMode, toggleDarkMode } = useContext(TimeContext);
@@ -14,14 +14,14 @@ const DarkModeToggle = (): JSX.Element => {
       <motion.button
         className="text-2xl sm:text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
         onClick={() => toggleDarkMode()}
-        key={darkMode ? "dark-icon" : "light-icon"}
+        key={darkMode ? 'dark-icon' : 'light-icon'}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
         {darkMode ? (
-          "🌙"
+          '🌙'
         ) : (
           <Image
             src="/images/dark-mode.svg"

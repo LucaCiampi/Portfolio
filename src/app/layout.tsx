@@ -1,4 +1,4 @@
-import { TimeProvider } from '@/components/TimeContext';
+import { TimeProvider } from '@/contexts/TimeContext';
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 import Header from '@/components/Header';

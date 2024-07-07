@@ -4,30 +4,19 @@ import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import React from 'react';
 import { LayoutGroup } from 'framer-motion';
-import { TimeContext } from './TimeContext';
+import { TimeContext } from '@/contexts/TimeContext';
 
 import NoScrollLink from '@/components/NoScrollLink';
 import NavIcon from '@/components/NavIcon';
 import Container from '@/components/Container';
+import {
+  navigation,
+  revealingHeaderScrollThreshold,
+} from '@/constants/navigation';
 
 interface Props {
   revealOnScroll?: boolean;
 }
-
-interface Link {
-  label: string;
-  href: string;
-  classes?: string;
-  submenu?: Link[];
-}
-
-const links: Link[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Projects', href: '#work' },
-  { label: 'Contact', href: '#contact' },
-];
-
-const revealingHeaderScrollThreshold = 400;
 
 const Header = ({ revealOnScroll }: Props) => {
   const [mobilenavToggled, setMobilenavToggled] = useState(false);
@@ -62,7 +51,7 @@ const Header = ({ revealOnScroll }: Props) => {
         <LayoutGroup>
           <nav className="hidden md:flex items-center font-semibold z-10">
             <ul className="flex gap-8">
-              {links.map(({ label, href, classes, submenu }) => (
+              {navigation.map(({ label, href, classes, submenu }) => (
                 <li key={label} className={`${classes || ''}`}>
                   <NoScrollLink href={href}>
                     <span>{label}</span>
