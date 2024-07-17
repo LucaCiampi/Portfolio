@@ -7,6 +7,7 @@ import PageWrapper from './page-wrapper';
 import HeroSection from '@/components/sections/HeroSection';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
+import gsap from 'gsap';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
@@ -66,6 +67,8 @@ export default function Page() {
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         },
       });
+
+      gsap.registerPlugin(ScrollTrigger);
     })();
   }, []);
 
