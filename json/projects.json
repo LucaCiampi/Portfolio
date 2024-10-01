@@ -5,7 +5,7 @@
     "date": 2024,
     "slug": "plan-cult",
     "thumbnail": "plan-cult.jpg",
-    "content": "mon contenu",
+    "content": "React Native app made during my studies. The app aims to vulgarize history by reusing the mechanics of dating apps and pokémon GO.",
     "technos": [
       "React.js",
       "React native",
@@ -206,19 +206,6 @@
         "caption": "Design by mooxy"
       }
     ]
-  },
-  {
-    "title": "E.S.A.T \"Le Monthoux\"",
-    "description": "Website made during my studies in Université de Savoie",
-    "date": 2018,
-    "slug": "esat-le-monthoux",
-    "thumbnail": "eds.webp",
-    "content": "Website made during my studies in Université de Savoie",
-    "technos": ["CSS", "JavaScript"],
-    "layout": {
-      "orientation": "horizontal",
-      "design": 1
-    }
   },
   {
     "title": "Animateam",

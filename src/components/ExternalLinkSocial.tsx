@@ -1,6 +1,7 @@
 import ExternalLink from '@/components/ExternalLink';
 import Github from 'public/images/social/github.svg';
 import Linkedin from 'public/images/social/linkedin.svg';
+import Malt from 'public/images/social/malt.svg';
 import Arrow from '@/components/Arrow';
 import clsx from 'clsx';
 
@@ -13,8 +14,15 @@ interface Props {
 
 const ExternalLinkSocial = ({ name, href, className, color }: Props) => {
   const properName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  // TODO: use switch
   const IconComponent =
-    name === 'github' ? Github : name === 'linkedin' ? Linkedin : null;
+    name === 'github'
+      ? Github
+      : name === 'linkedin'
+        ? Linkedin
+        : name === 'malt'
+          ? Malt
+          : null;
 
   return (
     <ExternalLink
