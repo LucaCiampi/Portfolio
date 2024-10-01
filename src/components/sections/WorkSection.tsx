@@ -222,7 +222,10 @@ export default function WorkSection() {
                 >
                   {globalIndex === 0 ||
                   allProjects[globalIndex - 1].year !== year ? (
-                    <div key={year} className="year-header absolute">
+                    <div
+                      key={year}
+                      className="year-header absolute text-2xl font-semibold"
+                    >
                       {year}
                     </div>
                   ) : null}

@@ -80,7 +80,7 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section id="hero" className="relative min-h-screen">
+      <Section id="hero" className="relative min-h-dvh">
         <HeroSection />
       </Section>
       <Section

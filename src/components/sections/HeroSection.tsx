@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WaveImage from 'public/images/wave-painting.png';
+import WaveImage from 'public/images/van-gogh.jpg';
 import SeaImage from 'public/images/sea.jpg';
 import KlimtImage from 'public/images/the-kiss-klimt.jpg';
 import Button from '@/components/Button';
@@ -25,7 +25,7 @@ const HeroSection = () => {
     });
 
     timeline
-      .from(background.current, { transform: `translateX(20%)` })
+      .to(background.current, { transform: `translateX(20%)` })
       .to(introImage.current, { clipPath: 'inset(15%)' }, 0);
   }, []);
 
@@ -33,7 +33,6 @@ const HeroSection = () => {
     <>
       <div className="md:pt-[120px] pt-24 z-10 text-brown">
         <div className="relative">
-          <div className="pattern-1 absolute top-0 left-0 -z-10 w-full h-44 md:w-[448px] md:h-[448px]" />
           <h1
             data-scroll
             data-scroll-speed="0.05"
@@ -44,30 +43,21 @@ const HeroSection = () => {
               Ciampi
             </span>
           </h1>
-          <div className="text-6xl sm:text-8xl md:text-[124px] md:leading-[130px] font-playfair-display">
-            <div className="relative z-20" data-scroll data-scroll-speed="0.1">
-              <span
-                className="font-abril-fatface"
-                data-scroll
-                data-scroll-delay="0.1"
-              >
-                Front
-              </span>
-              <span data-scroll data-scroll-delay="2">
-                -end
-              </span>
+          <div
+            data-scroll
+            data-scroll-speed="0.1"
+            className="text-6xl sm:text-8xl md:text-[124px] md:leading-[130px] font-playfair-display"
+          >
+            <div className="relative z-20">
+              <span className="font-abril-fatface">Front</span>
+              <span>-end</span>
               <Image
                 src={SeaImage}
                 alt="Sea pattern"
                 className="absolute left-[2.6em] top-1/2 translate-y-1/2 rounded-full hidden lg:block"
               />
             </div>
-            <div
-              className="hero--developer relative z-10"
-              data-scroll
-              data-scroll-speed="0.2"
-              data-scroll-delay="0.2"
-            >
+            <div className="hero--developer relative z-10">
               Developer
               <Image
                 ref={introImage}
@@ -79,7 +69,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 w-full md:w-1/2 overflow-x-clip">
+      <div className="absolute lg:top-1/3 bottom-0 right-0 w-full md:w-1/2 overflow-x-clip">
         <div className="relative">
           <Image
             ref={background}
