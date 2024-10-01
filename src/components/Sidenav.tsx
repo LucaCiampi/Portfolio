@@ -21,11 +21,11 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
     <div
       onClick={onClick}
       className={clsx(
-        'absolute w-80 rounded-b-full z-10 flex flex-col items-center top-0 right-0 bg-green text-background -translate-y-full opacity-0 transition-all',
+        'absolute w-80 rounded-b-full z-10 flex flex-col items-center top-0 right-0 bg-green text-background -translate-y-full opacity-0 transition-all duration-300 ease-out',
         isOpen && 'translate-y-0 opacity-100'
       )}
     >
-      <div className="relative px-9 py-32">
+      <div className="relative px-9 pb-32 pt-16">
         <Heading level={'h3'} className="text-xl mb-10">
           Navigation
         </Heading>

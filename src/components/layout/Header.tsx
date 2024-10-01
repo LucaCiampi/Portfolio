@@ -44,10 +44,8 @@ const Header = ({ revealOnScroll }: Props) => {
           '!fixed -translate-y-full opacity-0 bg-background bg-opacity-50'
       )}
     >
-      <div className="max-w-[1778px] relative mx-auto">
-        <Sidenav onClick={handleHamburgerIconClick} isOpen={mobilenavToggled} />
-      </div>
       <Container className="w-full flex items-center justify-between relative text-brown py-2 border-b-[1px] border-text">
+        <Sidenav onClick={handleHamburgerIconClick} isOpen={mobilenavToggled} />
         <LayoutGroup>
           <Navigation className="hidden md:flex items-center font-semibold z-10" />
         </LayoutGroup>

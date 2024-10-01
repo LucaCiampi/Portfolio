@@ -208,7 +208,7 @@ export default function WorkSection() {
       <div className="overflow-x-hidden">
         <Container className="mt-8 border-dashed border-l-2 border-text">
           <AnimatePresence>
-            <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 pl-16 pr-0">
+            <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 lg:pl-16 pl-4 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (
                 <div
                   className={clsx('project h-fit m-6 md:m-12 relative', {
@@ -234,10 +234,10 @@ export default function WorkSection() {
         </Container>
         <div
           ref={customPointerRef}
-          className="invisible flex gap-2 items-center border-text border-[1px] bg-background pointer-events-none px-3 py-1 rounded-full absolute"
+          className="invisible flex gap-2 items-center border-text border-[1px] bg-text text-background pointer-events-none px-3 py-1 rounded-full absolute"
         >
           See details
-          <Arrow />
+          <Arrow color="white" />
         </div>
       </div>
     </>
