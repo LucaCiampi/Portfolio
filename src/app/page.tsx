@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Section from '@/components/layout/Section';
 import PageWrapper from './page-wrapper';
 
@@ -92,9 +92,6 @@ export default function Page() {
         <WorkSection />
       </Section>
       <Section title="Contact">
-        <h3 className="text-6xl text-center pt-6 font-allison">
-          I'm currently available for work !
-        </h3>
         <ContactSection />
       </Section>
       {/* <Section title="Book">
