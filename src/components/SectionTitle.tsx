@@ -15,7 +15,7 @@ const SectionTitle = ({ title, isTitleRight }: Props) => {
           isTitleRight && 'text-right'
         )}
       >
-        <h2 className="lg:text-[96px] lg:leading-[100px] text-4xl font-playfair-display inline-block">
+        <h2 className="lg:text-[96px] lg:leading-[100px] text-5xl font-playfair-display inline-block">
           {title}
         </h2>
         <div

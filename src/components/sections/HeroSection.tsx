@@ -32,17 +32,20 @@ const HeroSection = () => {
   return (
     <>
       <div className="md:pt-[120px] pt-24 z-10 text-brown">
-        <div className="relative pt-24 md:pt-0">
+        <div className="relative md:pt-24 md:pt-0">
           <div className="pattern-1 absolute top-0 left-0 -z-10 w-full h-44 md:w-[448px] md:h-[448px]" />
           <h1
             data-scroll
             data-scroll-speed="0.05"
-            className="font-allison text-6xl sm:text-8xl md:leading-[170px] md:text-[164px]"
+            className="flex flex-wrap justify-between sm:inline font-allison text-[130px] leading-[100px] sm:text-8xl md:leading-[170px] md:text-[164px] mb-12 md:mb-0"
           >
-            Luca Ciampi
+            Luca{' '}
+            <span className="ml-auto block sm:inline w-full sm:w-fit text-right">
+              Ciampi
+            </span>
           </h1>
           <div className="text-6xl sm:text-8xl md:text-[144px] md:leading-[160px] font-playfair-display">
-            <div className="relative" data-scroll data-scroll-speed="0.1">
+            <div className="relative z-10" data-scroll data-scroll-speed="0.1">
               <span
                 className="font-abril-fatface"
                 data-scroll
@@ -56,7 +59,7 @@ const HeroSection = () => {
               <Image
                 src={SeaImage}
                 alt="Sea pattern"
-                className="absolute left-[2.6em] top-1/2 translate-y-1/2 rounded-full"
+                className="absolute left-[2.6em] top-1/2 translate-y-1/2 rounded-full hidden lg:block"
               />
             </div>
             <div
@@ -85,7 +88,7 @@ const HeroSection = () => {
             alt="The Great Wave off Kanagawa"
           />
           <a href="#work">
-            <Button className="pattern--dots !px-6 py-4 absolute z-30 bottom-24 right-1/2 bg-green text-background text-2xl translate-x-1/2">
+            <Button className="w-max pattern--dots !px-6 py-4 absolute z-30 bottom-48 md:bottom-24 right-1/2 bg-green text-background text-2xl translate-x-1/2">
               See my work
             </Button>
           </a>
