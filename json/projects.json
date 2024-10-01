@@ -1,5 +1,44 @@
 [
   {
+    "title": "Plan Cult'",
+    "description": "School project",
+    "date": 2024,
+    "slug": "plan-cult",
+    "thumbnail": "plan-cult.jpg",
+    "content": "mon contenu",
+    "technos": [
+      "React.js",
+      "React native",
+      "Expo",
+      "Viro-react",
+      "SQLite",
+      "Strapi"
+    ],
+    "repo": "",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "1.jpg"
+      },
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "4.jpg"
+      }
+    ]
+  },
+  {
     "title": "Le roi du silence",
     "description": "School project",
     "date": 2023,

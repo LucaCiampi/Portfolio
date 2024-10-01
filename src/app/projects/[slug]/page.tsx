@@ -51,7 +51,14 @@ export default function Page({ params }: Props) {
               </div>
             ) : (
               <div>
-                <Image src={mediaUrl} alt="Preview" width={400} height={260} />
+                <Image
+                  src={mediaUrl}
+                  alt={project.title}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: '100%', height: 'auto' }}
+                />
                 {media.caption && (
                   <div className="mt-2 italic">{media.caption}</div>
                 )}
@@ -62,8 +69,6 @@ export default function Page({ params }: Props) {
       })}
     </Section>
   );
-
-  console.log(project);
 
   return (
     <PageWrapper>
@@ -96,10 +101,7 @@ export default function Page({ params }: Props) {
                 {project.company && <div>Working for : {project.company}</div>}
                 <div className="flex gap-2 flex-wrap">
                   {project.technos.map((techno: string) => (
-                    <LinkButton
-                      key={techno}
-                      href={`/projects?filters=${techno}`}
-                    >
+                    <LinkButton key={techno} href={`/?filters=${techno}`}>
                       {techno}
                     </LinkButton>
                   ))}
