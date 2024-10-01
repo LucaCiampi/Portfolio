@@ -28,6 +28,7 @@ const allison = Allison({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://lucaciampi.fr'),
   title: {
     template: '%s | Luca Ciampi',
     default: 'Luca Ciampi',
