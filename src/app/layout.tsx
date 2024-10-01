@@ -32,8 +32,11 @@ export const metadata: Metadata = {
     template: '%s | Luca Ciampi',
     default: 'Luca Ciampi',
   },
-  description: 'Portfolio de Luca Ciampi',
-  // TODO: add default og image
+  description:
+    'Hello 👋🏼 I am a front-end React, React native and Next.js developer currently based in Lyon. I am specialized in static websites, progressive web applications and mobile applications.',
+  openGraph: {
+    images: ['images/thumbnail.jpg'],
+  },
 };
 
 interface Props {
