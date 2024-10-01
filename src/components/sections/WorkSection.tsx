@@ -33,8 +33,6 @@ export default function WorkSection() {
    * OnMount
    */
   useEffect(() => {
-    console.log('useEffect[]');
-
     // Sets active filters from URL
     const filtersParam = getFiltersParamFromURL();
     if (filtersParam) {
@@ -94,7 +92,6 @@ export default function WorkSection() {
    * Moves the custom pointer according to real pointer position
    */
   const handleProjectMouseMove = useCallback((event: MouseEvent): void => {
-    console.log('handleProjectMouseMove');
     const customPointer = customPointerRef.current;
     customPointer.style.left = `${event.pageX}px`;
     customPointer.style.top = `${event.pageY}px`;
@@ -303,8 +300,6 @@ const handleMouseMove = (event: MouseEvent) => {
     project.setAttribute('data-l-follow-x', String(lFollowX));
     project.setAttribute('data-l-follow-y', String(lFollowY));
   });
-
-  console.log('HandleMouseMove');
 };
 
 /**
@@ -327,8 +322,6 @@ function glideProjects(animateGlide: FrameRequestCallback) {
     }
   });
   requestAnimationFrame(animateGlide);
-
-  console.log('GLIDE projects');
 }
 
 /**
