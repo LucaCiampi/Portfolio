@@ -10,7 +10,7 @@ interface Props {
 const Button = ({ children, className, title, onClick }: Props) => (
   <button
     onClick={onClick}
-    className={clsx('rounded-full border-green px-3', className)}
+    className={clsx('rounded-full border-green border-[1px] px-3', className)}
     title={title ?? children?.toString()}
   >
     {children}

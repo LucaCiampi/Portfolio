@@ -7,6 +7,9 @@ import Section from '@/components/layout/Section';
 import { Metadata, ResolvingMetadata } from 'next';
 import NotFound from './not-found';
 import Image from 'next/image';
+import Container from '@/components/layout/Container';
+import Frame, { BorderStyles } from '@/components/Frame';
+import Arrow from '@/components/Arrow';
 
 interface Props {
   params: { slug: string };
@@ -27,18 +30,8 @@ export default function Page({ params }: Props) {
     NotFound();
   }
 
-  const renderTechnos = () => (
-    <Section title="Technos">
-      {project.technos.map((techno: string) => (
-        <LinkButton key={techno} href={`/projects?filters=${techno}`}>
-          {techno}
-        </LinkButton>
-      ))}
-    </Section>
-  );
-
   const renderMedia = () => (
-    <Section title="Media">
+    <Section title="Media" className="my-4">
       {project.media?.map((media, index) => {
         const mediaUrl = media.url.startsWith('http')
           ? media.url
@@ -52,12 +45,16 @@ export default function Page({ params }: Props) {
                   <source src={mediaUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {media.caption && <span>{media.caption}</span>}
+                {media.caption && (
+                  <div className="mt-2 italic">{media.caption}</div>
+                )}
               </div>
             ) : (
               <div>
                 <Image src={mediaUrl} alt="Preview" width={400} height={260} />
-                {media.caption && <span>{media.caption}</span>}
+                {media.caption && (
+                  <div className="mt-2 italic">{media.caption}</div>
+                )}
               </div>
             )}
           </div>
@@ -66,21 +63,71 @@ export default function Page({ params }: Props) {
     </Section>
   );
 
+  console.log(project);
+
   return (
     <PageWrapper>
-      <article>
-        <h1 className="lg:text-[96px] lg:leading-[100px] text-4xl font-playfair-display inline-block">
-          {project.title}
-        </h1>
-        {renderTechnos()}
-        <div>{project.content}</div>
-        {project.company && <div>Working for: {project.company}</div>}
-        {project.url && (
-          <ExternalLinkButton href={project.url}>Go to site</ExternalLinkButton>
-        )}
+      <article className="pt-24 pb-4">
+        <Container>
+          <LinkButton href="/" className="flex items-center gap-2 mb-4">
+            <Arrow orientation="left" />
+            Go back
+          </LinkButton>
+
+          <div className="lg:grid grid-cols-2 gap-8">
+            <div className="relative">
+              <Frame borderStyle={BorderStyles.solid}>
+                <Image
+                  src={`/images/projects/${project.slug}/${project.thumbnail}`}
+                  alt={project.title}
+                  width={16}
+                  height={9}
+                  // TODO: remove layout (deprecated)
+                  layout="responsive"
+                />
+              </Frame>
+            </div>
+            <div>
+              <h1 className="lg:text-[96px] lg:leading-[100px] text-6xl font-allison block">
+                {project.title}
+              </h1>
+              <hr />
+              <div className="flex flex-col gap-4">
+                {project.company && <div>Working for : {project.company}</div>}
+                <div className="flex gap-2 flex-wrap">
+                  {project.technos.map((techno: string) => (
+                    <LinkButton
+                      key={techno}
+                      href={`/projects?filters=${techno}`}
+                    >
+                      {techno}
+                    </LinkButton>
+                  ))}
+                </div>
+                <div>{project.content}</div>
+                {project.url && (
+                  <ExternalLinkButton
+                    href={project.url}
+                    className="flex items-center gap-2"
+                  >
+                    Go to site
+                    <Arrow />
+                  </ExternalLinkButton>
+                )}
+              </div>
+            </div>
+          </div>
+        </Container>
+
         {project.media && project.media.length > 0 && renderMedia()}
+
+        <Container className="my-4">
+          <LinkButton href="/" className="flex items-center gap-2">
+            <Arrow orientation="left" />
+            Go back
+          </LinkButton>
+        </Container>
       </article>
-      <LinkButton href="/">Go back</LinkButton>
     </PageWrapper>
   );
 }

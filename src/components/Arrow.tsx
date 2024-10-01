@@ -3,7 +3,7 @@ import clsx from 'clsx';
 interface Props {
   large?: boolean;
   color?: 'dark' | 'white';
-  orientation?: 'default' | 'top';
+  orientation?: 'default' | 'top' | 'left';
 }
 
 const Arrow = ({ large, color = 'dark', orientation = 'default' }: Props) => (

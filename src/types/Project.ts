@@ -9,11 +9,7 @@ type Project = {
   url?: string;
   repo?: string;
   company?: string;
-  media?: {
-    type: string;
-    url: string;
-    caption?: string;
-  }[];
+  media?: Media[];
   layout?: {
     orientation: string;
     design: number;

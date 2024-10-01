@@ -23,7 +23,7 @@ const ProjectItem = ({ project }: Props) => {
       >
         <ProjectItemFrame project={project}>
           <Image
-            src={`images/projects/${project.slug}/${project.thumbnail}`}
+            src={`/images/projects/${project.slug}/${project.thumbnail}`}
             alt={project.title}
             width={project.layout?.orientation == 'horizontal' ? 9 : 16}
             height={project.layout?.orientation == 'horizontal' ? 16 : 9}

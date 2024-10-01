@@ -13,7 +13,7 @@ const FilterButton: React.FC<Props> = React.memo(
   ({ techno, isActive, onClick }) => (
     <Button
       className={clsx(
-        'flex gap-2 border-green text-text border-[1px] items-center',
+        'flex gap-2 border-green text-text items-center',
         isActive && 'bg-green !text-white'
       )}
       title={techno}

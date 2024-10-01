@@ -52,7 +52,7 @@ const Header = ({ revealOnScroll }: Props) => {
           <Navigation className="hidden md:flex items-center font-semibold z-10" />
         </LayoutGroup>
         <div className="md:hidden">Luca Ciampi</div>
-        <div className="flex items-center gap-3 mr-4">
+        <div className="flex items-center gap-3">
           {formatTime(currentTime)}
           <HamburgerIcon
             onClick={handleHamburgerIconClick}
