@@ -52,12 +52,12 @@ export default function Page({ params }: Props) {
                   <source src={mediaUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {media.credits && <span>{media.credits}</span>}
+                {media.caption && <span>{media.caption}</span>}
               </div>
             ) : (
               <div>
                 <Image src={mediaUrl} alt="Preview" width={400} height={260} />
-                {media.credits && <span>{media.credits}</span>}
+                {media.caption && <span>{media.caption}</span>}
               </div>
             )}
           </div>

@@ -12,7 +12,7 @@ type Project = {
   media?: {
     type: string;
     url: string;
-    credits?: string;
+    caption?: string;
   }[];
   layout?: {
     orientation: string;

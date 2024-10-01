@@ -1,101 +1,101 @@
 [
-    {
-        "title": "Le roi du silence",
-        "description": "School project",
-        "date": 2023,
-        "slug": "roi-du-silence",
-        "thumbnail": "logo.png",
-        "content": "mon contenu",
-        "technos": ["Three.js", "Firebase"],
-        "url": "https://roi-du-silence.netlify.app/",
-        "repo": "",
-        "layout": {
-            "orientation": "horizontal",
-            "design": 1
-        }
-    },
-    {
-        "title": "Étoiles du sport",
-        "description": "School project",
-        "date": 2022,
-        "slug": "eds",
-        "thumbnail": "eds.webp",
-        "content": "mon contenu2",
-        "technos": ["Next.js", "React.js"],
-        "company": "mooxy",
-        "layout": {
-            "orientation": "horizontal",
-            "design": 3
-        }
-    },
-    {
-        "title": "Poésie urbaine",
-        "description": "School project",
-        "date": 2022,
-        "slug": "poesie-urbaine",
-        "thumbnail": "poesie-urbaine-vertical.jpg",
-        "content": "mon contenu",
-        "technos": ["Unity", "C#", "AR Foundation"],
-        "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
-        "media": [
-            {
-                "type": "video",
-                "url": "poesie-urbaine-trailer.mp4",
-                "credits": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
-            }
-        ],
-        "layout": {
-            "orientation": "vertical",
-            "design": 2
-        }
-    },
-    {
-        "title": "PRISMA Conseil",
-        "description": "School project",
-        "date": 2019,
-        "slug": "prisma-conseil",
-        "thumbnail": "eds.webp",
-        "content": "mon contenu",
-        "technos": ["PHP", "Wordpress", "JavaScript"],
-        "layout": {
-            "orientation": "horizontal",
-            "design": 1
-        }
-    },
-    {
-        "title": "E.S.A.T \"Le Monthoux\"",
-        "description": "School project",
-        "date": 2018,
-        "slug": "esat-le-monthoux",
-        "thumbnail": "eds.webp",
-        "content": "mon contenu",
-        "technos": ["CSS", "JavaScript"],
-        "layout": {
-            "orientation": "horizontal",
-            "design": 1
-        }
-    },
-    {
-        "title": "Animateam",
-        "description": "School project",
-        "date": 2017,
-        "slug": "animateam",
-        "thumbnail": "1.jpg",
-        "content": "mon contenu",
-        "technos": ["PHP", "JavaScript"],
-        "media": [
-            {
-                "type": "image",
-                "url": "1.jpg"
-            },
-            {
-                "type": "image",
-                "url": "2.jpg"
-            },
-            {
-                "type": "image",
-                "url": "3.jpg"
-            }
-        ]
+  {
+    "title": "Le roi du silence",
+    "description": "School project",
+    "date": 2023,
+    "slug": "roi-du-silence",
+    "thumbnail": "logo.png",
+    "content": "mon contenu",
+    "technos": ["Three.js", "Firebase"],
+    "url": "https://roi-du-silence.netlify.app/",
+    "repo": "",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
     }
+  },
+  {
+    "title": "Étoiles du sport",
+    "description": "School project",
+    "date": 2022,
+    "slug": "eds",
+    "thumbnail": "eds.webp",
+    "content": "mon contenu2",
+    "technos": ["Next.js", "React.js"],
+    "company": "mooxy",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 3
+    }
+  },
+  {
+    "title": "Poésie urbaine",
+    "description": "School project",
+    "date": 2022,
+    "slug": "poesie-urbaine",
+    "thumbnail": "poesie-urbaine-vertical.jpg",
+    "content": "mon contenu",
+    "technos": ["Unity", "C#", "AR Foundation"],
+    "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
+    "media": [
+      {
+        "type": "video",
+        "url": "poesie-urbaine-trailer.mp4",
+        "caption": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
+      }
+    ],
+    "layout": {
+      "orientation": "vertical",
+      "design": 2
+    }
+  },
+  {
+    "title": "PRISMA Conseil",
+    "description": "School project",
+    "date": 2019,
+    "slug": "prisma-conseil",
+    "thumbnail": "eds.webp",
+    "content": "mon contenu",
+    "technos": ["PHP", "Wordpress", "JavaScript"],
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    }
+  },
+  {
+    "title": "E.S.A.T \"Le Monthoux\"",
+    "description": "School project",
+    "date": 2018,
+    "slug": "esat-le-monthoux",
+    "thumbnail": "eds.webp",
+    "content": "mon contenu",
+    "technos": ["CSS", "JavaScript"],
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    }
+  },
+  {
+    "title": "Animateam",
+    "description": "School project",
+    "date": 2017,
+    "slug": "animateam",
+    "thumbnail": "1.jpg",
+    "content": "mon contenu",
+    "technos": ["PHP", "JavaScript"],
+    "media": [
+      {
+        "type": "image",
+        "url": "1.jpg"
+      },
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      }
+    ]
+  }
 ]

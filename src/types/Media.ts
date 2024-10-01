@@ -1,5 +1,5 @@
 interface Media {
   type: string;
   url: string;
-  credits?: string;
+  caption?: string;
 }
