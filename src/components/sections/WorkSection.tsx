@@ -30,6 +30,25 @@ export default function WorkSection() {
   }, []);
 
   /**
+   * Deactivates the glide effect if the user is on mobile
+   */
+  useEffect(() => {
+    const isTouchDevice = () => {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    };
+
+    if (isTouchDevice()) {
+      // Supprimer l'effet de flottement sur les appareils tactiles
+      window.removeEventListener('mousemove', handleMouseMove);
+    } else {
+      // Ajouter l'effet de flottement sur les desktops
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  /**
    * OnMount
    */
   useEffect(() => {
