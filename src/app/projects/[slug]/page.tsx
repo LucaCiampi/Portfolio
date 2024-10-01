@@ -69,7 +69,9 @@ export default function Page({ params }: Props) {
   return (
     <PageWrapper>
       <article>
-        <h1>{project.title}</h1>
+        <h1 className="lg:text-[96px] lg:leading-[100px] text-4xl font-playfair-display inline-block">
+          {project.title}
+        </h1>
         {renderTechnos()}
         <div>{project.content}</div>
         {project.company && <div>Working for: {project.company}</div>}
