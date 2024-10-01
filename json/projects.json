@@ -1,7 +1,7 @@
 [
   {
     "title": "Plan Cult'",
-    "description": "School project",
+    "description": "Website made during my studies in Université de Savoie",
     "date": 2024,
     "slug": "plan-cult",
     "thumbnail": "plan-cult.jpg",
@@ -39,15 +39,103 @@
     ]
   },
   {
+    "title": "Danone",
+    "description": "Application for the french \"Salon de l'agriculture\" in 2024.",
+    "date": 2024,
+    "slug": "danone-salon-agri",
+    "thumbnail": "1.jpg",
+    "content": "Application for the french \"Salon de l'agriculture\" in 2024.",
+    "technos": ["React.js", "Wordpress"],
+    "layout": {
+      "orientation": "horizontal",
+      "design": 3
+    },
+    "company": "Smartfire | Groupe CEETADEL",
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "4.jpg"
+      }
+    ]
+  },
+  {
     "title": "Le roi du silence",
-    "description": "School project",
+    "description": "School project with imposed theme : school harassment, imposed audience : teens from 11 to 15 years old and imposed technology: WebGL.",
     "date": 2023,
     "slug": "roi-du-silence",
-    "thumbnail": "logo.png",
-    "content": "mon contenu",
-    "technos": ["Three.js", "Firebase"],
+    "thumbnail": "1.jpg",
+    "content": "School project with imposed theme : school harassment, imposed audience : teens from 11 to 15 years old and imposed technology: WebGL.",
+    "technos": ["Three.js", "Firebase", "WebGL", "JavaScript"],
     "url": "https://roi-du-silence.netlify.app/",
     "repo": "",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 2
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "4.jpg"
+      }
+    ]
+  },
+  {
+    "title": "mooxy",
+    "description": "Website for the company I've worked in for 2 years, a communication agency based in Annecy, France. The goal in this website is to have a page weight that is as low as possible to have a good eco-index. The site is static.",
+    "date": 2023,
+    "slug": "mooxy",
+    "thumbnail": "mooxy.jpg",
+    "content": "Website for the company I've worked in for 2 years, a communication agency based in Annecy, France. The goal in this website is to have a page weight that is as low as possible to have a good eco-index. The site is static though the content can be administrated through Wordpress.",
+    "technos": ["Next.js", "React.js", "Wordpress"],
+    "url": "https://mooxy.co/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "1.jpg"
+      },
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "page.jpg"
+      }
+    ]
+  },
+  {
+    "title": "21st edition Étoiles du sport",
+    "description": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week.",
+    "date": 2022,
+    "slug": "eds-app-xxie",
+    "thumbnail": "eds-app-xxie.jpg",
+    "content": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week. All of the content can be administrated in Wordpress by the staff of the event. The web-app can be used as a regular app (almost) which makes it comfortable for the participants to be informed about their planning during the event.",
+    "technos": ["Next.js", "React.js", "Wordpress"],
+    "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
       "design": 1
@@ -55,25 +143,31 @@
   },
   {
     "title": "Étoiles du sport",
-    "description": "School project",
+    "description": "Static website for the \"Étoiles du sport\" program.",
     "date": 2022,
     "slug": "eds",
     "thumbnail": "eds.webp",
-    "content": "mon contenu2",
+    "content": "Static website for the \"Étoiles du sport\" program.",
     "technos": ["Next.js", "React.js"],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
       "design": 3
-    }
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "eds-site.jpg"
+      }
+    ]
   },
   {
     "title": "Poésie urbaine",
-    "description": "School project",
+    "description": "In collaboration with Annecy paysages / Bonlieu scène nationale d'Annecy, this project is a 5 minutes experience in augmented reality that can play by scanned a QR code in the city center of Annecy near the \"Vieux château\".",
     "date": 2022,
     "slug": "poesie-urbaine",
     "thumbnail": "poesie-urbaine-vertical.jpg",
-    "content": "mon contenu",
+    "content": "In collaboration with Annecy paysages / Bonlieu scène nationale d'Annecy, this project is a 5 minutes experience in augmented reality that can play by scanned a QR code in the city center of Annecy near the \"Vieux château\".",
     "technos": ["Unity", "C#", "AR Foundation"],
     "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
     "media": [
@@ -81,6 +175,10 @@
         "type": "video",
         "url": "poesie-urbaine-trailer.mp4",
         "caption": "Poésie urbaine, 2022, Annecy, réalité augmentée - motion © Simon Damour, Florent Chatelet"
+      },
+      {
+        "type": "image",
+        "url": "captures.jpg"
       }
     ],
     "layout": {
@@ -89,25 +187,33 @@
     }
   },
   {
-    "title": "PRISMA Conseil",
-    "description": "School project",
-    "date": 2019,
-    "slug": "prisma-conseil",
-    "thumbnail": "eds.webp",
-    "content": "mon contenu",
-    "technos": ["PHP", "Wordpress", "JavaScript"],
+    "title": "Paris Paradis",
+    "description": "Paris Paradis is an event taking pleace every year in Paris and organized by the french media \"Le Parisien\".",
+    "date": 2021,
+    "slug": "paris-paradis",
+    "thumbnail": "paris-paradis.jpg",
+    "content": "Paris Paradis is an event taking pleace every year in Paris and organized by the french media \"Le Parisien\".",
+    "technos": ["PHP", "Wordpress", "JavaScript", "CSS"],
+    "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
-      "design": 1
-    }
+      "design": 3
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "paris-paradis-capture.webp",
+        "caption": "Design by mooxy"
+      }
+    ]
   },
   {
     "title": "E.S.A.T \"Le Monthoux\"",
-    "description": "School project",
+    "description": "Website made during my studies in Université de Savoie",
     "date": 2018,
     "slug": "esat-le-monthoux",
     "thumbnail": "eds.webp",
-    "content": "mon contenu",
+    "content": "Website made during my studies in Université de Savoie",
     "technos": ["CSS", "JavaScript"],
     "layout": {
       "orientation": "horizontal",
@@ -116,11 +222,11 @@
   },
   {
     "title": "Animateam",
-    "description": "School project",
+    "description": "Website made during my studies in Université de Savoie",
     "date": 2017,
     "slug": "animateam",
     "thumbnail": "1.jpg",
-    "content": "mon contenu",
+    "content": "Website made during my studies in Université de Savoie",
     "technos": ["PHP", "JavaScript"],
     "media": [
       {

@@ -38,31 +38,24 @@ export default function Page({ params }: Props) {
           : `/images/projects/${project.slug}/${media.url}`;
 
         return (
-          <div key={index}>
+          <div key={index} className="my-4">
             {media.type === 'video' ? (
-              <div>
-                <video controls>
-                  <source src={mediaUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                {media.caption && (
-                  <div className="mt-2 italic">{media.caption}</div>
-                )}
-              </div>
+              <video controls>
+                <source src={mediaUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             ) : (
-              <div>
-                <Image
-                  src={mediaUrl}
-                  alt={project.title}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: '100%', height: 'auto' }}
-                />
-                {media.caption && (
-                  <div className="mt-2 italic">{media.caption}</div>
-                )}
-              </div>
+              <Image
+                src={mediaUrl}
+                alt={project.title}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            )}
+            {media.caption && (
+              <div className="mt-2 italic">{media.caption}</div>
             )}
           </div>
         );

@@ -1,5 +1,4 @@
-import LinkButton from "@/components/LinkButton";
-import Link from "next/link";
+import LinkButton from '@/components/LinkButton';
 
 export default function NotFound() {
   return (
