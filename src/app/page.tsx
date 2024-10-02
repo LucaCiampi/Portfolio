@@ -67,8 +67,6 @@ export default function Page() {
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         },
       });
-
-      gsap.registerPlugin(ScrollTrigger);
     })();
   }, []);
 
