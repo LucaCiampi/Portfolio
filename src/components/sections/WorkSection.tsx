@@ -107,49 +107,6 @@ export default function WorkSection() {
     setTimeout(() => setIsRotating(false), 1000);
   }, []);
 
-  /**
-   * Moves the custom pointer according to real pointer position
-   */
-  const handleProjectMouseMove = useCallback((event: MouseEvent): void => {
-    const customPointer = customPointerRef.current;
-    customPointer.style.left = `${event.pageX}px`;
-    customPointer.style.top = `${event.pageY}px`;
-  }, []);
-
-  /**
-   * Adds event listener when mouse enters project
-   */
-  const handleProjectMouseEnter = useCallback(
-    (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-      const project = event.currentTarget;
-      const customPointer = customPointerRef.current;
-      customPointer.classList.remove('invisible');
-      project.addEventListener('mousemove', handleProjectMouseMove);
-    },
-    [handleProjectMouseMove]
-  );
-
-  /**
-   * Removes the event listener on project mouse leave
-   */
-  const handleProjectMouseLeave = useCallback(
-    (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-      const project = event.currentTarget;
-      const customPointer = customPointerRef.current;
-      customPointer.classList.add('invisible');
-      project.removeEventListener('mousemove', handleProjectMouseMove);
-    },
-    [handleProjectMouseMove]
-  );
-
-  /**
-   * Animation on custom pointer when clicking
-   */
-  const handleProjectMouseDown = useCallback((): void => {
-    const customPointer = customPointerRef.current;
-    customPointer.classList.add('!bg-green');
-  }, []);
-
   const groupedProjects = useMemo(
     () => groupProjectsByYear(projectsDisplayed),
     [projectsDisplayed]
@@ -215,9 +172,6 @@ export default function WorkSection() {
                     'left-column': globalIndex % 2 === 0,
                     'right-column': globalIndex % 2 !== 0,
                   })}
-                  onMouseEnter={handleProjectMouseEnter}
-                  onMouseLeave={handleProjectMouseLeave}
-                  onMouseDown={handleProjectMouseDown}
                   key={title}
                 >
                   {globalIndex === 0 ||
