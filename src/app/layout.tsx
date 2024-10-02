@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
 
 import './globals.css';
 import '@/styles/globals.scss';
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: Props) {
           {children}
           <Footer />
           <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
+          <AnimatedCursorComponent />
         </body>
       </TimeProvider>
     </html>

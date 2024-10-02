@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+
+import PageWrapper from '@/app/page-wrapper';
 import Section from '@/components/layout/Section';
-import PageWrapper from './page-wrapper';
 
 import HeroSection from '@/components/sections/HeroSection';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
-import gsap from 'gsap';
 
 interface SectionRef {
   [title: string]: HTMLElement | null;
