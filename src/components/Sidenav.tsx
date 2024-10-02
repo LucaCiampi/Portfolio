@@ -21,21 +21,23 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
     <div
       onClick={onClick}
       className={clsx(
-        'absolute w-80 rounded-b-full z-10 flex flex-col items-center top-0 right-0 bg-green text-background -translate-y-full opacity-0 transition-all duration-300 ease-out',
-        isOpen && 'translate-y-0 opacity-100'
+        'absolute w-80 z-10 flex flex-col items-center top-0 left-0 bg-green text-background -translate-x-full opacity-0 transition-all duration-300 ease-out h-dvh',
+        isOpen && 'translate-x-0 opacity-100'
       )}
     >
-      <div className="relative px-9 pb-32 pt-16">
-        <Heading level={'h3'} className="text-xl mb-10">
-          Navigation
-        </Heading>
-        <Navigation
-          className="navigation--sidenav"
-          ulClassName="flex-col items-center"
-        />
+      <div className="relative px-9 py-24 flex flex-col justify-between h-full">
+        <div>
+          <Heading level={'h3'} className="text-xl mb-10">
+            Navigation
+          </Heading>
+          <Navigation
+            className="navigation--sidenav"
+            ulClassName="flex-col items-center"
+          />
+        </div>
         <div
           onClick={scrollToTop}
-          className="flex-col cursor-pointer items-center text-sm flex gap-4 absolute bottom-6 left-1/2 -translate-x-1/2"
+          className="flex-col cursor-pointer items-center text-sm flex gap-4"
         >
           Back to top
           <div className="scale-[0.3] -mr-1">

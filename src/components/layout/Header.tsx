@@ -20,9 +20,6 @@ const Header = ({ revealOnScroll }: Props) => {
   const [mobilenavToggled, setMobilenavToggled] = useState(false);
   const [revealingHeader, setRevealingHeader] = useState(false);
 
-  // TODO: remove auto time check in this component, place it at entrance of website
-  const { currentTime } = useContext(TimeContext);
-
   const handleHamburgerIconClick = () => {
     setMobilenavToggled((current) => !current);
   };
@@ -36,38 +33,16 @@ const Header = ({ revealOnScroll }: Props) => {
   }, []);
 
   return (
-    <header
-      className={clsx(
-        'z-50 absolute left-0 top-0 w-full transition-all hover:bg-opacity-90 border-text',
-        revealingHeader && 'translate-y-0 opacity-100',
-        revealOnScroll &&
-          '!fixed -translate-y-full opacity-0 bg-background bg-opacity-50'
-      )}
-    >
-      <Container className="w-full flex items-center justify-between relative text-brown py-2 border-b-[1px] border-text">
+    <header className={clsx('z-50 fixed left-0 top-0')}>
+      <div className="flex items-center justify-between relative text-brown p-4">
+        <HamburgerIcon
+          onClick={handleHamburgerIconClick}
+          isOpen={mobilenavToggled}
+        />
         <Sidenav onClick={handleHamburgerIconClick} isOpen={mobilenavToggled} />
-        <LayoutGroup>
-          <Navigation className="hidden md:flex items-center font-semibold z-10" />
-        </LayoutGroup>
-        <div className="md:hidden">Luca Ciampi</div>
-        <div className="flex items-center gap-3">
-          {formatTime(currentTime)}
-          <HamburgerIcon
-            onClick={handleHamburgerIconClick}
-            isOpen={mobilenavToggled}
-          />
-        </div>
-      </Container>
+      </div>
     </header>
   );
-};
-
-const formatTime = (date: Date) => {
-  return date.toLocaleTimeString([], {
-    hour12: true,
-    hour: 'numeric',
-    minute: 'numeric',
-  });
 };
 
 export default Header;

@@ -128,8 +128,8 @@ export default function WorkSection() {
 
   return (
     <>
-      <div className="sticky top-0 bg-grey z-10 pt-16 -mt-14 md:-mt-20 w-screen text-sm">
-        <Container className="flex justify-between gap-4 py-2 overflow-scroll">
+      <div className="sticky top-0 bg-grey z-10 pl-12 lg:pl-0 w-screen text-sm">
+        <Container className="flex justify-between gap-4 py-3 overflow-scroll">
           <div className="flex items-center gap-4">
             {FILTERS.map((techno) => (
               <FilterButton
