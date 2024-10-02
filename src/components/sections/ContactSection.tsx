@@ -10,7 +10,7 @@ export default function ContactSection() {
       <Image
         src={GirlWithPearlEaring}
         alt={'La fille à la perle'}
-        className="absolute bottom-0 right-0 -z-10"
+        className="absolute bottom-0 -right-32 md:right-0 -z-10 w-56 md:w-auto"
       />
       <h3 className="text-6xl text-center pt-6 font-allison my-24">
         I'm currently available for work !

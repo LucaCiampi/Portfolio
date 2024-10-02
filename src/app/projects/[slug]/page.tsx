@@ -67,8 +67,11 @@ export default function Page({ params }: Props) {
     <PageWrapper>
       <article className="pt-24 pb-4">
         <Container>
-          <LinkButton href="/" className="flex items-center gap-2 mb-4">
-            <Arrow orientation="left" />
+          <LinkButton
+            href="/"
+            className="flex items-center gap-2 mb-4 bg-text text-background border-text"
+          >
+            <Arrow color="white" orientation="left" />
             Go back
           </LinkButton>
 
@@ -86,9 +89,12 @@ export default function Page({ params }: Props) {
               </Frame>
             </div>
             <div>
-              <h1 className="lg:text-[96px] lg:leading-[100px] text-6xl font-allison block">
-                {project.title}
-              </h1>
+              <div className="flex justify-between flex-wrap gap-4 py-4">
+                <h1 className="lg:text-[96px] lg:leading-[70px] text-6xl font-allison block">
+                  {project.title}
+                </h1>
+                <div className="text-xl self-end ml-auto">{project.date}</div>
+              </div>
               <hr />
               <div className="flex flex-col gap-4">
                 {project.company && <div>Working for : {project.company}</div>}
@@ -117,8 +123,11 @@ export default function Page({ params }: Props) {
         {project.media && project.media.length > 0 && renderMedia()}
 
         <Container className="my-4">
-          <LinkButton href="/" className="flex items-center gap-2">
-            <Arrow orientation="left" />
+          <LinkButton
+            href="/"
+            className="flex items-center gap-2 mb-4 bg-text text-background border-text"
+          >
+            <Arrow color="white" orientation="left" />
             Go back
           </LinkButton>
         </Container>

@@ -30,7 +30,7 @@ const FilterButton: React.FC<Props> = React.memo(
           <CheckMark className="absolute -top-[2px] -left-[2px] draw-animation" />
         )}
       </div>
-      {techno}
+      <div className="w-max">{techno}</div>
     </Button>
   )
 );
