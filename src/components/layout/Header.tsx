@@ -21,8 +21,8 @@ const Header = () => {
         <Sidenav onClick={handleSideNavClick} isOpen={mobilenavToggled} />
         <div
           className={clsx(
-            'fixed bg-black -z-10 inset-0 opacity-0 duration-300',
-            mobilenavToggled && 'opacity-50'
+            'fixed bg-black -z-10 inset-0 opacity-0 duration-300 pointer-events-none',
+            mobilenavToggled && 'opacity-50 pointer-events-auto'
           )}
           onClick={handleSideNavClick}
         />
