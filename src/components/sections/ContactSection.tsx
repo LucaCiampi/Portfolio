@@ -3,14 +3,34 @@
 import Image from 'next/image';
 import ExternalLinkSocial from '@/components/ExternalLinkSocial';
 import GirlWithPearlEaring from 'public/images/fille-a-la-perle.jpg';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 export default function ContactSection() {
+  const GirlWithPearlEaringRef = useRef(null);
+
+  useEffect(() => {
+    const timeline2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.contact',
+        scrub: true,
+        start: 'start bottom',
+        end: '+=700px',
+      },
+    });
+
+    timeline2.to(GirlWithPearlEaringRef.current, {
+      transform: `translateX(-20%)`,
+    });
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative contact">
       <Image
         src={GirlWithPearlEaring}
+        ref={GirlWithPearlEaringRef}
         alt={'La fille à la perle'}
-        className="absolute bottom-0 -right-32 md:right-0 -z-10 w-56 md:w-auto"
+        className="absolute bottom-0 -right-32 md:-right-16 -z-10 w-56 md:w-auto"
       />
       <h3 className="text-6xl text-center pt-6 font-allison my-24">
         I'm currently available for work !
