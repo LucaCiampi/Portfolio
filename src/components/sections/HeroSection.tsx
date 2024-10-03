@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import WaveImage from 'public/images/van-gogh.jpg';
+import VanGoghImage from 'public/images/van-gogh.jpg';
 import KlimtImage from 'public/images/the-kiss-klimt.jpg';
 import VertumneImage from 'public/images/vertumne.jpg';
 import Button from '@/components/Button';
@@ -20,7 +20,7 @@ const HeroSection = () => {
         trigger: document.documentElement,
         scrub: true,
         start: 'top',
-        end: '+=500px',
+        end: '+=700px',
       },
     });
 
@@ -31,13 +31,13 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <>
-      <div className="pt-24 z-10 text-brown">
+    <div>
+      <div className="pt-24 z-10">
         <div className="relative">
           <h1
             data-scroll
             data-scroll-speed="0.05"
-            className="flex flex-wrap justify-between sm:inline font-allison text-[130px] leading-[100px] sm:text-[150px] sm:leading-[150px] md:leading-[220px] md:text-[220px] mb-12 lg:mb-0 md:block text-text-header"
+            className="flex flex-wrap justify-between sm:inline font-allison text-[130px] leading-[100px] sm:text-[150px] sm:leading-[150px] md:leading-[220px] md:text-[220px] mb-12 lg:mb-0 md:block text-white mix-blend-difference"
           >
             Luca{' '}
             <span className="ml-auto block sm:inline w-full sm:w-fit text-right">
@@ -47,7 +47,7 @@ const HeroSection = () => {
           <div
             data-scroll
             data-scroll-speed="0.1"
-            className="text-6xl sm:text-8xl md:text-[124px] md:leading-[130px] font-playfair-display pl-24"
+            className="text-6xl leading-[120px] sm:text-8xl md:text-[124px] md:leading-[130px] font-playfair-display lg:pl-40 text-text-header"
           >
             <div className="relative z-20">
               <span className="font-abril-fatface">Front</span>
@@ -71,22 +71,19 @@ const HeroSection = () => {
         alt="Vertumne"
         className="absolute right-24 top-12 -z-10 rounded-t-full"
       />
-      <div className="absolute lg:top-1/3 bottom-0 right-0 w-full md:w-1/2 overflow-x-clip -z-20">
-        <div className="relative">
-          <Image
-            ref={backgroundRef}
-            src={WaveImage}
-            className="w-full"
-            alt="Van Gogh"
-          />
-          <a href="#work">
-            <Button className="w-max pattern--dots !px-6 py-4 absolute z-30 bottom-48 md:bottom-24 right-1/2 bg-green text-background text-2xl translate-x-1/2">
-              See my work
-            </Button>
-          </a>
-        </div>
-      </div>
-    </>
+      <Image
+        ref={backgroundRef}
+        src={VanGoghImage}
+        className="absolute right-0 bottom-36 -z-20"
+        alt="Van Gogh"
+      />
+      <a href="#work" className="absolute bottom-64 right-44">
+        <Button className="w-max font-allison py-1 px-4 border-0 flex items-center gap-4 bg-background text-4xl">
+          <div className="rounded-full bg-lime-500 w-4 h-4"></div>
+          Available for work
+        </Button>
+      </a>
+    </div>
   );
 };
 
