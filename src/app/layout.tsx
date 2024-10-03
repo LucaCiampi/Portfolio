@@ -53,7 +53,6 @@ export default function RootLayout({ children }: Props) {
           className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
         >
           <Header />
-          <Header revealOnScroll />
           {children}
           <Footer />
           <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
