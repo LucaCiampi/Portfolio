@@ -78,7 +78,7 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section id="hero" className="relative min-h-dvh overflow-x-clip">
+      <Section id="hero" className="relative min-h-lvh overflow-x-clip">
         <HeroSection />
       </Section>
       <Section

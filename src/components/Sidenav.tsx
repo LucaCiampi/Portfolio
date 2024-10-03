@@ -21,7 +21,7 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
     <div
       onClick={onClick}
       className={clsx(
-        'absolute w-80 z-10 flex flex-col items-center top-0 left-0 bg-green text-background -translate-x-full opacity-0 transition-all duration-300 ease-out h-dvh',
+        'absolute w-80 z-10 flex flex-col items-center top-0 left-0 bg-green text-background -translate-x-full opacity-0 transition-all duration-300 ease-out h-lvh',
         isOpen && 'translate-x-0 opacity-100'
       )}
     >
