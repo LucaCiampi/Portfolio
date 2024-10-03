@@ -33,35 +33,29 @@ const HeroSection = () => {
   return (
     <div>
       <div className="pt-24 z-10">
-        <div className="relative">
-          <h1
-            data-scroll
-            data-scroll-speed="0.05"
-            className="flex flex-wrap justify-between sm:inline font-allison text-[130px] leading-[100px] sm:text-[150px] sm:leading-[150px] md:leading-[220px] md:text-[220px] mb-12 lg:mb-0 md:block text-white mix-blend-difference"
-          >
-            Luca{' '}
-            <span className="ml-auto block sm:inline w-full sm:w-fit text-right">
-              Ciampi
-            </span>
-          </h1>
-          <div
-            data-scroll
-            data-scroll-speed="0.1"
-            className="text-6xl leading-[120px] sm:text-8xl md:text-[124px] md:leading-[130px] font-playfair-display lg:pl-40 text-text-header"
-          >
-            <div className="relative z-20">
-              <span className="font-abril-fatface">Front</span>
-              <span>-end</span>
-            </div>
-            <div className="hero--developer relative z-10">
-              Developer
-              <Image
-                ref={introImageRef}
-                src={KlimtImage}
-                alt="The Kiss - Gustav Klimt"
-                className="absolute -left-24 -bottom-4 -z-10"
-              />
-            </div>
+        <h1
+          data-scroll
+          data-scroll-speed="0.05"
+          className="font-allison text-[130px] leading-[100px] sm:text-[150px] sm:leading-[150px] md:leading-[220px] md:text-[220px] mb-12 lg:mb-0 md:block text-white mix-blend-difference"
+        >
+          Luca <span className="pl-12 sm:pl-0">Ciampi</span>
+        </h1>
+        <div
+          data-scroll
+          data-scroll-speed="0.1"
+          className="text-6xl sm:text-8xl md:text-[124px] md:leading-[130px] lg:pl-40 font-playfair-display text-text-header"
+        >
+          <div className="relative z-20">
+            <span className="font-abril-fatface">Front</span>-end
+          </div>
+          <div className="hero--developer relative z-10">
+            Developer
+            <Image
+              ref={introImageRef}
+              src={KlimtImage}
+              alt="The Kiss - Gustav Klimt"
+              className="absolute -left-24 -bottom-4 -z-10"
+            />
           </div>
         </div>
       </div>
@@ -69,7 +63,7 @@ const HeroSection = () => {
         ref={VertumneImageRef}
         src={VertumneImage}
         alt="Vertumne"
-        className="absolute right-24 top-12 -z-10 rounded-t-full"
+        className="absolute right-12 top-12 -z-10 rounded-t-full w-36 md:w-auto md:right-24"
       />
       <Image
         ref={backgroundRef}
@@ -77,7 +71,10 @@ const HeroSection = () => {
         className="absolute right-0 bottom-36 -z-20"
         alt="Van Gogh"
       />
-      <a href="#work" className="absolute bottom-64 right-44">
+      <a
+        href="#work"
+        className="block w-fit m-auto mt-12 md:mt-0 md:absolute bottom-64 right-44"
+      >
         <Button className="w-max font-allison py-1 px-4 border-0 flex items-center gap-4 bg-background text-4xl">
           <div className="rounded-full bg-lime-500 w-4 h-4"></div>
           Available for work

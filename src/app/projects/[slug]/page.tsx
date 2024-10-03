@@ -109,7 +109,7 @@ export default function Page({ params }: Props) {
                 {project.url && (
                   <ExternalLinkButton
                     href={project.url}
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-2 bg-yellow"
                   >
                     Go to site
                     <Arrow />
