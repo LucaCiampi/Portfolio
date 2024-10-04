@@ -11,7 +11,7 @@ const AnimatedCursorComponent = () => {
       return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     };
     setIsTouchDevice(checkIsTouchDevice());
-  }, []); // L'effet s'exécute une seule fois après le montage
+  }, []);
 
   return isTouchDevice ? null : (
     <AnimatedCursor

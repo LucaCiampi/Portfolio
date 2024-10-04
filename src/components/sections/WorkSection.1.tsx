@@ -1,5 +1,4 @@
 'use client';
-
 import React, {
   useEffect,
   useState,
@@ -18,12 +17,7 @@ import { PROJECT_ITEM_GLIDE_FRICTION } from '@/constants/animations-constants';
 import Arrow from '@/components/Arrow';
 import Container from '@/components/layout/Container';
 import clsx from 'clsx';
-import {
-  getFiltersParamFromURL,
-  getProjectsByTechnologyAndSearchTerm,
-  groupProjectsByYear,
-  updateFiltersToURL,
-} from '@/utils/projectUtils';
+import { getProjectsByTechnologyAndSearchTerm } from '@/utils/projectUtils';
 
 export default function WorkSection() {
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -130,11 +124,7 @@ export default function WorkSection() {
    */
   useEffect(() => {
     setProjectsDisplayed(
-      getProjectsByTechnologyAndSearchTerm(
-        activeFilters,
-        searchTerm,
-        projectsData
-      )
+      getProjectsByTechnologyAndSearchTerm(activeFilters, searchTerm)
     );
     updateFiltersToURL(activeFilters);
   }, [activeFilters, searchTerm]);

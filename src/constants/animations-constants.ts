@@ -1,0 +1,1 @@
+export const PROJECT_ITEM_GLIDE_FRICTION = 0.1;
