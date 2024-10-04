@@ -13,7 +13,7 @@ const AnimatedCursorComponent = () => {
     setIsTouchDevice(checkIsTouchDevice());
   }, []); // L'effet s'exécute une seule fois après le montage
 
-  return isTouchDevice ? (
+  return isTouchDevice ? null : (
     <AnimatedCursor
       innerSize={8}
       outerSize={35}
@@ -28,7 +28,7 @@ const AnimatedCursorComponent = () => {
         backgroundColor: '#F75D3B',
       }}
     />
-  ) : null;
+  );
 };
 
 export default AnimatedCursorComponent;

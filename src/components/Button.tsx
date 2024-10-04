@@ -12,6 +12,7 @@ const Button = ({ children, className, title, onClick }: Props) => (
     onClick={onClick}
     className={clsx('rounded-full border-green border-[1px] px-3', className)}
     title={title ?? children?.toString()}
+    aria-label={title ?? children?.toString()}
   >
     {children}
   </button>
