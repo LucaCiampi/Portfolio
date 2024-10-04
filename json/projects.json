@@ -1,5 +1,45 @@
 [
   {
+    "title": "Paraboot",
+    "description": "E-commerce website for the French shoemaker established in 1908.",
+    "date": 2024,
+    "slug": "paraboot",
+    "thumbnail": "1.jpg",
+    "content": "E-commerce website for the French shoemaker established in 1908. Using Directus, Wordpress and custom React TypeScript Gutenberg blocks.",
+    "technos": [
+      "React.js",
+      "Wordpress",
+      "WooCommerce",
+      "Directus",
+      "TypeScript",
+      "WPML"
+    ],
+    "company": "Smartfire | Groupe CEETADEL",
+    "url": "https://www.paraboot.com/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "1.jpg"
+      },
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "4.jpg"
+      }
+    ]
+  },
+  {
     "title": "Plan Cult'",
     "description": "Website made during my studies in Université de Savoie",
     "date": 2024,
@@ -35,6 +75,71 @@
       {
         "type": "image",
         "url": "4.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Smartfire",
+    "description": "Static website using Astro SSG and TinaCMS",
+    "date": 2024,
+    "slug": "smartfire",
+    "thumbnail": "1.jpg",
+    "content": "Static website using Astro SSG and TinaCMS",
+    "technos": ["Astro", "React.js", "TypeScript", "TinaCMS"],
+    "company": "Smartfire | Groupe CEETADEL",
+    "url": "https://smartfire.pro/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 2
+    }
+  },
+  {
+    "title": "CEETADEL",
+    "description": "Static website using Astro SSG and TinaCMS",
+    "date": 2024,
+    "slug": "ceetadel",
+    "thumbnail": "1.jpg",
+    "content": "Static website using Astro SSG and TinaCMS",
+    "technos": ["Astro", "React.js", "TypeScript", "TinaCMS"],
+    "company": "Smartfire | Groupe CEETADEL",
+    "url": "https://ceetadel.com/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 2
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Institut des Futurs souhaitables",
+    "description": "Wordpress website for a school based in Paris.",
+    "date": 2024,
+    "slug": "ifs",
+    "thumbnail": "1.jpg",
+    "content": "Wordpress website for a school based in Paris.",
+    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "company": "mooxy",
+    "url": "https://www.futurs-souhaitables.org/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 3
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
       }
     ]
   },
