@@ -13,7 +13,7 @@ const SearchInput: React.FC<Props> = ({ value, placeholder, onChange }) => {
         type="text"
         value={value}
         placeholder={placeholder}
-        className="border-none pl-3 border-text bg-transparent focus:outline-none"
+        className="border-b-[1px] border-green bg-transparent focus:outline-none"
         onChange={onChange}
       />
       <div className="cursor-pointer">

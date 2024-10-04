@@ -25,7 +25,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <div className="relative contact overflow-x-clip">
+    <div className="relative contact">
       <Image
         src={GirlWithPearlEaring}
         ref={GirlWithPearlEaringRef}

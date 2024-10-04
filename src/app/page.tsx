@@ -89,12 +89,9 @@ export default function Page() {
       >
         <WorkSection />
       </Section>
-      <Section title="Contact">
+      <Section title="Contact" className="overflow-x-clip">
         <ContactSection />
       </Section>
-      {/* <Section title="Book">
-        <BookSection />
-      </Section> */}
     </PageWrapper>
   );
 }

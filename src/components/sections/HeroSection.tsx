@@ -72,10 +72,10 @@ const HeroSection = () => {
         alt="Van Gogh"
       />
       <a
-        href="#work"
+        href="#contact"
         className="block w-fit m-auto mt-12 md:mt-0 md:absolute bottom-64 right-44"
       >
-        <Button className="w-max font-allison py-1 px-4 border-0 flex items-center gap-4 bg-background text-4xl">
+        <Button className="w-max font-allison py-1 px-4 !border-0 flex items-center gap-4 bg-background text-4xl">
           <div className="rounded-full bg-lime-500 w-4 h-4"></div>
           Available for work
         </Button>
