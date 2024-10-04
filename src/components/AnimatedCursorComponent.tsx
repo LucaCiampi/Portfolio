@@ -1,13 +1,19 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import AnimatedCursor from 'react-animated-cursor';
 
 const AnimatedCursorComponent = () => {
-  const isTouchDevice = () => {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  };
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-  return isTouchDevice() ? (
+  useEffect(() => {
+    const checkIsTouchDevice = () => {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    };
+    setIsTouchDevice(checkIsTouchDevice());
+  }, []); // L'effet s'exécute une seule fois après le montage
+
+  return isTouchDevice ? (
     <AnimatedCursor
       innerSize={8}
       outerSize={35}
