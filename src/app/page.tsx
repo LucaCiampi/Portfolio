@@ -6,7 +6,7 @@ import PageWrapper from '@/app/page-wrapper';
 import Section from '@/components/layout/Section';
 
 import HeroSection from '@/components/sections/HeroSection';
-import WorkSection from '@/components/sections/WorkSection.1';
+import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
 
 interface SectionRef {
