@@ -90,6 +90,8 @@ export default function WorkSection() {
 
   /**
    * Gère le mouvement de la souris
+   *
+   * @param event - Le mouvement de la souris
    */
   const handleMouseMove = useCallback((event: MouseEvent) => {
     const { clientX, clientY } = event;
@@ -185,11 +187,17 @@ export default function WorkSection() {
     setTimeout(() => setIsRotating(false), 1000);
   }, []);
 
+  /**
+   * Groupe les projets par année
+   */
   const groupedProjects = useMemo(
     () => groupProjectsByYear(projectsDisplayed),
     [projectsDisplayed]
   );
 
+  /**
+   * Affiche la liste des projets dans le DOM
+   */
   const allProjects = useMemo(() => {
     let globalIndex = 0;
     return Object.keys(groupedProjects)
