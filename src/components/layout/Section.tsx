@@ -1,6 +1,8 @@
 import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
 import SectionTitle from '@/components/SectionTitle';
 import Container from '@/components/layout/Container';
+import clsx from 'clsx';
+import slugify from '@/utils/slugify';
 
 interface Props extends HTMLAttributes<HTMLElement> {
   children?: ReactNode;
@@ -27,17 +29,10 @@ const Section = forwardRef<HTMLElement, Props>(
     ref
   ) => {
     if (title && !id) {
-      id = title
-        .replaceAll(' ', '-')
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase();
+      id = slugify(title);
     }
 
-    let classNames = '';
-    if (className) {
-      classNames += ' ' + className;
-    }
+    const classNames = clsx(className);
 
     const sectionProps = {
       className: classNames,
@@ -45,7 +40,7 @@ const Section = forwardRef<HTMLElement, Props>(
       ...(backgroundImage && {
         style: { backgroundImage: `url(/images/${backgroundImage})` },
       }),
-      ...(title && { sectiontitle: title }),
+      ...(title && { 'data-sectiontitle': title }),
       ...rest,
     };
 

@@ -26,10 +26,10 @@ export default function Page() {
     const observerCallback: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionTitle = (entry.target as HTMLElement).getAttribute(
-            'sectiontitle'
+          const dataSectionTitle = (entry.target as HTMLElement).getAttribute(
+            'data-sectiontitle'
           );
-          console.log(sectionTitle);
+          console.log(dataSectionTitle);
         }
       });
     };
