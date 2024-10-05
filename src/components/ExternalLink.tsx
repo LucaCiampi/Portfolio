@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { Url } from "url";
-
 interface Props {
   children?: React.ReactNode;
   href: string;

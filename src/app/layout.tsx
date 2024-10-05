@@ -1,4 +1,3 @@
-import { TimeProvider } from '@/contexts/TimeContext';
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 import Header from '@/components/layout/Header';
@@ -48,17 +47,15 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <TimeProvider>
-        <body
-          className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
-        >
-          <Header />
-          {children}
-          <Footer />
-          <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
-          <AnimatedCursorComponent />
-        </body>
-      </TimeProvider>
+      <body
+        className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
+      >
+        <Header />
+        {children}
+        <Footer />
+        <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
+        <AnimatedCursorComponent />
+      </body>
     </html>
   );
 }

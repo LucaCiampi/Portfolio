@@ -1,4 +1,4 @@
-import { NAVIGATION } from '@/constants/navigation-constants';
+import { NAVIGATION } from '@/constants/navigation';
 import NoScrollLink from '@/components/NoScrollLink';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -20,9 +20,9 @@ const Navigation = ({ className, ulClassName }: Props) => (
             <ul className="flex flex-col" aria-label={`${label} submenu`}>
               {submenu.map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href}>
+                  <NoScrollLink href={href}>
                     <span title={label}>{label}</span>
-                  </Link>
+                  </NoScrollLink>
                 </li>
               ))}
             </ul>
