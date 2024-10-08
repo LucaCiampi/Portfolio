@@ -16,9 +16,7 @@ const SearchInput: React.FC<Props> = ({ value, placeholder, onChange }) => {
         className="border-b-[1px] border-green bg-transparent focus:outline-none"
         onChange={onChange}
       />
-      <div className="cursor-pointer">
-        <Image src="/images/search.svg" width={16} height={16} alt="Search" />
-      </div>
+      <Image src="/images/search.svg" width={16} height={16} alt="Search" />
     </label>
   );
 };

@@ -37,7 +37,7 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
         </div>
         <div
           onClick={scrollToTop}
-          className="flex-col cursor-pointer items-center text-sm flex gap-4"
+          className="flex-col items-center text-sm flex gap-4"
         >
           Back to top
           <div className="scale-[0.3] -mr-1">

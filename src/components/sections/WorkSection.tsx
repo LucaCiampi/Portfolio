@@ -226,7 +226,7 @@ export default function WorkSection() {
               />
             ))}
             <div
-              className="cursor-pointer flex gap-2 items-center w-max"
+              className="flex gap-2 items-center w-max"
               onClick={handleFilterResetClick}
             >
               <div className={isRotating ? 'rotate-360' : ''}>
@@ -235,7 +235,6 @@ export default function WorkSection() {
                   alt="cross"
                   height={9}
                   width={9}
-                  className="mt-[2px]"
                 />
               </div>
               Clear filters
