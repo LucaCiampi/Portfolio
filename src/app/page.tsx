@@ -16,6 +16,9 @@ interface SectionRef {
 export default function Page() {
   const sectionRefs = useRef<SectionRef>({});
 
+  /**
+   * Observes the sections the user is currently viewing
+   */
   useEffect(() => {
     const observerOptions: IntersectionObserverInit = {
       root: null,
@@ -48,26 +51,37 @@ export default function Page() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [sectionRefs]);
 
+  /**
+   * Adds smooth scrolling
+   */
   useEffect(() => {
+    let locomotiveScroll: any;
+
     (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      const locomotiveScroll = new LocomotiveScroll({
-        lenisOptions: {
-          wrapper: window,
-          content: document.documentElement,
-          lerp: 0.1,
-          duration: 1.2,
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        },
-      });
+      try {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default;
+        locomotiveScroll = new LocomotiveScroll({
+          lenisOptions: {
+            lerp: 0.1,
+            duration: 1.2,
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          },
+        });
+      } catch (error) {
+        console.error('Error in LocomotiveScroll initialization:', error);
+      }
     })();
+
+    return () => {
+      if (locomotiveScroll) locomotiveScroll.destroy();
+    };
   }, []);
 
   const handleSectionRef =
@@ -78,7 +92,11 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <Section id="hero" className="relative min-h-lvh overflow-x-clip">
+      <Section
+        ref={handleSectionRef('Hero')}
+        id="hero"
+        className="relative min-h-lvh overflow-x-clip"
+      >
         <HeroSection />
       </Section>
       <Section
@@ -89,7 +107,11 @@ export default function Page() {
       >
         <WorkSection />
       </Section>
-      <Section title="Contact" className="overflow-x-clip">
+      <Section
+        ref={handleSectionRef('Contact')}
+        title="Contact"
+        className="overflow-x-clip"
+      >
         <ContactSection />
       </Section>
     </PageWrapper>

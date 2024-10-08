@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
+
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
