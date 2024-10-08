@@ -21,11 +21,11 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
     <div
       onClick={onClick}
       className={clsx(
-        'absolute w-80 z-10 flex flex-col items-center top-0 left-0 bg-green text-background -translate-x-full opacity-0 transition-all duration-300 ease-out h-lvh',
+        'absolute w-full h-full flex flex-col items-center top-0 left-0 text-background -translate-x-full opacity-0 transition-all duration-300 ease-out',
         isOpen && 'translate-x-0 opacity-100'
       )}
     >
-      <div className="relative px-9 py-24 flex flex-col justify-between h-full">
+      <div className="relative px-9 py-24 flex flex-col justify-between h-full w-full text-center">
         <div>
           <Heading level={'h3'} className="text-xl mb-10">
             Navigation
