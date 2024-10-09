@@ -119,6 +119,31 @@
     ]
   },
   {
+    "title": "Air Liquide",
+    "description": "Web application to save user's registration through a form.",
+    "date": 2024,
+    "slug": "airliquide",
+    "thumbnail": "1.jpg",
+    "content": "Web application to save user's registration through a form",
+    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "company": "Smartfire | Groupe CEETADEL",
+    "url": "https://airliquide.smartfi.re/formulaire/",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 3
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      }
+    ]
+  },
+  {
     "title": "Institut des Futurs souhaitables",
     "description": "Wordpress website for a school based in Paris.",
     "date": 2024,
@@ -233,11 +258,25 @@
     ]
   },
   {
-    "title": "21st edition Étoiles du sport",
+    "title": "App 21st edition Étoiles du sport",
     "description": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week.",
     "date": 2022,
     "slug": "eds-app-xxie",
     "thumbnail": "eds-app-xxie.jpg",
+    "content": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week. All of the content can be administrated in Wordpress by the staff of the event. The web-app can be used as a regular app (almost) which makes it comfortable for the participants to be informed about their planning during the event.",
+    "technos": ["Next.js", "React.js", "Wordpress"],
+    "company": "mooxy",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    }
+  },
+  {
+    "title": "21st edition Étoiles du sport",
+    "description": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week.",
+    "date": 2022,
+    "slug": "eds-xxie",
+    "thumbnail": "eds-xxie.webp",
     "content": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week. All of the content can be administrated in Wordpress by the staff of the event. The web-app can be used as a regular app (almost) which makes it comfortable for the participants to be informed about their planning during the event.",
     "technos": ["Next.js", "React.js", "Wordpress"],
     "company": "mooxy",
@@ -253,7 +292,7 @@
     "slug": "eds",
     "thumbnail": "eds.webp",
     "content": "Static website for the \"Étoiles du sport\" program.",
-    "technos": ["Next.js", "React.js"],
+    "technos": ["Next.js", "React.js", "Wordpress"],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -288,6 +327,20 @@
     ],
     "layout": {
       "orientation": "vertical",
+      "design": 2
+    }
+  },
+  {
+    "title": "Étoiles du sport 20th",
+    "description": "Static website for the 20th edition of the \"Étoiles du sport\" program.",
+    "date": 2022,
+    "slug": "eds-xxe",
+    "thumbnail": "eds-xxe.webp",
+    "content": "Static website for the 20th edition of the \"Étoiles du sport\" program.",
+    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "company": "mooxy",
+    "layout": {
+      "orientation": "horizontal",
       "design": 2
     }
   },
