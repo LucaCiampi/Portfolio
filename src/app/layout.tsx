@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
+import clsx from 'clsx';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -8,7 +9,6 @@ import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
 
 import './globals.css';
 import '@/styles/globals.scss';
-import clsx from 'clsx';
 
 const abril_fatface = Abril_Fatface({
   subsets: ['latin'],
