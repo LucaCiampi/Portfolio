@@ -38,6 +38,7 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
         exit="exit"
         variants={variants}
         transition={{ ease: 'easeInOut', duration: 0.75 }}
+        id="page-content"
         className="max-h-screen overflow-y-auto"
       >
         <FrozenRouter>{children}</FrozenRouter>
