@@ -30,7 +30,7 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
   const key = usePathname();
 
   return (
-    <AnimatePresence mode="popLayout">
+    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <motion.div
         key={key}
         initial="hidden"
