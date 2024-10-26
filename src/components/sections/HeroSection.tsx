@@ -19,15 +19,15 @@ const HeroSection = () => {
       scrollTrigger: {
         trigger: document.documentElement,
         scrub: true,
-        start: 'top',
+        start: 'top top',
         end: '+=700px',
       },
     });
 
     timeline
-      .to(backgroundRef.current, { transform: `translateX(20%)` })
+      .to(backgroundRef.current, { x: '20%' })
       .to(introImageRef.current, { clipPath: 'inset(15%)' }, 0)
-      .to(VertumneImageRef.current, { transform: 'translateX(15%)' }, 0);
+      .to(VertumneImageRef.current, { x: '15%' }, 0);
   }, []);
 
   return (
