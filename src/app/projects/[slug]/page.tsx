@@ -3,7 +3,7 @@ import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/layout/Section';
 import { Metadata, ResolvingMetadata } from 'next';
-import NotFound from './not-found';
+import NotFoundPage from './not-found';
 import Image from 'next/image';
 import Container from '@/components/layout/Container';
 import Frame, { BorderStyles } from '@/components/Frame';
@@ -25,7 +25,7 @@ export default function Page({ params }: Props) {
   const project = projectsIndex[params.slug];
 
   if (!project) {
-    NotFound();
+    NotFoundPage();
   }
 
   const renderMedia = () => (

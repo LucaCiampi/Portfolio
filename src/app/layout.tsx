@@ -55,7 +55,7 @@ export default function RootLayout({ children }: Props) {
         <Header />
         <PageTransitionEffect>{children}</PageTransitionEffect>
         <Footer />
-        <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
+        <div className="fixed inset-0 bg-noise bg-[length:480px] bg-repeat z-40 pointer-events-none" />
         <AnimatedCursorComponent />
       </body>
     </html>
