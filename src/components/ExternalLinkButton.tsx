@@ -8,7 +8,7 @@ interface Props {
 }
 
 const ExternalLinkButton = ({ children, href, className }: Props) => (
-  <ExternalLink href={href}>
+  <ExternalLink href={href} className="inline-block w-fit">
     <Button className={className || ''}>{children}</Button>
   </ExternalLink>
 );

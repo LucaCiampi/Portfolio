@@ -9,7 +9,7 @@ interface Props {
 }
 
 const LinkButton = ({ children, href, className }: Props) => (
-  <Link href={href}>
+  <Link href={href} className="inline-block">
     <span>
       <Button className={clsx('button--link', className)}>{children}</Button>
     </span>

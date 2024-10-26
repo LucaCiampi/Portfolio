@@ -125,7 +125,7 @@
     "slug": "airliquide",
     "thumbnail": "1.jpg",
     "content": "Web application to save user's registration through a form",
-    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "technos": ["React.js", "Wordpress", "PHP", "TypeScript"],
     "company": "Smartfire | Groupe CEETADEL",
     "url": "https://airliquide.smartfi.re/formulaire/",
     "layout": {
