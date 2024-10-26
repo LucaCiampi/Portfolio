@@ -51,37 +51,6 @@ export default function Page() {
     };
   }, [sectionRefs]);
 
-  /**
-   * Adds smooth scrolling
-   */
-  // useEffect(() => {
-  //   let locomotiveScroll: any;
-
-  //   (async () => {
-  //     try {
-  //       const LocomotiveScroll = (await import('locomotive-scroll')).default;
-  //       locomotiveScroll = new LocomotiveScroll({
-  //         lenisOptions: {
-  //           lerp: 0.1,
-  //           duration: 1.2,
-  //           orientation: 'vertical',
-  //           gestureOrientation: 'vertical',
-  //           smoothWheel: true,
-  //           wheelMultiplier: 1,
-  //           touchMultiplier: 2,
-  //           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  //         },
-  //       });
-  //     } catch (error) {
-  //       console.error('Error in LocomotiveScroll initialization:', error);
-  //     }
-  //   })();
-
-  //   return () => {
-  //     if (locomotiveScroll) locomotiveScroll.destroy();
-  //   };
-  // }, []);
-
   const handleSectionRef =
     (title: string) =>
     (ref: HTMLElement | null): void => {
