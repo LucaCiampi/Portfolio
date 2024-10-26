@@ -30,7 +30,7 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
   const key = usePathname();
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+    <AnimatePresence mode="popLayout">
       <motion.div
         key={key}
         initial="hidden"
@@ -38,6 +38,7 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
         exit="exit"
         variants={variants}
         transition={{ ease: 'easeInOut', duration: 0.75 }}
+        className="max-h-screen overflow-y-auto"
       >
         <FrozenRouter>{children}</FrozenRouter>
       </motion.div>

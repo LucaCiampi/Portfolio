@@ -2,6 +2,12 @@
 @import 'node_modules/locomotive-scroll/dist/locomotive-scroll';
 
 /* General */
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 html {
   min-height: calc(100% + env(safe-area-inset-top));
   padding: env(safe-area-inset-top) env(safe-area-inset-right)

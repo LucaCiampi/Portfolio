@@ -8,6 +8,7 @@ import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
 
 import './globals.css';
 import '@/styles/globals.scss';
+import clsx from 'clsx';
 
 const abril_fatface = Abril_Fatface({
   subsets: ['latin'],
@@ -50,11 +51,18 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body
-        className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
+        className={clsx(
+          'bg-background text-text',
+          abril_fatface.variable,
+          playfair_display.variable,
+          allison.variable
+        )}
       >
         <Header />
-        <PageTransitionEffect>{children}</PageTransitionEffect>
-        <Footer />
+        <PageTransitionEffect>
+          {children}
+          <Footer />
+        </PageTransitionEffect>
         <div className="fixed inset-0 bg-noise bg-[length:480px] bg-repeat z-40 pointer-events-none" />
         <AnimatedCursorComponent />
       </body>
