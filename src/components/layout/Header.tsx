@@ -15,7 +15,12 @@ const Header = () => {
   };
 
   return (
-    <header className={clsx('z-50 fixed left-0 top-0')}>
+    <header
+      className={clsx(
+        'z-50 fixed left-0 top-0 pointer-events-none',
+        isSidenavToggled && 'pointer-events-auto'
+      )}
+    >
       <div className="z-10 relative text-brown p-4 w-80 h-screen overflow-clip">
         <HamburgerIcon onClick={handleSideNavClick} isOpen={isSidenavToggled} />
         <Sidenav onClick={handleSideNavClick} isOpen={isSidenavToggled} />
@@ -23,7 +28,7 @@ const Header = () => {
       <div
         className={clsx(
           'absolute bg-black -z-10 inset-0 opacity-0 w-screen duration-300 pointer-events-none',
-          isSidenavToggled && 'opacity-50 pointer-events-auto'
+          isSidenavToggled && 'opacity-50'
         )}
         onClick={handleSideNavClick}
       />

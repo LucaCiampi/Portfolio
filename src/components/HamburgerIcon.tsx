@@ -14,7 +14,7 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
    */
   useEffect(() => {
     const calculateBackgroundScaleValue = () => {
-      const desiredScale = window.innerHeight / 24; // button's height divided by 2 as the button is at the top of the screen
+      const desiredScale = window.innerHeight / 24 + 50; // button's height divided by 2 as the button is at the top of the screen
       setScaleValue(`scale(${desiredScale})`);
     };
 
@@ -30,7 +30,7 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
   return (
     <button
       onClick={onClick}
-      className="rounded-full relative border-olive px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center"
+      className="rounded-full relative border-olive px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
     >
       <span
         className={clsx(
