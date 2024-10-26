@@ -80,8 +80,6 @@ export default function Page({ params }: Props) {
                 alt={project.title}
                 width={16}
                 height={9}
-                // TODO: remove layout (deprecated)
-                layout="responsive"
               />
             </Frame>
           </div>

@@ -23,8 +23,7 @@ const ProjectItem = ({ project }: Props) => {
             alt={project.title}
             width={project.layout?.orientation == 'horizontal' ? 9 : 16}
             height={project.layout?.orientation == 'horizontal' ? 16 : 9}
-            // TODO: remove layout (deprecated)
-            layout="responsive"
+            className="h-auto w-auto"
           />
         </ProjectItemFrame>
       </NoScrollLink>

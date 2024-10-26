@@ -4,8 +4,8 @@ import KlimtImage from 'public/images/the-kiss-klimt.jpg';
 import VertumneImage from 'public/images/vertumne.jpg';
 import Button from '@/components/Button';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 const HeroSection = () => {
   const backgroundRef = useRef(null);
@@ -68,6 +68,7 @@ const HeroSection = () => {
       <Image
         ref={backgroundRef}
         src={VanGoghImage}
+        priority
         className="absolute right-0 bottom-36 -z-20"
         alt="Van Gogh"
       />
