@@ -1,4 +1,4 @@
-import ExternalLink from '@/components/ExternalLink';
+import ExternalLink from '@/components/links/ExternalLink';
 import Github from 'public/images/social/github.svg';
 import Linkedin from 'public/images/social/linkedin.svg';
 import Malt from 'public/images/social/malt.svg';

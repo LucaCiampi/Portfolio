@@ -9,10 +9,10 @@ import React, {
 } from 'react';
 import projectsData from 'json/projects.json';
 import { AnimatePresence } from 'framer-motion';
-import ProjectItem from '@/components/ProjectItem';
-import FilterButton from '@/components/FilterButton';
+import ProjectItem from '@/components/projects/ProjectItem';
+import FilterButton from '@/components/projects/FilterButton';
 import Image from 'next/image';
-import SearchInput from '@/components/SearchInput';
+import SearchInput from '@/components/projects/SearchInput';
 import FILTERS from '@/constants/filters';
 import { PROJECT_ITEM_GLIDE_FRICTION } from '@/constants/animations';
 import Arrow from '@/components/Arrow';

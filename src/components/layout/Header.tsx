@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import React from 'react';
 
-import HamburgerIcon from '@/components/HamburgerIcon';
-import Sidenav from '@/components/Sidenav';
+import HamburgerIcon from '@/components/layout/HamburgerIcon';
+import Sidenav from '@/components/layout/Sidenav';
 import clsx from 'clsx';
 
 const Header = () => {

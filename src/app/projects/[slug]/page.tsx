@@ -1,12 +1,12 @@
 import projectsData from 'json/projects.json';
-import LinkButton from '@/components/LinkButton';
-import ExternalLinkButton from '@/components/ExternalLinkButton';
+import LinkButton from '@/components/links/LinkButton';
+import ExternalLinkButton from '@/components/links/ExternalLinkButton';
 import Section from '@/components/layout/Section';
 import { Metadata, ResolvingMetadata } from 'next';
 import NotFoundPage from './not-found';
 import Image from 'next/image';
 import Container from '@/components/layout/Container';
-import Frame, { BorderStyles } from '@/components/Frame';
+import Frame, { BorderStyles } from '@/components/projects/Frame';
 import Arrow from '@/components/Arrow';
 
 interface Props {

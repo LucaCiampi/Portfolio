@@ -1,4 +1,4 @@
-import Frame, { BorderStyles } from '@/components/Frame';
+import Frame, { BorderStyles } from '@/components/projects/Frame';
 
 interface Props {
   project?: Project;

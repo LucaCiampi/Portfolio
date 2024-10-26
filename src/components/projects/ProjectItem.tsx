@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import ProjectItemFrame from '@/components/ProjectItemFrame';
-import NoScrollLink from '@/components/NoScrollLink';
+import ProjectItemFrame from '@/components/projects/ProjectItemFrame';
+import NoScrollLink from '@/components/links/NoScrollLink';
 
 interface Props {
   project: Project;

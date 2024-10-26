@@ -1,4 +1,4 @@
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/layout/Navigation';
 import Heading from '@/components/Heading';
 import { useCallback } from 'react';
 import Arrow from '@/components/Arrow';

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import ExternalLinkSocial from '@/components/ExternalLinkSocial';
+import ExternalLinkSocial from '@/components/links/ExternalLinkSocial';
 import GirlWithPearlEaring from 'public/images/fille-a-la-perle.jpg';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';

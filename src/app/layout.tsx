@@ -3,7 +3,7 @@ import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import PageTransitionEffect from '@/components/PageTransitionEffect';
+import PageTransitionEffect from '@/components/projects/PageTransitionEffect';
 import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
 
 import './globals.css';
