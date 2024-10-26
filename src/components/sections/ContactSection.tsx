@@ -13,6 +13,7 @@ export default function ContactSection() {
     const timeline2 = gsap.timeline({
       scrollTrigger: {
         trigger: '.contact',
+        scroller: '#page-content',
         scrub: true,
         start: 'start bottom',
         end: '+=700px',
