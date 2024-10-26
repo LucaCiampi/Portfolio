@@ -3,6 +3,7 @@ import { Playfair_Display, Abril_Fatface, Allison } from 'next/font/google';
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import PageTransitionEffect from '@/components/PageTransitionEffect';
 import AnimatedCursorComponent from '@/components/AnimatedCursorComponent';
 
 import './globals.css';
@@ -52,7 +53,7 @@ export default function RootLayout({ children }: Props) {
         className={`${abril_fatface.variable} ${playfair_display.variable} ${allison.variable} bg-background text-text`}
       >
         <Header />
-        {children}
+        <PageTransitionEffect>{children}</PageTransitionEffect>
         <Footer />
         <div className="fixed inset-0 bg-noise bg-repeat z-40 pointer-events-none" />
         <AnimatedCursorComponent />

@@ -1,6 +1,5 @@
 import { NAVIGATION } from '@/constants/navigation';
 import NoScrollLink from '@/components/NoScrollLink';
-import Link from 'next/link';
 import clsx from 'clsx';
 
 interface Props {

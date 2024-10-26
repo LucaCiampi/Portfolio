@@ -2,9 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-import PageWrapper from '@/app/page-wrapper';
 import Section from '@/components/layout/Section';
-
 import HeroSection from '@/components/sections/HeroSection';
 import WorkSection from '@/components/sections/WorkSection';
 import ContactSection from '@/components/sections/ContactSection';
@@ -91,7 +89,7 @@ export default function Page() {
     };
 
   return (
-    <PageWrapper>
+    <>
       <Section
         ref={handleSectionRef('Hero')}
         id="hero"
@@ -114,6 +112,6 @@ export default function Page() {
       >
         <ContactSection />
       </Section>
-    </PageWrapper>
+    </>
   );
 }

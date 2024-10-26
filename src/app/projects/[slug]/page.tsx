@@ -1,6 +1,4 @@
-import React from 'react';
 import projectsData from 'json/projects.json';
-import PageWrapper from '@/app/page-wrapper';
 import LinkButton from '@/components/LinkButton';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import Section from '@/components/layout/Section';
@@ -64,75 +62,73 @@ export default function Page({ params }: Props) {
   );
 
   return (
-    <PageWrapper>
-      <article className="pt-24 pb-4">
-        <Container>
-          <LinkButton
-            href="/"
-            className="flex items-center gap-2 mb-4 bg-text text-background border-text"
-          >
-            <Arrow color="white" orientation="left" />
-            Go back
-          </LinkButton>
+    <article className="pt-24 pb-4">
+      <Container>
+        <LinkButton
+          href="/"
+          className="flex items-center gap-2 mb-4 bg-text text-background border-text"
+        >
+          <Arrow color="white" orientation="left" />
+          Go back
+        </LinkButton>
 
-          <div className="lg:grid grid-cols-2 gap-8">
-            <div className="relative">
-              <Frame borderStyle={BorderStyles.solid}>
-                <Image
-                  src={`/images/projects/${project.slug}/${project.thumbnail}`}
-                  alt={project.title}
-                  width={16}
-                  height={9}
-                  // TODO: remove layout (deprecated)
-                  layout="responsive"
-                />
-              </Frame>
+        <div className="lg:grid grid-cols-2 gap-8">
+          <div className="relative">
+            <Frame borderStyle={BorderStyles.solid}>
+              <Image
+                src={`/images/projects/${project.slug}/${project.thumbnail}`}
+                alt={project.title}
+                width={16}
+                height={9}
+                // TODO: remove layout (deprecated)
+                layout="responsive"
+              />
+            </Frame>
+          </div>
+          <div>
+            <div className="flex justify-between flex-wrap gap-4 py-4">
+              <h1 className="lg:text-[96px] lg:leading-[70px] text-6xl font-allison block">
+                {project.title}
+              </h1>
+              <div className="text-xl self-end ml-auto">{project.date}</div>
             </div>
-            <div>
-              <div className="flex justify-between flex-wrap gap-4 py-4">
-                <h1 className="lg:text-[96px] lg:leading-[70px] text-6xl font-allison block">
-                  {project.title}
-                </h1>
-                <div className="text-xl self-end ml-auto">{project.date}</div>
+            <hr />
+            <div className="flex flex-col gap-4">
+              {project.company && <div>Working for : {project.company}</div>}
+              <div className="flex gap-2 flex-wrap">
+                {project.technos.map((techno: string) => (
+                  <LinkButton key={techno} href={`/?filters=${techno}#work`}>
+                    {techno}
+                  </LinkButton>
+                ))}
               </div>
-              <hr />
-              <div className="flex flex-col gap-4">
-                {project.company && <div>Working for : {project.company}</div>}
-                <div className="flex gap-2 flex-wrap">
-                  {project.technos.map((techno: string) => (
-                    <LinkButton key={techno} href={`/?filters=${techno}#work`}>
-                      {techno}
-                    </LinkButton>
-                  ))}
-                </div>
-                <div>{project.content}</div>
-                {project.url && (
-                  <ExternalLinkButton
-                    href={project.url}
-                    className="flex items-center gap-2 bg-yellow"
-                  >
-                    Go to site
-                    <Arrow />
-                  </ExternalLinkButton>
-                )}
-              </div>
+              <div>{project.content}</div>
+              {project.url && (
+                <ExternalLinkButton
+                  href={project.url}
+                  className="flex items-center gap-2 bg-yellow"
+                >
+                  Go to site
+                  <Arrow />
+                </ExternalLinkButton>
+              )}
             </div>
           </div>
-        </Container>
+        </div>
+      </Container>
 
-        {project.media && project.media.length > 0 && renderMedia()}
+      {project.media && project.media.length > 0 && renderMedia()}
 
-        <Container className="my-4">
-          <LinkButton
-            href="/"
-            className="flex items-center gap-2 mb-4 bg-text text-background border-text"
-          >
-            <Arrow color="white" orientation="left" />
-            Go back
-          </LinkButton>
-        </Container>
-      </article>
-    </PageWrapper>
+      <Container className="my-4">
+        <LinkButton
+          href="/"
+          className="flex items-center gap-2 mb-4 bg-text text-background border-text"
+        >
+          <Arrow color="white" orientation="left" />
+          Go back
+        </LinkButton>
+      </Container>
+    </article>
   );
 }
 

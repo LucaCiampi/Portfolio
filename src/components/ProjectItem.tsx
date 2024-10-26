@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Image from 'next/image';
 import ProjectItemFrame from '@/components/ProjectItemFrame';
+import NoScrollLink from '@/components/NoScrollLink';
 
 interface Props {
   project: Project;
@@ -16,11 +16,7 @@ const ProjectItem = ({ project }: Props) => {
 
   return (
     <motion.div {...animations} layout>
-      <Link
-        href={`/projects/${project.slug}`}
-        key={project.slug}
-        className="cursor-none"
-      >
+      <NoScrollLink href={`/projects/${project.slug}`} key={project.slug}>
         <ProjectItemFrame project={project}>
           <Image
             src={`/images/projects/${project.slug}/${project.thumbnail}`}
@@ -31,7 +27,7 @@ const ProjectItem = ({ project }: Props) => {
             layout="responsive"
           />
         </ProjectItemFrame>
-      </Link>
+      </NoScrollLink>
     </motion.div>
   );
 };
