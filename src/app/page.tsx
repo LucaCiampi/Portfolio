@@ -62,12 +62,12 @@ export default function Page() {
       <Section
         ref={handleSectionRef('Hero')}
         id="hero"
-        className="relative min-h-lvh overflow-x-clip"
+        className="relative lg:min-h-lvh overflow-x-clip"
       >
         <HeroSection />
       </Section>
       <Section
-        className="-mt-32"
+        className="lg:-mt-32"
         ref={handleSectionRef('Work')}
         title="Work"
         fullscreen
