@@ -46,7 +46,7 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
       />
       <div
         className={clsx(
-          'bg-text absolute inset-0 rounded-full -z-10 transition duration-300'
+          'bg-text absolute inset-0 rounded-full -z-10 transition duration-300 pointer-events-none'
         )}
         style={{
           transform: isOpen ? scaleValue : 'scale(1)',
