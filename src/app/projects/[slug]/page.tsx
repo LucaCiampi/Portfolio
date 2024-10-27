@@ -62,15 +62,17 @@ export default function Page({ params }: Props) {
   );
 
   return (
-    <article className="pt-24 pb-4">
+    <article className="pt-9 pb-4">
       <Container>
-        <LinkButton
-          href="/"
-          className="flex items-center gap-2 mb-4 bg-text text-background border-text"
-        >
-          <Arrow color="white" orientation="left" />
-          Go back
-        </LinkButton>
+        <div className="ml-auto w-fit">
+          <LinkButton
+            href="/"
+            className="flex items-center gap-2 mb-4 bg-text text-background border-text"
+          >
+            <Arrow color="white" orientation="left" />
+            Go back
+          </LinkButton>
+        </div>
 
         <div className="lg:grid grid-cols-2 gap-8">
           <div className="relative">
@@ -86,7 +88,7 @@ export default function Page({ params }: Props) {
             </Frame>
           </div>
           <div>
-            <div className="flex justify-between flex-wrap gap-4 py-4">
+            <div className="flex justify-between gap-4 py-4">
               <h1 className="lg:text-[96px] lg:leading-[70px] text-6xl font-allison block">
                 {project.title}
               </h1>
