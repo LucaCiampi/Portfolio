@@ -42,6 +42,20 @@ export default function WorkSection() {
   const animationFrameIdRef = useRef<number | null>(null);
 
   /**
+   * Récupère les filtres actifs depuis l'URL lors du montage du composant
+   */
+  useEffect(() => {
+    const filtersParam = getFiltersParamFromURL();
+
+    if (filtersParam) {
+      const filters = filtersParam
+        .split(',')
+        .map((filter) => decodeURIComponent(filter));
+      setActiveFilters(filters);
+    }
+  }, []);
+
+  /**
    * Anime les projets avec un effet de glissement
    */
   const glideProjects = useCallback(() => {
@@ -131,12 +145,6 @@ export default function WorkSection() {
    * Met à jour les projets affichés en fonction des filtres actifs et du terme de recherche
    */
   useEffect(() => {
-    if (
-      activeFilters === null ||
-      (Array.isArray(activeFilters) && activeFilters.length === 0)
-    )
-      return;
-
     setProjectsDisplayed(
       getProjectsByTechnologyAndSearchTerm(
         activeFilters,
@@ -159,19 +167,6 @@ export default function WorkSection() {
       initializeProjects();
     }
   }, [projectsDisplayed, initializeProjects]);
-
-  /**
-   * Récupère les filtres actifs depuis l'URL lors du montage du composant
-   */
-  useEffect(() => {
-    const filtersParam = getFiltersParamFromURL();
-    if (filtersParam) {
-      const filters = filtersParam
-        .split(',')
-        .map((filter) => decodeURIComponent(filter));
-      setActiveFilters(filters);
-    }
-  }, []);
 
   /**
    * Gère le clic sur un filtre

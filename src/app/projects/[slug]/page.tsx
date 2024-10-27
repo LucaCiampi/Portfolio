@@ -99,7 +99,7 @@ export default function Page({ params }: Props) {
               {project.company && <div>Working for : {project.company}</div>}
               <div className="flex gap-2 flex-wrap">
                 {project.technos.map((techno: string) => (
-                  <LinkButton key={techno} href={`/?filters=${techno}#work`}>
+                  <LinkButton key={techno} href={`/?filters=${techno}`}>
                     {techno}
                   </LinkButton>
                 ))}
