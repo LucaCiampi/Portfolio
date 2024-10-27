@@ -131,6 +131,12 @@ export default function WorkSection() {
    * Met à jour les projets affichés en fonction des filtres actifs et du terme de recherche
    */
   useEffect(() => {
+    if (
+      activeFilters === null ||
+      (Array.isArray(activeFilters) && activeFilters.length === 0)
+    )
+      return;
+
     setProjectsDisplayed(
       getProjectsByTechnologyAndSearchTerm(
         activeFilters,
