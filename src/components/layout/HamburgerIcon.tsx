@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 
 interface Props {
   onClick?: () => void;
@@ -7,32 +6,12 @@ interface Props {
 }
 
 const HamburgerIcon = ({ onClick, isOpen }: Props) => {
-  const [scaleValue, setScaleValue] = useState('scale(1)');
-
-  /**
-   * Updates the sidenav background size scale based on user window's height
-   */
-  useEffect(() => {
-    const calculateBackgroundScaleValue = () => {
-      const desiredScale = window.innerHeight / 24 + 50; // button's height divided by 2 as the button is at the top of the screen
-      setScaleValue(`scale(${desiredScale})`);
-    };
-
-    calculateBackgroundScaleValue();
-
-    window.addEventListener('resize', calculateBackgroundScaleValue);
-
-    return () => {
-      window.removeEventListener('resize', calculateBackgroundScaleValue);
-    };
-  }, []);
-
   return (
     <button
       onClick={onClick}
       title="Menu"
       aria-label="Menu"
-      className="rounded-full relative border-green-darker px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
+      className="z-10 rounded-full relative px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
     >
       <span
         className={clsx(
@@ -46,14 +25,6 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
           isOpen && '-translate-y-1'
         )}
       />
-      <div
-        className={clsx(
-          'bg-green-darker absolute inset-0 rounded-full -z-10 transition duration-300 pointer-events-none'
-        )}
-        style={{
-          transform: isOpen ? scaleValue : 'scale(1)',
-        }}
-      ></div>
     </button>
   );
 };

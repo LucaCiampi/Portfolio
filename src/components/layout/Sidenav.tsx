@@ -1,14 +1,8 @@
 import Navigation from '@/components/layout/Navigation';
 import { useCallback } from 'react';
 import Arrow from '@/components/Arrow';
-import clsx from 'clsx';
 
-interface Props {
-  onClick?: () => void;
-  isOpen?: boolean;
-}
-
-const Sidenav = ({ onClick, isOpen }: Props) => {
+const Sidenav = () => {
   const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -17,13 +11,7 @@ const Sidenav = ({ onClick, isOpen }: Props) => {
   }, []);
 
   return (
-    <div
-      onClick={onClick}
-      className={clsx(
-        'absolute w-full h-full flex flex-col items-center top-0 left-0 text-background-darker pattern-4 bg-green -translate-x-full opacity-0 transition-all duration-300 ease-out',
-        isOpen && 'translate-x-0 opacity-100'
-      )}
-    >
+    <div className="absolute w-full h-full flex flex-col items-center top-0 left-0 text-background-darker bg-green pattern-4">
       <div className="relative px-9 py-24 flex flex-col justify-between h-full w-full text-center">
         <div>
           <div className="text-xl mb-10 font-abril-fatface">Navigation</div>
