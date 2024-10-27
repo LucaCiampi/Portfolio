@@ -30,6 +30,8 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
   return (
     <button
       onClick={onClick}
+      title="Menu"
+      aria-label="Menu"
       className="rounded-full relative border-olive px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
     >
       <span
