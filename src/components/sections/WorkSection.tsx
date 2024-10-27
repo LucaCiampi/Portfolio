@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import projectsData from 'json/projects.json';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import ProjectItem from '@/components/projects/ProjectItem';
 import FilterButton from '@/components/projects/FilterButton';
 import Image from 'next/image';
@@ -169,6 +169,14 @@ export default function WorkSection() {
   }, [projectsDisplayed, initializeProjects]);
 
   /**
+   * Combine les filtres de FILTERS et les filtres actifs
+   */
+  const combinedFilters = useMemo(() => {
+    const allFiltersSet = new Set([...FILTERS, ...activeFilters]);
+    return Array.from(allFiltersSet);
+  }, [FILTERS, activeFilters]);
+
+  /**
    * Gère le clic sur un filtre
    */
   const handleFilterClick = useCallback((techno: string): void => {
@@ -213,12 +221,18 @@ export default function WorkSection() {
       );
   }, [groupedProjects]);
 
+  const animations = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
   return (
     <>
       <div className="sticky top-0 bg-grey z-10 -mt-8 lg:mt-0 pl-12 2xl:pl-0 w-screen text-sm">
         <Container className="flex justify-between gap-4 py-3 overflow-scroll">
           <div className="flex items-center gap-3">
-            {FILTERS.map((techno) => (
+            {combinedFilters.map((techno) => (
               <FilterButton
                 key={techno}
                 techno={techno}
@@ -226,7 +240,8 @@ export default function WorkSection() {
                 onClick={handleFilterClick}
               />
             ))}
-            <div
+            <motion.div
+              layout
               className="flex gap-2 items-center w-max"
               onClick={handleFilterResetClick}
             >
@@ -239,7 +254,7 @@ export default function WorkSection() {
                 />
               </div>
               Clear filters
-            </div>
+            </motion.div>
           </div>
           <SearchInput
             placeholder="Search…"

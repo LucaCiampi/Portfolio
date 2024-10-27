@@ -8,14 +8,13 @@ interface Props {
 }
 
 const ProjectItem = ({ project }: Props) => {
-  const animations = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-  };
-
   return (
-    <motion.div {...animations} layout>
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <NoScrollLink href={`/projects/${project.slug}`} key={project.slug}>
         <ProjectItemFrame project={project}>
           <Image
