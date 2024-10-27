@@ -248,7 +248,7 @@ export default function WorkSection() {
         </Container>
       </div>
       <div className="overflow-x-hidden">
-        <Container className="mt-8 border-dashed border-l-2 border-text">
+        <Container className="md:mt-8 border-dashed border-l-2 border-text">
           <AnimatePresence>
             <div className="grid md:grid-cols-2 w-full gap-6 md:gap-16 py-12 lg:pl-16 pl-4 pr-0">
               {allProjects.map(({ title, year, globalIndex }) => (

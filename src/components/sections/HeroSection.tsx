@@ -33,11 +33,11 @@ const HeroSection = () => {
 
   return (
     <div>
-      <div className="pt-24 z-10">
-        <h1 className="font-allison text-[130px] leading-[96px] sm:text-[150px] sm:leading-[150px] md:leading-[220px] md:text-[220px] mb-12 lg:mb-0 md:block text-text-header md:text-white md:mix-blend-difference">
-          Luca <span className="pl-12 sm:pl-0">Ciampi</span>
+      <div className="pt-14 lg:pt-32 pb-6 z-10">
+        <h1 className="font-allison text-9xl leading-[0.75] md:text-[220px] mb-32 lg:mb-8 md:block text-text-header md:text-white md:mix-blend-difference">
+          Luca <span className="block sm:inline pl-12 sm:pl-0">Ciampi</span>
         </h1>
-        <div className="text-6xl sm:text-8xl md:text-[124px] md:leading-[130px] lg:pl-40 font-playfair-display text-text-header mt-32 lg:mt-0">
+        <div className="text-6xl md:text-[124px] lg:pl-40 font-playfair-display text-text-header mb-12">
           <div className="relative z-20">
             <span className="font-abril-fatface">Front</span>-end
           </div>
@@ -51,29 +51,29 @@ const HeroSection = () => {
             />
           </div>
         </div>
+        <a
+          href="#contact"
+          className="block w-fit m-auto lg:absolute bottom-64 right-44"
+        >
+          <Button className="w-max font-allison py-1 px-4 !border-0 flex items-center gap-4 bg-background-darker text-4xl">
+            <div className="rounded-full bg-lime-500 w-4 h-4"></div>
+            Available for work
+          </Button>
+        </a>
       </div>
       <Image
         ref={VertumneImageRef}
         src={VertumneImage}
         alt="Vertumne"
-        className="absolute right-12 top-12 -z-10 rounded-t-full w-36 md:w-auto md:right-24"
+        className="absolute right-12 top-10 -z-10 rounded-t-full w-36 md:w-auto md:right-24"
       />
       <Image
         ref={backgroundRef}
         src={VanGoghImage}
         priority
-        className="absolute md:right-0 top-64 lg:bottom-36 -z-20 w-2/3 md:w-auto"
+        className="absolute right-0 top-60 md:bottom-36 -z-20 w-3/4 md:w-auto"
         alt="Van Gogh"
       />
-      <a
-        href="#contact"
-        className="block w-fit m-auto mt-12 md:mt-0 md:absolute bottom-64 right-44"
-      >
-        <Button className="w-max font-allison py-1 px-4 !border-0 flex items-center gap-4 bg-background text-4xl">
-          <div className="rounded-full bg-lime-500 w-4 h-4"></div>
-          Available for work
-        </Button>
-      </a>
     </div>
   );
 };
