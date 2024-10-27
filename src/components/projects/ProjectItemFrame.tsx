@@ -16,7 +16,7 @@ const ProjectItemFrame = ({ project, children }: Props) => {
           <Frame borderStyle={BorderStyles.solid}>{children}</Frame>
           <hr className="mt-6 mb-4 border-brown" />
           <div className="flex gap-2 flex-wrap items-end">
-            <h3 className="text-xl font-bold highlight">{project.title}</h3>
+            <h3 className="text-xl highlight">{project.title}</h3>
             <div className="text-sm">{project.technos.join(', ')}</div>
           </div>
         </div>
@@ -27,7 +27,7 @@ const ProjectItemFrame = ({ project, children }: Props) => {
         <div className="relative text-background-darker">
           <div className="absolute left-6 -top-4 -right-6 bottom-8 bg-green pattern-3 -z-10"></div>
           <div className="flex gap-2 flex-wrap items-end justify-end pl-8">
-            <h3 className="text-xl font-bold">{project.title}</h3>
+            <h3 className="text-xl">{project.title}</h3>
             <div className="text-sm">{project.technos.join(', ')}</div>
           </div>
           <hr className="mt-4 mb-6 border-background-darker w-2/3 ml-auto" />
@@ -40,7 +40,7 @@ const ProjectItemFrame = ({ project, children }: Props) => {
         <div className="relative">
           <div className="absolute -left-6 -top-12 right-6 bottom-6 bg-grey -z-10"></div>
           <div className="flex gap-2 flex-wrap items-end">
-            <h3 className="text-xl font-bold">{project.title}</h3>
+            <h3 className="text-xl">{project.title}</h3>
             <div className="text-sm">{project.technos.join(', ')}</div>
           </div>
           <hr className="mt-4 mb-8 border-text w-2/3" />
@@ -56,7 +56,7 @@ const ProjectItemFrame = ({ project, children }: Props) => {
           </div>
           <Frame borderStyle={BorderStyles.solid}>{children}</Frame>
           <div className="mt-12 mb-4 flex gap-2 flex-wrap items-end">
-            <h3 className="text-xl font-bold">{project?.title}</h3>
+            <h3 className="text-xl">{project?.title}</h3>
             <div className="text-sm">{project?.technos.join(', ')}</div>
           </div>
           <hr className="border-brown" />

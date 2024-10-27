@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className={'z-50 fixed left-0 top-0 pointer-events-none'}>
-      <div className="z-10 relative text-brown p-4 w-80 h-screen overflow-clip">
+      <div className="z-10 relative text-brown p-4 w-64 md:w-80 h-screen overflow-clip">
         <HamburgerIcon onClick={handleSideNavClick} isOpen={isSidenavToggled} />
         <Sidenav onClick={handleSideNavClick} isOpen={isSidenavToggled} />
       </div>
