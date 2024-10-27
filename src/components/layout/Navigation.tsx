@@ -8,7 +8,10 @@ interface Props {
 }
 
 const Navigation = ({ className, ulClassName }: Props) => (
-  <nav className={clsx(className)} aria-label="Main Navigation">
+  <nav
+    className={clsx('pointer-events-auto', className)}
+    aria-label="Main Navigation"
+  >
     <ul className={clsx('flex gap-8', ulClassName)}>
       {NAVIGATION.map(({ label, href, classes, submenu }) => (
         <li key={label} className={clsx(classes)}>
