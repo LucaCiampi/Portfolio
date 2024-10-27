@@ -32,7 +32,7 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
       onClick={onClick}
       title="Menu"
       aria-label="Menu"
-      className="rounded-full relative border-olive px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
+      className="rounded-full relative border-green-darker px-3 h-12 w-12 flex flex-col gap-2 justify-center items-center pointer-events-auto"
     >
       <span
         className={clsx(
@@ -48,7 +48,7 @@ const HamburgerIcon = ({ onClick, isOpen }: Props) => {
       />
       <div
         className={clsx(
-          'bg-text absolute inset-0 rounded-full -z-10 transition duration-300 pointer-events-none'
+          'bg-green-darker absolute inset-0 rounded-full -z-10 transition duration-300 pointer-events-none'
         )}
         style={{
           transform: isOpen ? scaleValue : 'scale(1)',

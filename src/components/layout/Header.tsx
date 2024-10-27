@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <div
         className={clsx(
-          'absolute bg-black -z-10 inset-0 opacity-0 w-screen duration-300',
+          'absolute -z-10 inset-0 opacity-0 w-screen bg-green-darker duration-300 delay-100',
           isSidenavToggled && 'pointer-events-auto opacity-50'
         )}
         onClick={handleSideNavClick}

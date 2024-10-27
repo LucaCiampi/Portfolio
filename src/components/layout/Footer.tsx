@@ -4,7 +4,7 @@ import Navigation from '@/components/layout/Navigation';
 import Heading from '@/components/Heading';
 
 const Footer = () => (
-  <footer className="bg-green text-background py-8 md:pt-20 px-6 md:px-0">
+  <footer className="bg-green pattern-3 text-background py-8 md:pt-20 px-6 md:px-0">
     <Container className="flex flex-wrap justify-between mb-10">
       <div className="w-full md:w-max">
         <Image src="/images/rose.svg" alt="rose" width={107} height={240} />
