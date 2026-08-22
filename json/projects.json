@@ -50,7 +50,7 @@
       "React.js",
       "React native",
       "Expo",
-      "Viro-react",
+      "Viro-react.js",
       "SQLite",
       "Strapi"
     ],
@@ -85,7 +85,12 @@
     "slug": "smartfire",
     "thumbnail": "1.jpg",
     "content": "Static website using Astro SSG and TinaCMS",
-    "technos": ["Astro", "React.js", "TypeScript", "TinaCMS"],
+    "technos": [
+      "Astro",
+      "React.js",
+      "TypeScript",
+      "TinaCMS"
+    ],
     "company": "Smartfire | Groupe CEETADEL",
     "url": "https://smartfire.pro/",
     "layout": {
@@ -100,7 +105,12 @@
     "slug": "ceetadel",
     "thumbnail": "1.jpg",
     "content": "Static website using Astro SSG and TinaCMS",
-    "technos": ["Astro", "React.js", "TypeScript", "TinaCMS"],
+    "technos": [
+      "Astro",
+      "React.js",
+      "TypeScript",
+      "TinaCMS"
+    ],
     "company": "Smartfire | Groupe CEETADEL",
     "url": "https://ceetadel.com/",
     "layout": {
@@ -125,7 +135,12 @@
     "slug": "airliquide",
     "thumbnail": "1.jpg",
     "content": "Web application to save user's registration through a form",
-    "technos": ["React.js", "Wordpress", "PHP", "TypeScript"],
+    "technos": [
+      "React.js",
+      "Wordpress",
+      "PHP",
+      "TypeScript"
+    ],
     "company": "Smartfire | Groupe CEETADEL",
     "url": "https://airliquide.smartfi.re/formulaire/",
     "layout": {
@@ -150,7 +165,11 @@
     "slug": "ifs",
     "thumbnail": "1.jpg",
     "content": "Wordpress website for a school based in Paris.",
-    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "technos": [
+      "Wordpress",
+      "PHP",
+      "JavaScript"
+    ],
     "company": "mooxy",
     "url": "https://www.futurs-souhaitables.org/",
     "layout": {
@@ -175,7 +194,10 @@
     "slug": "danone-salon-agri",
     "thumbnail": "1.jpg",
     "content": "Application for the french \"Salon de l'agriculture\" in 2024.",
-    "technos": ["React.js", "Wordpress"],
+    "technos": [
+      "React.js",
+      "Wordpress"
+    ],
     "layout": {
       "orientation": "horizontal",
       "design": 3
@@ -203,7 +225,12 @@
     "slug": "roi-du-silence",
     "thumbnail": "1.jpg",
     "content": "School project with imposed theme : school harassment, imposed audience : teens from 11 to 15 years old and imposed technology: WebGL.",
-    "technos": ["Three.js", "Firebase", "WebGL", "JavaScript"],
+    "technos": [
+      "Three.js",
+      "Firebase",
+      "WebGL",
+      "JavaScript"
+    ],
     "url": "https://roi-du-silence.netlify.app/",
     "repo": "",
     "layout": {
@@ -232,7 +259,11 @@
     "slug": "mooxy",
     "thumbnail": "mooxy.jpg",
     "content": "Website for the company I've worked in for 2 years, a communication agency based in Annecy, France. The goal in this website is to have a page weight that is as low as possible to have a good eco-index. The site is static though the content can be administrated through Wordpress.",
-    "technos": ["Next.js", "React.js", "Wordpress"],
+    "technos": [
+      "Next.js",
+      "React.js",
+      "Wordpress"
+    ],
     "url": "https://mooxy.co/",
     "layout": {
       "orientation": "horizontal",
@@ -264,7 +295,11 @@
     "slug": "eds-app-xxie",
     "thumbnail": "eds-app-xxie.jpg",
     "content": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week. All of the content can be administrated in Wordpress by the staff of the event. The web-app can be used as a regular app (almost) which makes it comfortable for the participants to be informed about their planning during the event.",
-    "technos": ["Next.js", "React.js", "Wordpress"],
+    "technos": [
+      "Next.js",
+      "React.js",
+      "Wordpress"
+    ],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -278,7 +313,11 @@
     "slug": "eds-xxie",
     "thumbnail": "eds-xxie.webp",
     "content": "Progressive web app made for the 21st edition of the \"Étoiles du sport\" program based in Tignes for 1 week. All of the content can be administrated in Wordpress by the staff of the event. The web-app can be used as a regular app (almost) which makes it comfortable for the participants to be informed about their planning during the event.",
-    "technos": ["Next.js", "React.js", "Wordpress"],
+    "technos": [
+      "Next.js",
+      "React.js",
+      "Wordpress"
+    ],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -292,7 +331,11 @@
     "slug": "eds",
     "thumbnail": "eds.webp",
     "content": "Static website for the \"Étoiles du sport\" program.",
-    "technos": ["Next.js", "React.js", "Wordpress"],
+    "technos": [
+      "Next.js",
+      "React.js",
+      "Wordpress"
+    ],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -312,7 +355,11 @@
     "slug": "poesie-urbaine",
     "thumbnail": "poesie-urbaine-vertical.jpg",
     "content": "In collaboration with Annecy paysages / Bonlieu scène nationale d'Annecy, this project is a 5 minutes experience in augmented reality that can play by scanned a QR code in the city center of Annecy near the \"Vieux château\".",
-    "technos": ["Unity", "C#", "AR Foundation"],
+    "technos": [
+      "Unity",
+      "C#",
+      "AR Foundation"
+    ],
     "url": "https://www.annecy-paysages.com/poesie-urbaine-ap-perenne-22-23/",
     "media": [
       {
@@ -337,7 +384,11 @@
     "slug": "eds-xxe",
     "thumbnail": "eds-xxe.webp",
     "content": "Static website for the 20th edition of the \"Étoiles du sport\" program.",
-    "technos": ["Wordpress", "PHP", "JavaScript"],
+    "technos": [
+      "Wordpress",
+      "PHP",
+      "JavaScript"
+    ],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -351,7 +402,12 @@
     "slug": "paris-paradis",
     "thumbnail": "paris-paradis.jpg",
     "content": "Paris Paradis is an event taking pleace every year in Paris and organized by the french media \"Le Parisien\".",
-    "technos": ["PHP", "Wordpress", "JavaScript", "CSS"],
+    "technos": [
+      "PHP",
+      "Wordpress",
+      "JavaScript",
+      "CSS"
+    ],
     "company": "mooxy",
     "layout": {
       "orientation": "horizontal",
@@ -372,7 +428,10 @@
     "slug": "animateam",
     "thumbnail": "1.jpg",
     "content": "Website made during my studies in Université de Savoie",
-    "technos": ["PHP", "JavaScript"],
+    "technos": [
+      "PHP",
+      "JavaScript"
+    ],
     "media": [
       {
         "type": "image",
@@ -387,5 +446,85 @@
         "url": "3.jpg"
       }
     ]
+  },
+  {
+    "title": "Ultracker V3",
+    "description": "Web and mobile supply chain application for Nexans, leveraging IoT, AI and cloud services.",
+    "date": 2026,
+    "slug": "ultracker",
+    "thumbnail": "1.jpg",
+    "content": "Lead developer front and mobile on Ultracker, a suite of solutions ensuring supply chain continuity by leveraging IoT, AI and cloud services. Ultracker V3 handles ordering, simplifies supply chain processes, optimizes working capital and improves customer experience. For confidentiality reasons, it is not possible to show more screenshots.",
+    "url": "https://apps.apple.com/fr/app/ultracker/id1588046192",
+    "technos": [
+      "React Native",
+      "React.js",
+      ".NET Core",
+      "Entity Framework",
+      "Azure DevOps"
+    ],
+    "company": "Nexans",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 1
+    },
+     "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "4.jpg"
+      }
+    ]
+  },
+  {
+    "title": "CableLoop",
+    "description": "Cable recycling service for businesses and professionals.",
+    "date": 2025,
+    "slug": "cableloop",
+    "url":"https://play.google.com/store/apps/details?id=com.nexans.cableloopmobile",
+    "thumbnail": "1.jpg",
+    "content": "Lead developer front and mobile on CableLoop, a cable recycling service for companies and professionals, part of Nexans' Digital Factory suite of applications. For confidentiality reasons, it is not possible to show more screenshots.",
+    "technos": [
+      "React Native",
+      "React.js",
+      ".NET Core",
+      "Entity Framework",
+      "Azure DevOps"
+    ],
+    "company": "Nexans",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 2
+    },
+    "media": [
+      {
+        "type": "image",
+        "url": "2.jpg"
+      }
+    ]
+  },
+  {
+    "title": "Ophélia",
+    "description": "Monitoring application for electricity production along the ViaRhôna.",
+    "date": 2025,
+    "slug": "ophelia",
+    "thumbnail": "1.jpg",
+    "content": "Front-end developer on Ophélia, a service to monitor electricity production along the ViaRhôna cycling route. For confidentiality reasons, it is not possible to show more screenshots.",
+    "url": "https://www.nexans.fr/fr/newsroom/news/details/2023/08/OPHELIA-project.html",
+    "technos": [
+      "React.js",
+      ".NET Core"
+    ],
+    "company": "Nexans",
+    "layout": {
+      "orientation": "horizontal",
+      "design": 3
+    }
   }
 ]

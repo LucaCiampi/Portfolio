@@ -39,10 +39,10 @@ const HeroSection = () => {
         </h1>
         <div className="text-6xl md:text-[124px] lg:pl-40 font-playfair-display text-text-header mb-12">
           <div className="relative z-20">
-            <span className="font-abril-fatface">Front</span>-end
+            <span className="font-abril-fatface">Soft</span>ware
           </div>
-          <div className="hero--developer relative z-10">
-            Developer
+          <div className="hero--developer relative z-10 ml-6">
+            Engineer
             <Image
               ref={introImageRef}
               src={KlimtImage}
