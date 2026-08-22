@@ -1,3 +1,3 @@
-const FILTERS = ['Next.js', 'React.js', 'React native', 'Three.js', 'Unity'];
+const FILTERS = ['React.js', 'React native', '.NET Core', 'Next.js', 'Three.js', 'Unity'];
 
 export default FILTERS;
